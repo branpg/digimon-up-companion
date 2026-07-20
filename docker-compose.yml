@@ -1,0 +1,26 @@
+services:
+  web:
+    image: registry.branpg.net/digimonup:current
+    container_name: digimonup-web
+    restart: unless-stopped
+    labels:
+      # Activar Traefik
+      - "traefik.enable=true"
+      # Router HTTPS principal
+      - "traefik.http.routers.digimonup.rule=Host(`digimonup.branpg.net`)"
+      - "traefik.http.routers.digimonup.entrypoints=websecure"
+      - "traefik.http.routers.digimonup.tls=true"
+      - "traefik.http.routers.digimonup.tls.certresolver=letsencrypt"
+      # Servicio interno
+      - "traefik.http.services.digimonup.loadbalancer.server.port=8080"
+      # Middleware de redirección HTTP → HTTPS
+      - "traefik.http.routers.digimonup-http.rule=Host(`digimonup.branpg.net`)"
+      - "traefik.http.routers.digimonup-http.entrypoints=web"
+      - "traefik.http.routers.digimonup-http.middlewares=redirect-to-https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+    networks:
+      - traefik
+
+networks:
+  traefik:
+    external: true
