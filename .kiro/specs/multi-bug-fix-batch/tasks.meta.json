@@ -1,0 +1,445 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Update HTML title and h1 default text to \"Digimon Up Companion\"": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570690395
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570702850
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570843183
+      }
+    ],
+    "1.2 Update all 6 locale files with correct app title": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570690500
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570703650
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570844105
+      }
+    ],
+    "1.3 Remove unwanted `<h2>` sidebar heading": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570690594
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570704609
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570844909
+      }
+    ],
+    "2.1 Add change event listener on `#lang-select` that calls `setLocale()`": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570690681
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570851488
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571016490
+      }
+    ],
+    "2.2 Sync `#lang-select` dropdown value with detected/persisted locale on init": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570690793
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570852393
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571017422
+      }
+    ],
+    "2.3 Write unit test for language change event listener": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570690887
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571280732
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571658166
+      }
+    ],
+    "3.1 Persist active module ID to URL hash on module navigation": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570690978
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570853349
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571018174
+      }
+    ],
+    "3.2 Restore module from URL hash on page load": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570691070
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570854109
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571019012
+      }
+    ],
+    "3.3 Write unit test for route persistence": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570691180
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571281517
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571655393
+      }
+    ],
+    "4.1 Verify image files are valid PNGs and fix if needed": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570691276
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570706616
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570845943
+      }
+    ],
+    "4.2 Write unit test for image fallback behavior": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570691374
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571282299
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571659007
+      }
+    ],
+    "5.1 Add Floor input field to Reward Configuration HTML": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570691465
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571283149
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571656214
+      }
+    ],
+    "5.2 Add i18n keys for Floor field in all locale files": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570691559
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571284067
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571657284
+      }
+    ],
+    "5.3 Implement floor-based auto-calculation logic in passive-calc.js": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570691649
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571802693
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784572330668
+      }
+    ],
+    "5.4 Write unit test for floor-based calculation": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570691742
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784572340967
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784572517847
+      }
+    ],
+    "6.1 Restructure passive-calc.html for 2-column layout": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570691837
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571803661
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784572331533
+      }
+    ],
+    "6.2 Update passive-calc.css for 2-column grid layout": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570691931
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784572341827
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784572518775
+      }
+    ],
+    "7.1 Register changelog module in modules.json": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570692023
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570854993
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571019870
+      }
+    ],
+    "7.2 Add i18n keys for changelog module in all locale files": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570692112
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571027780
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571274965
+      }
+    ],
+    "7.3 Create changelog module files": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570692228
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571667092
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571794476
+      }
+    ],
+    "7.4 Expose CHANGELOG.md via server or move to public folder": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570692319
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571028496
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571275853
+      }
+    ],
+    "7.5 Write unit test for changelog module": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570692415
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784572342608
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784572519614
+      }
+    ],
+    "8. Final verification checkpoint": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570692516
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784572525400
+      },
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784572710984
+      }
+    ],
+    "1. Fix app title and remove unwanted sidebar heading (Bugs 1.6, 1.7)": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784570845017
+      }
+    ],
+    "3. Fix route persistence on page reload (Bug 1.8)": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571655515
+      }
+    ],
+    "2. Fix language dropdown persistence and setLocale call (Bugs 1.2, 1.3, 1.4)": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571658280
+      }
+    ],
+    "4. Fix Memory Helper broken images (Bug 1.5)": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784571659136
+      }
+    ],
+    "5. Add floor-based auto-calculation to Passive Calc (Bug 1.1)": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784572518038
+      }
+    ],
+    "6. Fix Passive Calc layout (Bug 1.9)": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784572518907
+      }
+    ],
+    "7. Add Changelog viewer module (Bug 1.10)": [
+      {
+        "executionId": "706c6257-e708-49a0-bbd2-68d79c44affa",
+        "chatSessionId": "sess_470b25cf-2f53-4fd1-b931-b9b449c7098e",
+        "timestamp": 1784572519729
+      }
+    ]
+  }
+}

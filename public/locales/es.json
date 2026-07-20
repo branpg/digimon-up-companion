@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "Digimon Up Companion",
+    "version": "v{version}"
+  },
+  "sidebar": {
+    "title": "Utilidades"
+  },
+  "modules": {
+    "memoryHelper": {
+      "name": "Combinación Digimon",
+      "undo": "Deshacer",
+      "clear": "Limpiar",
+      "fullscreen": "Pantalla completa",
+      "exitFullscreen": "Salir",
+      "instructions": "Instrucciones",
+      "instructionStep1": "1. Cada casilla muestra los 12 Digimon en miniatura.",
+      "instructionStep2": "2. Haz clic en un Digimon para asignarlo a la casilla.",
+      "instructionStep3": "3. Haz clic en la imagen grande para deseleccionar.",
+      "instructionStep4": "4. \"Deshacer\" quita la última asignación.",
+      "instructionStep5": "5. \"Limpiar\" resetea todas las casillas.",
+      "confirmClear": "¿Limpiar todo el tablero?"
+    },
+    "changelog": {
+      "name": "Registro de cambios",
+      "loading": "Cargando..."
+    },
+    "passiveCalc": {
+      "name": "Ganancia Pasiva",
+      "rewardConfig": "Configuración de recompensas",
+      "bits": "Bits",
+      "hologramTickets": "Tickets de Holograma",
+      "digiEmeralds": "Digiesmeraldas",
+      "perInterval": "cada 5 minutos",
+      "waitTime": "Tiempo de espera",
+      "target": "Cantidad objetivo",
+      "calculate": "Calcular",
+      "result": "Resultado",
+      "days": "días",
+      "hours": "horas",
+      "minutes": "minutos",
+      "configRequired": "Configurar recompensas primero",
+      "availableEmeralds": "Esmeraldas disponibles",
+      "dailyPullCost": "Coste de tiradas diarias",
+      "pullTime": "Hora de tirada",
+      "currentEmeralds": "Esmeraldas actuales",
+      "deadline": "Hora límite",
+      "canSpend": "Puedes gastar",
+      "cannotSpend": "No puedes gastar esmeraldas y alcanzar el objetivo",
+      "floor": "Piso"
+    }
+  },
+  "errors": {
+    "moduleNotFound": "Utilidad no disponible: {module}",
+    "loadFailed": "Error al cargar la utilidad"
+  },
+  "language": {
+    "selector": "Idioma"
+  }
+}

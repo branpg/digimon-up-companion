@@ -1,0 +1,590 @@
+{
+  "pbtResults": {
+    "1.3 Write property tests for server routing logic": {
+      "status": "passed",
+      "lastRunTimestamp": 1784561218980
+    },
+    "2.4 Write property test for module registry validation": {
+      "status": "passed",
+      "lastRunTimestamp": 1784561545868
+    },
+    "2.6 Write property test for module state round-trip": {
+      "status": "passed",
+      "lastRunTimestamp": 1784563144764
+    },
+    "4.3 Write property tests for i18n system": {
+      "status": "passed",
+      "lastRunTimestamp": 1784563333427
+    },
+    "6.4 Write property tests for wait time calculations": {
+      "status": "passed",
+      "lastRunTimestamp": 1784565030766
+    },
+    "6.7 Write property test for numeric input validation": {
+      "status": "passed",
+      "lastRunTimestamp": 1784565367389
+    },
+    "6.6 Write property tests for emerald calculations": {
+      "status": "passed",
+      "lastRunTimestamp": 1784566153996
+    },
+    "8.2 Write property test for sidebar rendering": {
+      "status": "passed",
+      "lastRunTimestamp": 1784567544412
+    }
+  },
+  "executionHistory": {
+    "1.1 Create directory structure and package.json": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560166261
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560177159
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560766073
+      }
+    ],
+    "1.2 Implement Node.js static server (`server.js`)": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560166609
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560769940
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561082592
+      }
+    ],
+    "1.3 Write property tests for server routing logic": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560166710
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561087876
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561475739
+      }
+    ],
+    "1.4 Create module registry (`public/config/modules.json`)": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560166794
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560770746
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561083597
+      }
+    ],
+    "2.1 Create App Shell HTML (`public/index.html`)": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560166873
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561088748
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561476781
+      }
+    ],
+    "2.2 Implement App Shell styles (`public/css/app-shell.css`)": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560166946
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561089650
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561477740
+      }
+    ],
+    "2.3 Implement module registry reader (`public/js/registry.js`)": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560167030
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561090504
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561478676
+      }
+    ],
+    "2.4 Write property test for module registry validation": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560167193
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561483066
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563000659
+      }
+    ],
+    "2.5 Implement module router (`public/js/router.js`)": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560167301
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561483903
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563001503
+      }
+    ],
+    "2.6 Write property test for module state round-trip": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560167392
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563007535
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563226961
+      }
+    ],
+    "2.7 Implement App Shell initialization (`public/js/app.js`)": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560167494
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561484768
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563002479
+      }
+    ],
+    "3. Checkpoint - Ensure App Shell renders correctly": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560167593
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784567571887
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784567728854
+      }
+    ],
+    "4.1 Implement i18n manager (`public/js/i18n.js`)": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560167680
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561485695
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563003459
+      }
+    ],
+    "4.2 Create translation files for all 6 locales": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560167767
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563008318
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563227863
+      }
+    ],
+    "4.3 Write property tests for i18n system": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560167856
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563232896
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563997655
+      }
+    ],
+    "5.1 Extract Memory Game Helper into module files": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560167947
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563233738
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563998629
+      }
+    ],
+    "5.2 Add local Digimon images": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560168037
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784564004483
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784564363728
+      }
+    ],
+    "5.3 Write unit tests for Memory Helper module": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560168128
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784564368975
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784564933149
+      }
+    ],
+    "6.1 Create Passive Calc module structure and UI": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560168220
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563234573
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563999418
+      }
+    ],
+    "6.2 Implement reward configuration logic": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560168327
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784564005210
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784564364514
+      }
+    ],
+    "6.3 Implement wait time calculation functions": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560168430
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784564369752
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784564933962
+      }
+    ],
+    "6.4 Write property tests for wait time calculations": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560168552
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784564940001
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784565284111
+      }
+    ],
+    "6.5 Implement emerald availability calculation": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560168650
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784564940814
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784565284884
+      }
+    ],
+    "6.6 Write property tests for emerald calculations": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560168743
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784565288828
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784566173035
+      }
+    ],
+    "6.7 Write property test for numeric input validation": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560168851
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784565289709
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784566173762
+      }
+    ],
+    "7. Checkpoint - Ensure all modules work correctly": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560168959
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784567733279
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784567926477
+      }
+    ],
+    "8.1 Wire sidebar rendering with module registry": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560169053
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784566182921
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784566466927
+      }
+    ],
+    "8.2 Write property test for sidebar rendering": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560169168
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784566470732
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784567560650
+      }
+    ],
+    "8.3 Write integration tests for module loading lifecycle": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560169259
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784566471648
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784567561494
+      }
+    ],
+    "9. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784560169348
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784567930703
+      },
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784567990911
+      }
+    ],
+    "1. Set up project structure, server, and core configuration": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784561475855
+      }
+    ],
+    "2. Implement App Shell and core infrastructure": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563227074
+      }
+    ],
+    "4. Implement i18n system": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784563997805
+      }
+    ],
+    "5. Implement Memory Game Helper module": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784564933267
+      }
+    ],
+    "6. Implement Passive Gain Calculator module": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784566173927
+      }
+    ],
+    "8. Integration, sidebar rendering, and final wiring": [
+      {
+        "executionId": "85503fd1-e633-4413-9557-eaeb873cd1c1",
+        "chatSessionId": "sess_49d6976d-b708-4b45-a143-9bea19b9c895",
+        "timestamp": 1784567561614
+      }
+    ]
+  }
+}

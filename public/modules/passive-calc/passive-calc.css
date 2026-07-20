@@ -1,0 +1,227 @@
+/* Passive Gain Calculator Module Styles */
+/* All classes prefixed with mod-calc- for CSS isolation */
+
+.mod-calc-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 8px;
+}
+
+/* === Section Card === */
+.mod-calc-section {
+  background: #16163a;
+  border: 1px solid #1e1e3a;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.mod-calc-section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #eaeaea;
+  margin-bottom: 4px;
+}
+
+.mod-calc-section-subtitle {
+  font-size: 0.8rem;
+  color: #8888aa;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* === Form Fields === */
+.mod-calc-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mod-calc-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mod-calc-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #c8c8e0;
+}
+
+.mod-calc-target-label {
+  font-size: 0.7rem;
+  color: #8888aa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mod-calc-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #2a2a4e;
+  border-radius: 8px;
+  background: #0f0f23;
+  color: #eaeaea;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  -moz-appearance: textfield;
+}
+
+.mod-calc-input::-webkit-outer-spin-button,
+.mod-calc-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mod-calc-input:focus {
+  outline: none;
+  border-color: #7c5cfc;
+  box-shadow: 0 0 0 3px rgba(124, 92, 252, 0.15);
+}
+
+.mod-calc-input::placeholder {
+  color: #555577;
+}
+
+.mod-calc-input-time {
+  color-scheme: dark;
+}
+
+/* === Buttons === */
+.mod-calc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #7c5cfc;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.mod-calc-btn:hover {
+  background: #6b4ae0;
+}
+
+.mod-calc-btn:active {
+  transform: scale(0.97);
+}
+
+.mod-calc-btn:focus-visible {
+  outline: 2px solid #7c5cfc;
+  outline-offset: 2px;
+}
+
+/* === Result Display === */
+.mod-calc-result {
+  margin-top: 16px;
+  padding: 16px;
+  background: #0f0f23;
+  border: 1px solid #2a2a4e;
+  border-radius: 8px;
+}
+
+.mod-calc-result-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #8888aa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.mod-calc-result-value {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.mod-calc-time-unit {
+  font-size: 0.9rem;
+  color: #c8c8e0;
+}
+
+.mod-calc-time-unit strong {
+  font-size: 1.4rem;
+  color: #7c5cfc;
+  margin-right: 4px;
+}
+
+.mod-calc-result-message {
+  font-size: 0.85rem;
+  color: #ff6b35;
+  margin-top: 8px;
+}
+
+.mod-calc-result-message[hidden] {
+  display: none;
+}
+
+.mod-calc-result-warning {
+  color: #ff4d4d;
+}
+
+/* === Emerald Details === */
+.mod-calc-emerald-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mod-calc-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mod-calc-detail-label {
+  font-size: 0.85rem;
+  color: #8888aa;
+}
+
+.mod-calc-detail-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #7c5cfc;
+}
+
+/* === Responsive === */
+@media (min-width: 480px) {
+  .mod-calc-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .mod-calc-full-width {
+    grid-column: 1 / -1;
+  }
+
+  .mod-calc-fields-rewards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 479px) {
+  .mod-calc-section {
+    padding: 16px;
+  }
+
+  .mod-calc-result-value {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,75 @@
+/* Changelog Module - CSS Isolation via mod-changelog-* prefix */
+
+.mod-changelog-container {
+  padding: 20px;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.mod-changelog-content h1 {
+  font-size: 1.8rem;
+  color: #00d4ff;
+  margin: 1.2em 0 0.6em;
+  border-bottom: 1px solid #2a2a4a;
+  padding-bottom: 0.3em;
+}
+
+.mod-changelog-content h2 {
+  font-size: 1.4rem;
+  color: #e0e0e0;
+  margin: 1em 0 0.5em;
+}
+
+.mod-changelog-content h3 {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  margin: 0.8em 0 0.4em;
+}
+
+.mod-changelog-content p {
+  color: #ccc;
+  line-height: 1.6;
+  margin: 0.5em 0;
+}
+
+.mod-changelog-content ul {
+  list-style: disc;
+  padding-left: 1.5em;
+  margin: 0.5em 0;
+}
+
+.mod-changelog-content ul li {
+  color: #ccc;
+  line-height: 1.6;
+  margin: 0.3em 0;
+}
+
+.mod-changelog-content a {
+  color: #00d4ff;
+  text-decoration: none;
+}
+
+.mod-changelog-content a:hover {
+  text-decoration: underline;
+}
+
+.mod-changelog-content strong {
+  color: #fff;
+}
+
+.mod-changelog-loading {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  padding: 2em 0;
+}
+
+.mod-changelog-error {
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  border-radius: 6px;
+  padding: 1em;
+  text-align: center;
+}

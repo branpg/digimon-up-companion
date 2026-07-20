@@ -1,0 +1,203 @@
+/* Memory Game Helper Module - CSS Isolation via mod-memory-* prefix */
+
+.mod-memory-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  transition: padding 0.3s;
+}
+
+.mod-memory-container.mod-memory-fullscreen {
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #1a1a2e;
+}
+
+.mod-memory-controls {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mod-memory-container.mod-memory-fullscreen .mod-memory-controls {
+  position: fixed;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+  margin-bottom: 0;
+  z-index: 1001;
+}
+
+.mod-memory-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+.mod-memory-btn:hover {
+  transform: scale(1.05);
+}
+
+.mod-memory-btn:active {
+  transform: scale(0.95);
+}
+
+.mod-memory-btn-undo {
+  background: #e74c3c;
+  color: white;
+}
+
+.mod-memory-btn-clear {
+  background: #95a5a6;
+  color: white;
+}
+
+.mod-memory-btn-fullscreen {
+  background: #8e44ad;
+  color: white;
+}
+
+.mod-memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 6px;
+  max-width: 520px;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.mod-memory-container.mod-memory-fullscreen .mod-memory-grid {
+  max-width: none;
+  width: calc(100vw - 100px);
+  height: 100vh;
+  padding: 6px;
+  padding-right: 100px;
+}
+
+.mod-memory-container.mod-memory-fullscreen .mod-memory-instructions {
+  display: none;
+}
+
+.mod-memory-cell {
+  background: #16213e;
+  border: 2px solid #2a2a4a;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  min-height: 100px;
+}
+
+.mod-memory-container.mod-memory-fullscreen .mod-memory-cell {
+  min-height: 0;
+}
+
+.mod-memory-cell.mod-memory-cell-filled {
+  border-color: #00d4ff;
+  box-shadow: 0 0 6px rgba(0, 212, 255, 0.3);
+}
+
+.mod-memory-cell-number {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 10px;
+  color: #555;
+  z-index: 4;
+}
+
+.mod-memory-cell.mod-memory-cell-filled .mod-memory-cell-number {
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+}
+
+.mod-memory-selector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+  padding: 14px 3px 3px 3px;
+  width: 100%;
+  height: 100%;
+}
+
+.mod-memory-mini-item {
+  cursor: pointer;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s, box-shadow 0.15s;
+  overflow: hidden;
+  position: relative;
+}
+
+.mod-memory-mini-item:hover {
+  transform: scale(1.2);
+  z-index: 2;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+.mod-memory-mini-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mod-memory-mini-fallback {
+  font-size: 7px;
+  color: #fff;
+  text-align: center;
+  line-height: 1.1;
+  word-break: break-all;
+}
+
+.mod-memory-selected {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  padding: 8px;
+}
+
+.mod-memory-selected img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.mod-memory-fallback-big {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.mod-memory-instructions {
+  margin-top: 20px;
+  padding: 15px;
+  background: #16213e;
+  border-radius: 8px;
+  max-width: 520px;
+  width: 100%;
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.6;
+}

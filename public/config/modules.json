@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "modules": [
+    {
+      "id": "memory-helper",
+      "name": "modules.memoryHelper.name",
+      "icon": "🎴",
+      "path": "modules/memory-helper",
+      "default": true
+    },
+    {
+      "id": "passive-calc",
+      "name": "modules.passiveCalc.name",
+      "icon": "💎",
+      "path": "modules/passive-calc",
+      "default": false
+    },
+    {
+      "id": "changelog",
+      "name": "modules.changelog.name",
+      "icon": "📋",
+      "path": "modules/changelog",
+      "default": false
+    }
+  ]
+}

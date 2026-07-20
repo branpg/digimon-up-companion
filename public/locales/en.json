@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "Digimon Up Companion",
+    "version": "v{version}"
+  },
+  "sidebar": {
+    "title": "Utilities"
+  },
+  "modules": {
+    "memoryHelper": {
+      "name": "Digimon Combination",
+      "undo": "Undo",
+      "clear": "Clear",
+      "fullscreen": "Fullscreen",
+      "exitFullscreen": "Exit",
+      "instructions": "Instructions",
+      "instructionStep1": "1. Each cell shows the 12 Digimon in miniature.",
+      "instructionStep2": "2. Click a Digimon to assign it to the cell.",
+      "instructionStep3": "3. Click the large image to deselect.",
+      "instructionStep4": "4. \"Undo\" removes the last assignment.",
+      "instructionStep5": "5. \"Clear\" resets the entire board.",
+      "confirmClear": "Clear the entire board?"
+    },
+    "changelog": {
+      "name": "Changelog",
+      "loading": "Loading..."
+    },
+    "passiveCalc": {
+      "name": "Passive Gain",
+      "rewardConfig": "Reward Configuration",
+      "bits": "Bits",
+      "hologramTickets": "Hologram Tickets",
+      "digiEmeralds": "DigiEmeralds",
+      "perInterval": "every 5 minutes",
+      "waitTime": "Wait Time",
+      "target": "Target amount",
+      "calculate": "Calculate",
+      "result": "Result",
+      "days": "days",
+      "hours": "hours",
+      "minutes": "minutes",
+      "configRequired": "Configure rewards first",
+      "availableEmeralds": "Available Emeralds",
+      "dailyPullCost": "Daily pull cost",
+      "pullTime": "Pull time",
+      "currentEmeralds": "Current emeralds",
+      "deadline": "Deadline",
+      "canSpend": "You can spend",
+      "cannotSpend": "Cannot spend emeralds and reach the goal",
+      "floor": "Floor"
+    }
+  },
+  "errors": {
+    "moduleNotFound": "Utility not available: {module}",
+    "loadFailed": "Error loading utility"
+  },
+  "language": {
+    "selector": "Language"
+  }
+}

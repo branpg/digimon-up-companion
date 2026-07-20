@@ -1,0 +1,108 @@
+<div class="mod-calc-container">
+
+  <!-- Section 1: Reward Configuration (spans full width) -->
+  <section class="mod-calc-section mod-calc-reward-config mod-calc-full-width">
+    <h2 class="mod-calc-section-title" data-i18n="modules.passiveCalc.rewardConfig">Reward Configuration</h2>
+    <p class="mod-calc-section-subtitle" data-i18n="modules.passiveCalc.perInterval">per 5 minutes</p>
+
+    <div class="mod-calc-fields mod-calc-fields-floor">
+      <div class="mod-calc-field-group">
+        <label class="mod-calc-label" for="mod-calc-floor" data-i18n="modules.passiveCalc.floor">Floor</label>
+        <input class="mod-calc-input" type="number" id="mod-calc-floor" min="0" max="999999999" step="1" value="0">
+      </div>
+    </div>
+
+    <div class="mod-calc-fields mod-calc-fields-rewards">
+      <div class="mod-calc-field-group">
+        <label class="mod-calc-label" for="mod-calc-bits" data-i18n="modules.passiveCalc.bits">Bits</label>
+        <input class="mod-calc-input" type="number" id="mod-calc-bits" min="0" max="999999999" step="1" value="0">
+      </div>
+
+      <div class="mod-calc-field-group">
+        <label class="mod-calc-label" for="mod-calc-hologram-tickets" data-i18n="modules.passiveCalc.hologramTickets">Hologram Tickets</label>
+        <input class="mod-calc-input" type="number" id="mod-calc-hologram-tickets" min="0" max="999999999" step="1" value="0">
+      </div>
+
+      <div class="mod-calc-field-group">
+        <label class="mod-calc-label" for="mod-calc-digi-emeralds" data-i18n="modules.passiveCalc.digiEmeralds">DigiEmeralds</label>
+        <input class="mod-calc-input" type="number" id="mod-calc-digi-emeralds" min="0" max="999999999" step="1" value="0">
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Wait Time Calculator (one column) -->
+  <section class="mod-calc-section mod-calc-wait-time">
+    <h2 class="mod-calc-section-title" data-i18n="modules.passiveCalc.waitTime">Wait Time</h2>
+
+    <div class="mod-calc-fields">
+      <div class="mod-calc-field-group">
+        <label class="mod-calc-label" for="mod-calc-target-bits" data-i18n="modules.passiveCalc.bits">Bits</label>
+        <span class="mod-calc-target-label" data-i18n="modules.passiveCalc.target">Target</span>
+        <input class="mod-calc-input" type="number" id="mod-calc-target-bits" min="1" max="999999999" step="1" placeholder="0">
+      </div>
+
+      <div class="mod-calc-field-group">
+        <label class="mod-calc-label" for="mod-calc-target-hologram-tickets" data-i18n="modules.passiveCalc.hologramTickets">Hologram Tickets</label>
+        <span class="mod-calc-target-label" data-i18n="modules.passiveCalc.target">Target</span>
+        <input class="mod-calc-input" type="number" id="mod-calc-target-hologram-tickets" min="1" max="999999999" step="1" placeholder="0">
+      </div>
+
+      <div class="mod-calc-field-group">
+        <label class="mod-calc-label" for="mod-calc-target-digi-emeralds" data-i18n="modules.passiveCalc.digiEmeralds">DigiEmeralds</label>
+        <span class="mod-calc-target-label" data-i18n="modules.passiveCalc.target">Target</span>
+        <input class="mod-calc-input" type="number" id="mod-calc-target-digi-emeralds" min="1" max="999999999" step="1" placeholder="0">
+      </div>
+    </div>
+
+    <button class="mod-calc-btn" id="mod-calc-wait-btn" data-i18n="modules.passiveCalc.calculate">Calculate</button>
+
+    <div class="mod-calc-result" id="mod-calc-wait-result">
+      <span class="mod-calc-result-label" data-i18n="modules.passiveCalc.result">Result</span>
+      <div class="mod-calc-result-value" id="mod-calc-wait-result-value">
+        <span class="mod-calc-time-unit"><strong id="mod-calc-days-value">0</strong> <span data-i18n="modules.passiveCalc.days">days</span></span>
+        <span class="mod-calc-time-unit"><strong id="mod-calc-hours-value">0</strong> <span data-i18n="modules.passiveCalc.hours">hours</span></span>
+        <span class="mod-calc-time-unit"><strong id="mod-calc-minutes-value">0</strong> <span data-i18n="modules.passiveCalc.minutes">minutes</span></span>
+      </div>
+      <p class="mod-calc-result-message" id="mod-calc-wait-message" data-i18n="modules.passiveCalc.configRequired" hidden>Configure rewards first</p>
+    </div>
+  </section>
+
+  <!-- Section 3: Emerald Availability Calculator (other column) -->
+  <section class="mod-calc-section mod-calc-emerald-availability">
+    <h2 class="mod-calc-section-title" data-i18n="modules.passiveCalc.availableEmeralds">Available Emeralds</h2>
+
+    <div class="mod-calc-fields">
+      <div class="mod-calc-field-group">
+        <label class="mod-calc-label" for="mod-calc-daily-pull-cost" data-i18n="modules.passiveCalc.dailyPullCost">Daily Pull Cost</label>
+        <input class="mod-calc-input" type="number" id="mod-calc-daily-pull-cost" min="0" max="99999" step="1" value="5700">
+      </div>
+
+      <div class="mod-calc-field-group">
+        <label class="mod-calc-label" for="mod-calc-pull-time" data-i18n="modules.passiveCalc.pullTime">Pull Time</label>
+        <input class="mod-calc-input mod-calc-input-time" type="time" id="mod-calc-pull-time" value="08:00">
+      </div>
+
+      <div class="mod-calc-field-group">
+        <label class="mod-calc-label" for="mod-calc-current-emeralds" data-i18n="modules.passiveCalc.currentEmeralds">Current Emeralds</label>
+        <input class="mod-calc-input" type="number" id="mod-calc-current-emeralds" min="0" max="99999" step="1" placeholder="0">
+      </div>
+    </div>
+
+    <button class="mod-calc-btn" id="mod-calc-emerald-btn" data-i18n="modules.passiveCalc.calculate">Calculate</button>
+
+    <div class="mod-calc-result" id="mod-calc-emerald-result">
+      <div class="mod-calc-emerald-details">
+        <div class="mod-calc-detail-row">
+          <span class="mod-calc-detail-label" data-i18n="modules.passiveCalc.deadline">Deadline</span>
+          <span class="mod-calc-detail-value" id="mod-calc-deadline-value">--:--</span>
+        </div>
+        <div class="mod-calc-detail-row">
+          <span class="mod-calc-detail-label" data-i18n="modules.passiveCalc.canSpend">You can spend</span>
+          <span class="mod-calc-detail-value" id="mod-calc-can-spend-value">0</span>
+        </div>
+      </div>
+      <p class="mod-calc-result-message mod-calc-result-warning" id="mod-calc-emerald-message" data-i18n="modules.passiveCalc.cannotSpend" hidden>Cannot spend emeralds and reach the goal</p>
+    </div>
+  </section>
+
+</div>

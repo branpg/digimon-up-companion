@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "Digimon Up Companion",
+    "version": "v{version}"
+  },
+  "sidebar": {
+    "title": "Werkzeuge"
+  },
+  "modules": {
+    "memoryHelper": {
+      "name": "Digimon-Kombination",
+      "undo": "Rückgängig",
+      "clear": "Löschen",
+      "fullscreen": "Vollbild",
+      "exitFullscreen": "Beenden",
+      "instructions": "Anleitung",
+      "instructionStep1": "1. Jede Zelle zeigt die 12 Digimon in Miniatur.",
+      "instructionStep2": "2. Klicke auf ein Digimon, um es der Zelle zuzuweisen.",
+      "instructionStep3": "3. Klicke auf das große Bild zum Abwählen.",
+      "instructionStep4": "4. \"Rückgängig\" entfernt die letzte Zuweisung.",
+      "instructionStep5": "5. \"Löschen\" setzt das gesamte Spielfeld zurück.",
+      "confirmClear": "Das gesamte Spielfeld löschen?"
+    },
+    "changelog": {
+      "name": "Änderungsprotokoll",
+      "loading": "Laden..."
+    },
+    "passiveCalc": {
+      "name": "Passiver Gewinn",
+      "rewardConfig": "Belohnungskonfiguration",
+      "bits": "Bits",
+      "hologramTickets": "Hologramm-Tickets",
+      "digiEmeralds": "DigiSmaragde",
+      "perInterval": "alle 5 Minuten",
+      "waitTime": "Wartezeit",
+      "target": "Zielmenge",
+      "calculate": "Berechnen",
+      "result": "Ergebnis",
+      "days": "Tage",
+      "hours": "Stunden",
+      "minutes": "Minuten",
+      "configRequired": "Belohnungen zuerst konfigurieren",
+      "availableEmeralds": "Verfügbare Smaragde",
+      "dailyPullCost": "Tägliche Ziehungskosten",
+      "pullTime": "Ziehungszeit",
+      "currentEmeralds": "Aktuelle Smaragde",
+      "deadline": "Frist",
+      "canSpend": "Du kannst ausgeben",
+      "cannotSpend": "Smaragde können nicht ausgegeben werden und das Ziel erreichen",
+      "floor": "Stockwerk"
+    }
+  },
+  "errors": {
+    "moduleNotFound": "Werkzeug nicht verfügbar: {module}",
+    "loadFailed": "Fehler beim Laden des Werkzeugs"
+  },
+  "language": {
+    "selector": "Sprache"
+  }
+}

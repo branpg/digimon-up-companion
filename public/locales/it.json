@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "Digimon Up Companion",
+    "version": "v{version}"
+  },
+  "sidebar": {
+    "title": "Utilità"
+  },
+  "modules": {
+    "memoryHelper": {
+      "name": "Combinazione Digimon",
+      "undo": "Annulla",
+      "clear": "Cancella",
+      "fullscreen": "Schermo intero",
+      "exitFullscreen": "Esci",
+      "instructions": "Istruzioni",
+      "instructionStep1": "1. Ogni cella mostra i 12 Digimon in miniatura.",
+      "instructionStep2": "2. Fai clic su un Digimon per assegnarlo alla cella.",
+      "instructionStep3": "3. Fai clic sull'immagine grande per deselezionare.",
+      "instructionStep4": "4. \"Annulla\" rimuove l'ultima assegnazione.",
+      "instructionStep5": "5. \"Cancella\" resetta l'intero tabellone.",
+      "confirmClear": "Cancellare l'intero tabellone?"
+    },
+    "changelog": {
+      "name": "Registro modifiche",
+      "loading": "Caricamento..."
+    },
+    "passiveCalc": {
+      "name": "Guadagno Passivo",
+      "rewardConfig": "Configurazione ricompense",
+      "bits": "Bits",
+      "hologramTickets": "Biglietti Ologramma",
+      "digiEmeralds": "Digismeraldi",
+      "perInterval": "ogni 5 minuti",
+      "waitTime": "Tempo di attesa",
+      "target": "Quantità obiettivo",
+      "calculate": "Calcola",
+      "result": "Risultato",
+      "days": "giorni",
+      "hours": "ore",
+      "minutes": "minuti",
+      "configRequired": "Configura prima le ricompense",
+      "availableEmeralds": "Smeraldi disponibili",
+      "dailyPullCost": "Costo tirate giornaliere",
+      "pullTime": "Ora della tirata",
+      "currentEmeralds": "Smeraldi attuali",
+      "deadline": "Scadenza",
+      "canSpend": "Puoi spendere",
+      "cannotSpend": "Non puoi spendere smeraldi e raggiungere l'obiettivo",
+      "floor": "Piano"
+    }
+  },
+  "errors": {
+    "moduleNotFound": "Utilità non disponibile: {module}",
+    "loadFailed": "Errore nel caricamento dell'utilità"
+  },
+  "language": {
+    "selector": "Lingua"
+  }
+}

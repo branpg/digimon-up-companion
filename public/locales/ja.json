@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "Digimon Up Companion",
+    "version": "v{version}"
+  },
+  "sidebar": {
+    "title": "ユーティリティ"
+  },
+  "modules": {
+    "memoryHelper": {
+      "name": "デジモン組み合わせ",
+      "undo": "元に戻す",
+      "clear": "クリア",
+      "fullscreen": "フルスクリーン",
+      "exitFullscreen": "終了",
+      "instructions": "説明",
+      "instructionStep1": "1. 各セルに12体のデジモンがミニチュアで表示されます。",
+      "instructionStep2": "2. デジモンをクリックしてセルに割り当てます。",
+      "instructionStep3": "3. 大きな画像をクリックして選択を解除します。",
+      "instructionStep4": "4. 「元に戻す」で最後の割り当てを取り消します。",
+      "instructionStep5": "5. 「クリア」でボード全体をリセットします。",
+      "confirmClear": "ボード全体をクリアしますか？"
+    },
+    "changelog": {
+      "name": "更新履歴",
+      "loading": "読み込み中..."
+    },
+    "passiveCalc": {
+      "name": "パッシブ獲得",
+      "rewardConfig": "報酬設定",
+      "bits": "ビッツ",
+      "hologramTickets": "ホログラムチケット",
+      "digiEmeralds": "デジエメラルド",
+      "perInterval": "5分ごと",
+      "waitTime": "待機時間",
+      "target": "目標量",
+      "calculate": "計算",
+      "result": "結果",
+      "days": "日",
+      "hours": "時間",
+      "minutes": "分",
+      "configRequired": "先に報酬を設定してください",
+      "availableEmeralds": "使用可能なエメラルド",
+      "dailyPullCost": "デイリーガチャコスト",
+      "pullTime": "ガチャ時間",
+      "currentEmeralds": "現在のエメラルド",
+      "deadline": "期限",
+      "canSpend": "使用可能額",
+      "cannotSpend": "エメラルドを使用して目標を達成することはできません",
+      "floor": "フロア"
+    }
+  },
+  "errors": {
+    "moduleNotFound": "ユーティリティが利用できません: {module}",
+    "loadFailed": "ユーティリティの読み込みエラー"
+  },
+  "language": {
+    "selector": "言語"
+  }
+}

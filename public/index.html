@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digimon Up Companion</title>
+  <link rel="stylesheet" href="/css/app-shell.css">
+</head>
+<body>
+  <!-- Hamburger button (mobile only, visible < 768px) -->
+  <button class="hamburger-btn" aria-label="Toggle menu">&#9776;</button>
+
+  <!-- Sidebar overlay backdrop (mobile) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h1 data-i18n="app.title">Digimon Up Companion</h1>
+    </div>
+    <nav class="sidebar-nav">
+      <!-- Module items rendered dynamically by app.js -->
+    </nav>
+    <div class="sidebar-footer">
+      <!-- Language selector -->
+      <div class="language-selector">
+        <label for="lang-select" data-i18n="language.selector">Idioma</label>
+        <select id="lang-select">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="it">Italiano</option>
+          <option value="pt">Português</option>
+          <option value="de">Deutsch</option>
+          <option value="ja">日本語</option>
+        </select>
+      </div>
+      <span class="version">v1.0.0</span>
+    </div>
+  </aside>
+
+  <!-- Content area -->
+  <main class="content-area" id="content-area">
+    <!-- Modules loaded here dynamically -->
+  </main>
+
+  <script type="module" src="/js/i18n.js"></script>
+  <script type="module" src="/js/registry.js"></script>
+  <script type="module" src="/js/router.js"></script>
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
