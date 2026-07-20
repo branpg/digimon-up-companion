@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digimon Memory Helper</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            transition: padding 0.3s;
+        }
+
+        body.fullscreen {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #ff6b35;
+            text-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
+        }
+
+        body.fullscreen h1,
+        body.fullscreen .instructions {
+            display: none;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        body.fullscreen .controls {
+            position: fixed;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            flex-direction: column;
+            margin-bottom: 0;
+            z-index: 100;
+        }
+
+        .controls button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.1s, opacity 0.2s;
+        }
+
+        .controls button:hover {
+            transform: scale(1.05);
+        }
+
+        .controls button:active {
+            transform: scale(0.95);
+        }
+
+        .btn-deselect {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-clear {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .btn-fullscreen {
+            background: #8e44ad;
+            color: white;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            gap: 6px;
+            max-width: 520px;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        body.fullscreen .grid {
+            max-width: none;
+            width: calc(100vw - 100px);
+            height: 100vh;
+            padding: 6px;
+            padding-right: 100px;
+        }
+
+        .cell {
+            background: #16213e;
+            border: 2px solid #2a2a4a;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            min-height: 100px;
+        }
+
+        body.fullscreen .cell {
+            min-height: 0;
+        }
+
+        .cell.filled {
+            border-color: #00d4ff;
+            box-shadow: 0 0 6px rgba(0, 212, 255, 0.3);
+        }
+
+        .cell .cell-number {
+            position: absolute;
+            top: 2px;
+            left: 4px;
+            font-size: 10px;
+            color: #555;
+            z-index: 4;
+        }
+
+        .cell.filled .cell-number {
+            color: rgba(255,255,255,0.8);
+            text-shadow: 0 0 3px rgba(0,0,0,0.9);
+        }
+
+        .cell-selector {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 2px;
+            padding: 14px 3px 3px 3px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cell-selector .mini-item {
+            cursor: pointer;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.15s, box-shadow 0.15s;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cell-selector .mini-item:hover {
+            transform: scale(1.2);
+            z-index: 2;
+            box-shadow: 0 0 6px rgba(255,255,255,0.4);
+        }
+
+        .cell-selector .mini-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .cell-selector .mini-item .fallback {
+            font-size: 7px;
+            color: #fff;
+            text-align: center;
+            line-height: 1.1;
+            word-break: break-all;
+        }
+
+        .cell-selected {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 3;
+            padding: 8px;
+        }
+
+        .cell-selected img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        }
+
+        .cell-selected .fallback-big {
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .instructions {
+            margin-top: 20px;
+            padding: 15px;
+            background: #16213e;
+            border-radius: 8px;
+            max-width: 520px;
+            width: 100%;
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎴 Digimon Memory Helper</h1>
+
+    <div class="controls">
+        <button class="btn-deselect" onclick="deselectLast()">❌ Deshacer</button>
+        <button class="btn-clear" onclick="clearAll()">🗑️ Limpiar</button>
+        <button class="btn-fullscreen" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+    <div class="instructions">
+        <strong>Instrucciones:</strong><br>
+        1. Cada casilla muestra los 12 Digimon en miniatura.<br>
+        2. Haz clic en un Digimon dentro de una casilla para seleccionarlo — se muestra grande.<br>
+        3. Haz clic en la imagen grande para deseleccionar esa casilla.<br>
+        4. "Deshacer" quita la última asignación.<br>
+        5. "Limpiar" resetea todas las casillas.
+    </div>
+
+    <script>
+        const digimons = [
+            { name: "Guilmon", img: "https://img.game8.co/4561301/590947d6e6b17a74c1551ba4b6d3a698.png/show", color: "#4a7abf" },
+            { name: "Veemon", img: "https://img.game8.co/4561312/fcb03a1392e20dd38c65d7762ee922b5.png/show", color: "#d4b800" },
+            { name: "Renamon", img: "https://img.game8.co/4561304/bd5f164721613f957a871b20e67f5d30.png/show", color: "#5c2d91" },
+            { name: "Hawkmon", img: "https://img.game8.co/4561308/f4b138e931295c1433330e50584e3b7d.png/show", color: "#8b6914" },
+            { name: "Wormmon", img: "https://img.game8.co/4561307/02401b0f31383b554feb21f33254f474.png/show", color: "#d4760a" },
+            { name: "Gomamon", img: "https://img.game8.co/4561306/0c185716e27b6de3b347662cb6763242.png/show", color: "#c94b7a" },
+            { name: "Patamon", img: "https://img.game8.co/4561309/60fb66afe177fd98ca019e5b44ec5a7a.png/show", color: "#7b2d8b" },
+            { name: "Terriermon", img: "https://img.game8.co/4561310/c2891acd959cf6bfcce44ebb6cb12a0e.png/show", color: "#8b8b2d" },
+            { name: "Agumon", img: "https://img.game8.co/4561311/05b40e05f04f18778411326bfa56ec4f.png/show", color: "#1e90d4" },
+            { name: "Gabumon", img: "https://img.game8.co/4561303/ad4201ed550d366a4e6b03c1c09db4fe.png/show", color: "#7b2d8b" },
+            { name: "Salamon", img: "https://img.game8.co/4561302/61b41291934954e1b922f5bc7daf5655.png/show", color: "#2255bb" },
+            { name: "Biyomon", img: "https://img.game8.co/4561305/b739bd93ef6f6ca05e2805df169b19c5.png/show", color: "#2ecc40" },
+        ];
+
+        let gridState = new Array(24).fill(null);
+        let history = [];
+        let isFullscreen = false;
+
+        function init() {
+            renderGrid();
+        }
+
+        function renderGrid() {
+            const container = document.getElementById('grid');
+            container.innerHTML = '';
+            for (let i = 0; i < 24; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'cell' + (gridState[i] !== null ? ' filled' : '');
+
+                const num = document.createElement('span');
+                num.className = 'cell-number';
+                num.textContent = i + 1;
+                cell.appendChild(num);
+
+                if (gridState[i] !== null) {
+                    const idx = gridState[i];
+                    cell.style.background = digimons[idx].color;
+
+                    const selected = document.createElement('div');
+                    selected.className = 'cell-selected';
+                    selected.onclick = () => clearCell(i);
+                    selected.title = digimons[idx].name + ' (clic para quitar)';
+
+                    const img = document.createElement('img');
+                    img.src = digimons[idx].img;
+                    img.alt = digimons[idx].name;
+                    img.onerror = function() {
+                        this.style.display = 'none';
+                        const fb = document.createElement('span');
+                        fb.className = 'fallback-big';
+                        fb.textContent = digimons[idx].name;
+                        selected.appendChild(fb);
+                    };
+                    selected.appendChild(img);
+                    cell.appendChild(selected);
+                } else {
+                    const selector = document.createElement('div');
+                    selector.className = 'cell-selector';
+
+                    digimons.forEach((d, di) => {
+                        const mini = document.createElement('div');
+                        mini.className = 'mini-item';
+                        mini.style.background = d.color;
+                        mini.title = d.name;
+                        mini.onclick = () => selectCell(i, di);
+
+                        const img = document.createElement('img');
+                        img.src = d.img;
+                        img.alt = d.name;
+                        img.onerror = function() {
+                            this.style.display = 'none';
+                            const fb = document.createElement('span');
+                            fb.className = 'fallback';
+                            fb.textContent = d.name.substring(0, 3);
+                            mini.appendChild(fb);
+                        };
+                        mini.appendChild(img);
+                        selector.appendChild(mini);
+                    });
+
+                    cell.appendChild(selector);
+                }
+
+                container.appendChild(cell);
+            }
+        }
+
+        function selectCell(cellIndex, digimonIndex) {
+            gridState[cellIndex] = digimonIndex;
+            history.push(cellIndex);
+            renderGrid();
+        }
+
+        function clearCell(cellIndex) {
+            gridState[cellIndex] = null;
+            renderGrid();
+        }
+
+        function deselectLast() {
+            if (history.length > 0) {
+                const last = history.pop();
+                gridState[last] = null;
+                renderGrid();
+            }
+        }
+
+        function clearAll() {
+            if (confirm('¿Limpiar todo el tablero?')) {
+                gridState = new Array(24).fill(null);
+                history = [];
+                renderGrid();
+            }
+        }
+
+        function toggleFullscreen() {
+            isFullscreen = !isFullscreen;
+            document.body.classList.toggle('fullscreen', isFullscreen);
+            const btn = document.querySelector('.btn-fullscreen');
+            btn.textContent = isFullscreen ? '✕ Salir' : '⛶ Pantalla completa';
+        }
+
+        init();
+    </script>
+</body>
+</html>
