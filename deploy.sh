@@ -15,7 +15,7 @@ set -e
 # =============================================================================
 
 IMAGE="registry.branpg.net/digimonup:current"
-COMPOSE_DIR="/opt/stacks/digimonup"
+COMPOSE_DIR="."
 
 # Colors for output
 GREEN='\033[0;32m'
