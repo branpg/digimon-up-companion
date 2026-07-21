@@ -209,6 +209,10 @@ function renderGrid() {
  * @param {number} digimonIndex
  */
 function selectCell(cellIndex, digimonIndex) {
+  // Guard: prevent selecting a Digimon that's already been used 2 times
+  const usageCount = getDigimonUsageCount();
+  if (usageCount[digimonIndex] >= 2) return;
+
   gridState[cellIndex] = digimonIndex;
   history.push(cellIndex);
   renderGrid();
