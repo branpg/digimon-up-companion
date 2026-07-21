@@ -5,6 +5,23 @@ Todas as mudanças notáveis deste projeto são documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
+## [1.2.0] - 2025-07-21
+
+### Adicionado
+
+- Ganho Passivo: nova aba "Nível Gacha" para calcular quando o gacha sobe de nível
+  - Dois gachas: cartas e suporte, cada um com puxadas feitas/objetivo/restantes e tickets atuais
+  - Mecânica: 30 tickets por multi (dá 35 puxadas), cada ticket custa 20 DigiEsmeraldas
+  - Calcula multi-puxadas necessárias, custo em tickets, custo em DigiEsmeraldas e tempo passivo
+
+### Alterado
+
+- Ganho Passivo: dividido em 3 sub-abas (Tempo de espera, Esmeraldas, Nível Gacha)
+- Configuração de recompensas sempre visível em todas as abas
+- Painel de resultado oculto até pressionar calcular (nas 3 abas)
+- Se não há dados do andar configurados, avisa e bloqueia o cálculo
+- Botão calcular em largura total
+
 ## [1.1.0] - 2025-07-21
 
 ### Melhorado

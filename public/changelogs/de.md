@@ -5,6 +5,23 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei dokume
 Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
 und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lang/de/).
 
+## [1.2.0] - 2025-07-21
+
+### Hinzugefügt
+
+- Passiver Gewinn: neuer Tab „Gacha-Level" zur Berechnung, wann das Gacha aufsteigt
+  - Zwei Gachas: Karten und Support, jeweils mit Ziehungen gemacht/Ziel/verbleibend und aktuellen Tickets
+  - Mechanik: 30 Tickets pro Multi (ergibt 35 Ziehungen), jedes Ticket kostet 20 DigiSmaragde
+  - Berechnet Multi-Ziehungen, Ticketkosten, DigiSmaragd-Kosten und passive Zeit
+
+### Geändert
+
+- Passiver Gewinn: in 3 Sub-Tabs aufgeteilt (Wartezeit, Smaragde, Gacha-Level)
+- Belohnungskonfiguration immer über allen Tabs sichtbar
+- Ergebnisbereich verborgen bis Berechnen gedrückt wird (alle 3 Tabs)
+- Wenn kein Stockwerk konfiguriert ist, wird gewarnt und die Berechnung blockiert
+- Berechnen-Button in voller Breite
+
 ## [1.1.0] - 2025-07-21
 
 ### Verbessert

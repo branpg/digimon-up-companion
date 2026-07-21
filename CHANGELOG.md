@@ -5,6 +5,23 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] - 2025-07-21
+
+### Added
+
+- Passive Gain: new "Gacha Level" tab to calculate when gacha levels up
+  - Two gachas: cards and support, each with pulls done/target/remaining and current tickets
+  - Mechanics: 30 tickets per multi (gives 35 pulls), each ticket costs 20 DigiEmeralds
+  - Calculates multi-pulls needed, ticket cost, DigiEmerald cost, and passive time
+
+### Changed
+
+- Passive Gain: split into 3 sub-tabs (Wait Time, Emeralds, Gacha Level)
+- Reward configuration always visible across all tabs
+- Result panel hidden until calculate is pressed (all 3 tabs)
+- If no floor data is configured, warns and blocks calculation on all tabs
+- Full-width calculate button
+
 ## [1.1.0] - 2025-07-21
 
 ### Improved

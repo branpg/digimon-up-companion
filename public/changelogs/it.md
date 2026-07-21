@@ -5,6 +5,23 @@ Tutte le modifiche rilevanti di questo progetto sono documentate in questo file.
 Il formato si basa su [Keep a Changelog](https://keepachangelog.com/it/1.0.0/),
 e questo progetto aderisce al [Versionamento Semantico](https://semver.org/lang/it/).
 
+## [1.2.0] - 2025-07-21
+
+### Aggiunto
+
+- Guadagno Passivo: nuovo tab "Livello Gacha" per calcolare quando il gacha sale di livello
+  - Due gacha: carte e supporto, ciascuno con tirate fatte/obiettivo/rimanenti e ticket attuali
+  - Meccanica: 30 ticket per multi (dà 35 tirate), ogni ticket costa 20 DigiSmeraldi
+  - Calcola multi-tirate necessarie, costo ticket, costo DigiSmeraldi e tempo passivo
+
+### Modificato
+
+- Guadagno Passivo: diviso in 3 sub-tab (Tempo di attesa, Smeraldi, Livello Gacha)
+- Configurazione ricompense sempre visibile in tutti i tab
+- Pannello risultati nascosto fino alla pressione di Calcola (tutti e 3 i tab)
+- Se non ci sono dati del piano configurati, avvisa e blocca il calcolo
+- Pulsante calcola a larghezza piena
+
 ## [1.1.0] - 2025-07-21
 
 ### Migliorato
