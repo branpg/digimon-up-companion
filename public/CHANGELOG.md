@@ -5,6 +5,12 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/),
 y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.1.0] - 2025-07-21
+
+### Mejorado
+
+- Memory Helper: los Digimon que ya tienen 2 copias en el tablero se oscurecen en el selector y no se pueden seleccionar
+
 ## [1.0.0] - 2025-01-20
 
 ### Añadido
