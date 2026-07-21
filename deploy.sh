@@ -4,8 +4,8 @@ set -e
 # =============================================================================
 # Deploy script for Digimon UP Companion
 # 
-# Builds the Docker image, pushes to the private registry, and restarts
-# the container on the remote server via SSH.
+# Runs tests inside Docker, builds the production image, pushes to the
+# private registry, and restarts the container on the remote server via SSH.
 #
 # Usage: ./deploy.sh [--skip-tests]
 #
@@ -39,21 +39,19 @@ for arg in "$@"; do
   esac
 done
 
-# --- Load nvm if available ---
-if [ -s "$HOME/.nvm/nvm.sh" ]; then
-  . "$HOME/.nvm/nvm.sh"
-fi
-
 # --- Pre-flight checks ---
 info "Running pre-flight checks..."
 command -v docker >/dev/null 2>&1 || error "Docker is not installed"
 command -v ssh >/dev/null 2>&1 || error "SSH is not available"
-command -v npm >/dev/null 2>&1 || error "npm is not available. Install Node.js or load nvm."
 
-# --- Run tests ---
+# --- Run tests inside Docker ---
 if [ "$SKIP_TESTS" = false ]; then
-  info "Running tests..."
-  npm test || error "Tests failed. Fix them before deploying or use --skip-tests"
+  info "Running tests in Docker..."
+  docker run --rm -w /app \
+    -v "$(pwd)":/app \
+    node:20-alpine \
+    sh -c "npm ci && npm test" \
+    || error "Tests failed. Fix them before deploying or use --skip-tests"
 fi
 
 # --- Build Docker image ---
