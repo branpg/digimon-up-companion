@@ -5,6 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "deploy": "./deploy.sh",
+    "deploy:skip-tests": "./deploy.sh --skip-tests",
     "test": "vitest --run",
     "test:watch": "vitest"
   },

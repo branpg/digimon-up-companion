@@ -11,6 +11,10 @@ e questo progetto aderisce al [Versionamento Semantico](https://semver.org/lang/
 
 - Memory Helper: i Digimon che hanno già 2 copie sulla griglia vengono oscurati nel selettore e non possono essere selezionati
 
+### Aggiunto
+
+- Script `deploy.sh` per automatizzare build, push e deploy remoto con Docker
+
 ### Modificato
 
 - Il modulo changelog ora carica changelog specifici per lingua da `/changelogs/{locale}.md`

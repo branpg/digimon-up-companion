@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - Memory Helper: Digimon that already have 2 copies on the board are dimmed in the selector and cannot be selected
 
+### Added
+
+- `deploy.sh` script for automated Docker build, push, and remote deployment
+
 ### Changed
 
 - Changelog module now loads locale-specific changelogs from `/changelogs/{locale}.md`

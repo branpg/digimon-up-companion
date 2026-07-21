@@ -11,6 +11,10 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 
 - Memory Helper: Digimon, die bereits 2 Kopien auf dem Brett haben, werden im Selektor abgedunkelt und können nicht ausgewählt werden
 
+### Hinzugefügt
+
+- `deploy.sh`-Skript zur Automatisierung von Docker-Build, Push und Remote-Deployment
+
 ### Geändert
 
 - Das Changelog-Modul lädt jetzt sprachspezifische Changelogs aus `/changelogs/{locale}.md`
