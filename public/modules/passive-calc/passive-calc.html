@@ -1,6 +1,6 @@
 <div class="mod-calc-container">
 
-  <!-- Section 1: Reward Configuration (spans full width) -->
+  <!-- Section 1: Reward Configuration (spans full width, always visible) -->
   <section class="mod-calc-section mod-calc-reward-config mod-calc-full-width">
     <h2 class="mod-calc-section-title" data-i18n="modules.passiveCalc.rewardConfig">Reward Configuration</h2>
     <p class="mod-calc-section-subtitle" data-i18n="modules.passiveCalc.perInterval">per 5 minutes</p>
@@ -30,79 +30,201 @@
     </div>
   </section>
 
-  <!-- Section 2: Wait Time Calculator (one column) -->
-  <section class="mod-calc-section mod-calc-wait-time">
-    <h2 class="mod-calc-section-title" data-i18n="modules.passiveCalc.waitTime">Wait Time</h2>
+  <!-- Sub-tab Navigation -->
+  <nav class="mod-calc-tabs mod-calc-full-width">
+    <button class="mod-calc-tab active" data-tab="wait-time" data-i18n="modules.passiveCalc.tabWaitTime">Wait Time</button>
+    <button class="mod-calc-tab" data-tab="emeralds" data-i18n="modules.passiveCalc.tabEmeralds">Emeralds</button>
+    <button class="mod-calc-tab" data-tab="gacha" data-i18n="modules.passiveCalc.tabGacha">Gacha Level</button>
+  </nav>
 
-    <div class="mod-calc-fields">
-      <div class="mod-calc-field-group">
-        <label class="mod-calc-label" for="mod-calc-target-bits" data-i18n="modules.passiveCalc.bits">Bits</label>
-        <span class="mod-calc-target-label" data-i18n="modules.passiveCalc.target">Target</span>
-        <input class="mod-calc-input" type="number" id="mod-calc-target-bits" min="1" max="999999999" step="1" placeholder="0">
-      </div>
+  <!-- Tab Content: Wait Time -->
+  <div class="mod-calc-tab-content active" data-tab-content="wait-time">
+    <section class="mod-calc-section mod-calc-wait-time mod-calc-full-width">
+      <h2 class="mod-calc-section-title" data-i18n="modules.passiveCalc.waitTime">Wait Time</h2>
 
-      <div class="mod-calc-field-group">
-        <label class="mod-calc-label" for="mod-calc-target-hologram-tickets" data-i18n="modules.passiveCalc.hologramTickets">Hologram Tickets</label>
-        <span class="mod-calc-target-label" data-i18n="modules.passiveCalc.target">Target</span>
-        <input class="mod-calc-input" type="number" id="mod-calc-target-hologram-tickets" min="1" max="999999999" step="1" placeholder="0">
-      </div>
-
-      <div class="mod-calc-field-group">
-        <label class="mod-calc-label" for="mod-calc-target-digi-emeralds" data-i18n="modules.passiveCalc.digiEmeralds">DigiEmeralds</label>
-        <span class="mod-calc-target-label" data-i18n="modules.passiveCalc.target">Target</span>
-        <input class="mod-calc-input" type="number" id="mod-calc-target-digi-emeralds" min="1" max="999999999" step="1" placeholder="0">
-      </div>
-    </div>
-
-    <button class="mod-calc-btn" id="mod-calc-wait-btn" data-i18n="modules.passiveCalc.calculate">Calculate</button>
-
-    <div class="mod-calc-result" id="mod-calc-wait-result">
-      <span class="mod-calc-result-label" data-i18n="modules.passiveCalc.result">Result</span>
-      <div class="mod-calc-result-value" id="mod-calc-wait-result-value">
-        <span class="mod-calc-time-unit"><strong id="mod-calc-days-value">0</strong> <span data-i18n="modules.passiveCalc.days">days</span></span>
-        <span class="mod-calc-time-unit"><strong id="mod-calc-hours-value">0</strong> <span data-i18n="modules.passiveCalc.hours">hours</span></span>
-        <span class="mod-calc-time-unit"><strong id="mod-calc-minutes-value">0</strong> <span data-i18n="modules.passiveCalc.minutes">minutes</span></span>
-      </div>
-      <p class="mod-calc-result-message" id="mod-calc-wait-message" data-i18n="modules.passiveCalc.configRequired" hidden>Configure rewards first</p>
-    </div>
-  </section>
-
-  <!-- Section 3: Emerald Availability Calculator (other column) -->
-  <section class="mod-calc-section mod-calc-emerald-availability">
-    <h2 class="mod-calc-section-title" data-i18n="modules.passiveCalc.availableEmeralds">Available Emeralds</h2>
-
-    <div class="mod-calc-fields">
-      <div class="mod-calc-field-group">
-        <label class="mod-calc-label" for="mod-calc-daily-pull-cost" data-i18n="modules.passiveCalc.dailyPullCost">Daily Pull Cost</label>
-        <input class="mod-calc-input" type="number" id="mod-calc-daily-pull-cost" min="0" max="99999" step="1" value="5700">
-      </div>
-
-      <div class="mod-calc-field-group">
-        <label class="mod-calc-label" for="mod-calc-pull-time" data-i18n="modules.passiveCalc.pullTime">Pull Time</label>
-        <input class="mod-calc-input mod-calc-input-time" type="time" id="mod-calc-pull-time" value="08:00">
-      </div>
-
-      <div class="mod-calc-field-group">
-        <label class="mod-calc-label" for="mod-calc-current-emeralds" data-i18n="modules.passiveCalc.currentEmeralds">Current Emeralds</label>
-        <input class="mod-calc-input" type="number" id="mod-calc-current-emeralds" min="0" max="99999" step="1" placeholder="0">
-      </div>
-    </div>
-
-    <button class="mod-calc-btn" id="mod-calc-emerald-btn" data-i18n="modules.passiveCalc.calculate">Calculate</button>
-
-    <div class="mod-calc-result" id="mod-calc-emerald-result">
-      <div class="mod-calc-emerald-details">
-        <div class="mod-calc-detail-row">
-          <span class="mod-calc-detail-label" data-i18n="modules.passiveCalc.deadline">Deadline</span>
-          <span class="mod-calc-detail-value" id="mod-calc-deadline-value">--:--</span>
+      <div class="mod-calc-fields">
+        <div class="mod-calc-field-group">
+          <label class="mod-calc-label" for="mod-calc-target-bits" data-i18n="modules.passiveCalc.bits">Bits</label>
+          <span class="mod-calc-target-label" data-i18n="modules.passiveCalc.target">Target</span>
+          <input class="mod-calc-input" type="number" id="mod-calc-target-bits" min="1" max="999999999" step="1" placeholder="0">
         </div>
-        <div class="mod-calc-detail-row">
-          <span class="mod-calc-detail-label" data-i18n="modules.passiveCalc.canSpend">You can spend</span>
-          <span class="mod-calc-detail-value" id="mod-calc-can-spend-value">0</span>
+
+        <div class="mod-calc-field-group">
+          <label class="mod-calc-label" for="mod-calc-target-hologram-tickets" data-i18n="modules.passiveCalc.hologramTickets">Hologram Tickets</label>
+          <span class="mod-calc-target-label" data-i18n="modules.passiveCalc.target">Target</span>
+          <input class="mod-calc-input" type="number" id="mod-calc-target-hologram-tickets" min="1" max="999999999" step="1" placeholder="0">
+        </div>
+
+        <div class="mod-calc-field-group">
+          <label class="mod-calc-label" for="mod-calc-target-digi-emeralds" data-i18n="modules.passiveCalc.digiEmeralds">DigiEmeralds</label>
+          <span class="mod-calc-target-label" data-i18n="modules.passiveCalc.target">Target</span>
+          <input class="mod-calc-input" type="number" id="mod-calc-target-digi-emeralds" min="1" max="999999999" step="1" placeholder="0">
         </div>
       </div>
-      <p class="mod-calc-result-message mod-calc-result-warning" id="mod-calc-emerald-message" data-i18n="modules.passiveCalc.cannotSpend" hidden>Cannot spend emeralds and reach the goal</p>
-    </div>
-  </section>
+
+      <button class="mod-calc-btn mod-calc-btn-full" id="mod-calc-wait-btn" data-i18n="modules.passiveCalc.calculate">Calculate</button>
+
+      <div class="mod-calc-result" id="mod-calc-wait-result" hidden>
+        <span class="mod-calc-result-label" data-i18n="modules.passiveCalc.result">Result</span>
+        <div class="mod-calc-result-value" id="mod-calc-wait-result-value">
+          <span class="mod-calc-time-unit"><strong id="mod-calc-days-value">0</strong> <span data-i18n="modules.passiveCalc.days">days</span></span>
+          <span class="mod-calc-time-unit"><strong id="mod-calc-hours-value">0</strong> <span data-i18n="modules.passiveCalc.hours">hours</span></span>
+          <span class="mod-calc-time-unit"><strong id="mod-calc-minutes-value">0</strong> <span data-i18n="modules.passiveCalc.minutes">minutes</span></span>
+        </div>
+        <p class="mod-calc-result-message" id="mod-calc-wait-message" data-i18n="modules.passiveCalc.configRequired" hidden>Configure rewards first</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Tab Content: Emerald Availability -->
+  <div class="mod-calc-tab-content" data-tab-content="emeralds">
+    <section class="mod-calc-section mod-calc-emerald-availability mod-calc-full-width">
+      <h2 class="mod-calc-section-title" data-i18n="modules.passiveCalc.availableEmeralds">Available Emeralds</h2>
+
+      <div class="mod-calc-fields">
+        <div class="mod-calc-field-group">
+          <label class="mod-calc-label" for="mod-calc-daily-pull-cost" data-i18n="modules.passiveCalc.dailyPullCost">Daily Pull Cost</label>
+          <input class="mod-calc-input" type="number" id="mod-calc-daily-pull-cost" min="0" max="99999" step="1" value="5700">
+        </div>
+
+        <div class="mod-calc-field-group">
+          <label class="mod-calc-label" for="mod-calc-pull-time" data-i18n="modules.passiveCalc.pullTime">Pull Time</label>
+          <input class="mod-calc-input mod-calc-input-time" type="time" id="mod-calc-pull-time" value="08:00">
+        </div>
+
+        <div class="mod-calc-field-group">
+          <label class="mod-calc-label" for="mod-calc-current-emeralds" data-i18n="modules.passiveCalc.currentEmeralds">Current DigiEmeralds</label>
+          <input class="mod-calc-input" type="number" id="mod-calc-current-emeralds" min="0" max="99999" step="1" placeholder="0">
+        </div>
+      </div>
+
+      <button class="mod-calc-btn mod-calc-btn-full" id="mod-calc-emerald-btn" data-i18n="modules.passiveCalc.calculate">Calculate</button>
+
+      <div class="mod-calc-result" id="mod-calc-emerald-result" hidden>
+        <div class="mod-calc-emerald-details">
+          <div class="mod-calc-detail-row">
+            <span class="mod-calc-detail-label" data-i18n="modules.passiveCalc.deadline">Deadline</span>
+            <span class="mod-calc-detail-value" id="mod-calc-deadline-value">--:--</span>
+          </div>
+          <div class="mod-calc-detail-row">
+            <span class="mod-calc-detail-label" data-i18n="modules.passiveCalc.canSpend">You can spend</span>
+            <span class="mod-calc-detail-value" id="mod-calc-can-spend-value">0</span>
+          </div>
+        </div>
+        <p class="mod-calc-result-message mod-calc-result-warning" id="mod-calc-emerald-message" data-i18n="modules.passiveCalc.cannotSpend" hidden>Cannot spend emeralds and reach the goal</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Tab Content: Gacha Level Calculator -->
+  <div class="mod-calc-tab-content" data-tab-content="gacha">
+    <section class="mod-calc-section mod-calc-gacha-level mod-calc-full-width">
+      <h2 class="mod-calc-section-title" data-i18n="modules.passiveCalc.gachaLevelUp">Gacha Level Up</h2>
+      <p class="mod-calc-section-subtitle" data-i18n="modules.passiveCalc.gachaSubtitle">Calculate pulls needed to level up</p>
+
+      <div class="mod-calc-fields mod-calc-fields-gacha-header">
+        <div class="mod-calc-field-group">
+          <label class="mod-calc-label" for="mod-calc-gacha-current-emeralds" data-i18n="modules.passiveCalc.currentDigiEmeralds">Current DigiEmeralds</label>
+          <input class="mod-calc-input" type="number" id="mod-calc-gacha-current-emeralds" min="0" max="99999" step="1" placeholder="0">
+        </div>
+      </div>
+
+      <div class="mod-calc-gacha-grid">
+        <!-- Column headers -->
+        <div class="mod-calc-gacha-grid-header">
+          <span class="mod-calc-gacha-col-label"></span>
+          <span class="mod-calc-gacha-col-label" data-i18n="modules.passiveCalc.gachaCards">Cards</span>
+          <span class="mod-calc-gacha-col-label" data-i18n="modules.passiveCalc.gachaSupport">Support</span>
+        </div>
+
+        <!-- Pulls done row -->
+        <div class="mod-calc-gacha-grid-row">
+          <span class="mod-calc-gacha-row-label" data-i18n="modules.passiveCalc.gachaPullsDone">Pulls done</span>
+          <input class="mod-calc-input mod-calc-input-sm" type="number" id="mod-calc-gacha-cards-done" min="0" max="9999" step="1" placeholder="0">
+          <input class="mod-calc-input mod-calc-input-sm" type="number" id="mod-calc-gacha-support-done" min="0" max="9999" step="1" placeholder="0">
+        </div>
+
+        <!-- Pulls target row -->
+        <div class="mod-calc-gacha-grid-row">
+          <span class="mod-calc-gacha-row-label" data-i18n="modules.passiveCalc.gachaPullsTarget">Pulls target</span>
+          <input class="mod-calc-input mod-calc-input-sm" type="number" id="mod-calc-gacha-cards-target" min="0" max="9999" step="1" placeholder="0">
+          <input class="mod-calc-input mod-calc-input-sm" type="number" id="mod-calc-gacha-support-target" min="0" max="9999" step="1" placeholder="0">
+        </div>
+
+        <!-- Pulls remaining row (calculated, read-only) -->
+        <div class="mod-calc-gacha-grid-row mod-calc-gacha-grid-row-result">
+          <span class="mod-calc-gacha-row-label" data-i18n="modules.passiveCalc.gachaPullsRemaining">Pulls remaining</span>
+          <span class="mod-calc-gacha-cell-value" id="mod-calc-gacha-cards-remaining">—</span>
+          <span class="mod-calc-gacha-cell-value" id="mod-calc-gacha-support-remaining">—</span>
+        </div>
+
+        <!-- Current tickets row -->
+        <div class="mod-calc-gacha-grid-row">
+          <span class="mod-calc-gacha-row-label" data-i18n="modules.passiveCalc.gachaCurrentTickets">Current tickets</span>
+          <input class="mod-calc-input mod-calc-input-sm" type="number" id="mod-calc-gacha-cards-tickets" min="0" max="99999" step="1" placeholder="0">
+          <input class="mod-calc-input mod-calc-input-sm" type="number" id="mod-calc-gacha-support-tickets" min="0" max="99999" step="1" placeholder="0">
+        </div>
+      </div>
+
+      <button class="mod-calc-btn mod-calc-btn-full" id="mod-calc-gacha-btn" data-i18n="modules.passiveCalc.calculate">Calculate</button>
+
+      <div class="mod-calc-result" id="mod-calc-gacha-result" hidden>
+        <div class="mod-calc-gacha-details" id="mod-calc-gacha-details">
+
+          <!-- Cards gacha breakdown -->
+          <div class="mod-calc-gacha-breakdown" id="mod-calc-gacha-cards-breakdown">
+            <h3 class="mod-calc-gacha-breakdown-title" data-i18n="modules.passiveCalc.gachaCards">Cards Gacha</h3>
+            <div class="mod-calc-detail-row">
+              <span class="mod-calc-detail-label" data-i18n="modules.passiveCalc.gachaMultiPulls">Multi-pulls (×35)</span>
+              <span class="mod-calc-detail-value" id="mod-calc-gacha-cards-multi">0</span>
+            </div>
+            <div class="mod-calc-detail-row">
+              <span class="mod-calc-detail-label" data-i18n="modules.passiveCalc.gachaTicketCost">Ticket cost</span>
+              <span class="mod-calc-detail-value" id="mod-calc-gacha-cards-ticket-cost">0</span>
+            </div>
+            <div class="mod-calc-detail-row">
+              <span class="mod-calc-detail-label" data-i18n="modules.passiveCalc.gachaEmeraldCost">DigiEmerald cost</span>
+              <span class="mod-calc-detail-value" id="mod-calc-gacha-cards-cost">0</span>
+            </div>
+          </div>
+
+          <!-- Support gacha breakdown -->
+          <div class="mod-calc-gacha-breakdown" id="mod-calc-gacha-support-breakdown">
+            <h3 class="mod-calc-gacha-breakdown-title" data-i18n="modules.passiveCalc.gachaSupport">Support Gacha</h3>
+            <div class="mod-calc-detail-row">
+              <span class="mod-calc-detail-label" data-i18n="modules.passiveCalc.gachaMultiPulls">Multi-pulls (×35)</span>
+              <span class="mod-calc-detail-value" id="mod-calc-gacha-support-multi">0</span>
+            </div>
+            <div class="mod-calc-detail-row">
+              <span class="mod-calc-detail-label" data-i18n="modules.passiveCalc.gachaTicketCost">Ticket cost</span>
+              <span class="mod-calc-detail-value" id="mod-calc-gacha-support-ticket-cost">0</span>
+            </div>
+            <div class="mod-calc-detail-row">
+              <span class="mod-calc-detail-label" data-i18n="modules.passiveCalc.gachaEmeraldCost">DigiEmerald cost</span>
+              <span class="mod-calc-detail-value" id="mod-calc-gacha-support-cost">0</span>
+            </div>
+          </div>
+
+          <!-- Total summary -->
+          <div class="mod-calc-gacha-total">
+            <div class="mod-calc-detail-row">
+              <span class="mod-calc-detail-label mod-calc-detail-label-total" data-i18n="modules.passiveCalc.gachaTotalCost">Total DigiEmerald cost</span>
+              <span class="mod-calc-detail-value" id="mod-calc-gacha-total-cost">0</span>
+            </div>
+            <div class="mod-calc-detail-row">
+              <span class="mod-calc-detail-label mod-calc-detail-label-total" data-i18n="modules.passiveCalc.gachaEmeraldsNeeded">DigiEmeralds still needed</span>
+              <span class="mod-calc-detail-value" id="mod-calc-gacha-needed">0</span>
+            </div>
+            <div class="mod-calc-detail-row">
+              <span class="mod-calc-detail-label mod-calc-detail-label-total" data-i18n="modules.passiveCalc.gachaPassiveTime">Passive time needed</span>
+              <span class="mod-calc-detail-value" id="mod-calc-gacha-time">—</span>
+            </div>
+          </div>
+
+        </div>
+        <p class="mod-calc-result-message" id="mod-calc-gacha-message" data-i18n="modules.passiveCalc.gachaEmpty" hidden>Enter pulls needed for at least one gacha</p>
+      </div>
+    </section>
+  </div>
 
 </div>

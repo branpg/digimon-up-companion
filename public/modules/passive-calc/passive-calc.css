@@ -33,6 +33,55 @@
   letter-spacing: 0.5px;
 }
 
+/* === Sub-tab Navigation === */
+.mod-calc-tabs {
+  display: flex;
+  gap: 4px;
+  background: #0f0f23;
+  border: 1px solid #2a2a4e;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.mod-calc-tab {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #8888aa;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.mod-calc-tab:hover {
+  color: #c8c8e0;
+  background: #1a1a3e;
+}
+
+.mod-calc-tab.active {
+  background: #7c5cfc;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.mod-calc-tab:focus-visible {
+  outline: 2px solid #7c5cfc;
+  outline-offset: 2px;
+}
+
+/* === Tab Content === */
+.mod-calc-tab-content {
+  display: none;
+}
+
+.mod-calc-tab-content.active {
+  display: contents;
+}
+
 /* === Form Fields === */
 .mod-calc-fields {
   display: flex;
@@ -108,6 +157,10 @@
   font-family: inherit;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.mod-calc-btn-full {
+  width: 100%;
 }
 
 .mod-calc-btn:hover {
@@ -190,15 +243,115 @@
   color: #8888aa;
 }
 
+.mod-calc-detail-label-total {
+  font-weight: 600;
+  color: #c8c8e0;
+}
+
 .mod-calc-detail-value {
   font-size: 1.1rem;
   font-weight: 600;
   color: #7c5cfc;
 }
 
+/* === Gacha Level Section === */
+.mod-calc-gacha-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mod-calc-gacha-details[hidden] {
+  display: none;
+}
+
+.mod-calc-gacha-breakdown {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a2a4e;
+}
+
+.mod-calc-gacha-breakdown:last-of-type {
+  border-bottom: none;
+}
+
+.mod-calc-gacha-breakdown-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c8c8e0;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.mod-calc-gacha-total {
+  padding-top: 12px;
+  border-top: 2px solid #7c5cfc33;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* === Gacha Grid Layout === */
+.mod-calc-fields-gacha-header {
+  margin-bottom: 16px;
+}
+
+.mod-calc-gacha-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.mod-calc-gacha-grid-header,
+.mod-calc-gacha-grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.mod-calc-gacha-col-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #7c5cfc;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.mod-calc-gacha-row-label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #c8c8e0;
+}
+
+.mod-calc-gacha-grid-row-result {
+  background: #0f0f23;
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+
+.mod-calc-gacha-cell-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #7c5cfc;
+  text-align: center;
+}
+
+.mod-calc-input-sm {
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
+
+/* === Result hidden state === */
+.mod-calc-result[hidden] {
+  display: none;
+}
+
 /* === Responsive === */
 @media (min-width: 480px) {
-  .mod-calc-container {
+  .mod-calc-tab-content.active {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
@@ -213,6 +366,12 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
+
+  .mod-calc-fields-gacha {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
 }
 
 @media (max-width: 479px) {
@@ -223,5 +382,9 @@
   .mod-calc-result-value {
     flex-direction: column;
     gap: 8px;
+  }
+
+  .mod-calc-tabs {
+    flex-direction: column;
   }
 }

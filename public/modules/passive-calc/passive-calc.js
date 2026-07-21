@@ -1,17 +1,27 @@
 /**
  * Passive Gain Calculator Module
  *
- * Calculates wait times for passive resource accumulation and
- * emerald availability for daily pulls.
+ * Calculates wait times for passive resource accumulation,
+ * emerald availability for daily pulls, and gacha level-up costs.
  *
  * Module interface: init(container), destroy(), getState(), setState(state)
  */
 
 const REWARD_STORAGE_KEY = 'digimemory-passive-config';
 const EMERALD_STORAGE_KEY = 'digimemory-emerald-config';
+const GACHA_STORAGE_KEY = 'digimemory-gacha-config';
+const TAB_STORAGE_KEY = 'digimemory-passive-tab';
 
 const REWARD_MAX = 999999999;
 const EMERALD_MAX = 99999;
+const GACHA_PULL_MAX = 9999;
+const GACHA_TICKET_MAX = 99999;
+
+// A multi-pull costs 30 tickets and gives 35 pulls.
+// Each ticket costs 20 digiesmeraldas.
+const GACHA_MULTI_PULL_SIZE = 35;
+const GACHA_MULTI_TICKET_COST = 30;
+const GACHA_TICKET_EMERALD_COST = 20;
 
 /** @type {HTMLElement|null} */
 let containerEl = null;
@@ -21,6 +31,12 @@ let rewardConfig = { floor: 0, bits: 0, hologramTickets: 0, digiEmeralds: 0 };
 
 /** @type {{ dailyPullCost: number, pullTime: string }} */
 let emeraldConfig = { dailyPullCost: 5700, pullTime: '08:00' };
+
+/** @type {{ cardsDone: number, cardsTarget: number, cardsTickets: number, supportDone: number, supportTarget: number, supportTickets: number, currentEmeralds: number }} */
+let gachaConfig = { cardsDone: 0, cardsTarget: 0, cardsTickets: 0, supportDone: 0, supportTarget: 0, supportTickets: 0, currentEmeralds: 0 };
+
+/** @type {string} */
+let activeTab = 'wait-time';
 
 /**
  * Tracks last valid values for each input so we can revert on invalid input.
@@ -101,48 +117,29 @@ export function calculateMaxWaitTime(resources) {
 export function calculateAvailableEmeralds(currentEmeralds, dailyPullCost, pullTime, emeraldRate, now) {
   if (!now) now = new Date();
 
-  // Parse pullTime
   const [pullHour, pullMinute] = pullTime.split(':').map(Number);
-
-  // Calculate how many intervals needed to accumulate dailyPullCost from zero
-  // This determines how much time before pullTime we need to stop spending
   const intervalsNeeded = emeraldRate > 0 ? Math.ceil(dailyPullCost / emeraldRate) : 0;
   const minutesNeeded = intervalsNeeded * 5;
 
-  // Calculate deadline: pullTime minus minutesNeeded (modulo 24 hours)
-  // Use proper modulo to handle cases where minutesNeeded > 1440
   let deadlineTotalMinutes = ((pullHour * 60 + pullMinute) - minutesNeeded) % 1440;
-  if (deadlineTotalMinutes < 0) {
-    deadlineTotalMinutes += 1440;
-  }
+  if (deadlineTotalMinutes < 0) deadlineTotalMinutes += 1440;
 
   const deadlineHour = Math.floor(deadlineTotalMinutes / 60) % 24;
   const deadlineMinute = deadlineTotalMinutes % 60;
   const deadlineTime = `${String(deadlineHour).padStart(2, '0')}:${String(deadlineMinute).padStart(2, '0')}`;
 
-  // Determine current time in minutes
   const nowHour = now.getHours();
   const nowMinute = now.getMinutes();
   const nowTotalMinutes = nowHour * 60 + nowMinute;
 
-  // Determine pull time for comparison (use next day if pull time already passed)
   let pullTotalMinutes = pullHour * 60 + pullMinute;
-  if (pullTotalMinutes <= nowTotalMinutes) {
-    // Pull time is tomorrow
-    pullTotalMinutes += 1440;
-  }
+  if (pullTotalMinutes <= nowTotalMinutes) pullTotalMinutes += 1440;
 
-  // Determine deadline for comparison
   let deadlineForComparison = deadlineTotalMinutes;
-  // If deadline is after pull time in raw minutes, it means it wrapped to previous day
   if (deadlineTotalMinutes > pullHour * 60 + pullMinute) {
     // Deadline is today (before midnight), pull is tomorrow
-    // Deadline applies if now is before it
   } else {
-    // Deadline is same day as pull
-    // If pull is tomorrow, deadline might also need adjustment
     if (pullTotalMinutes > 1440) {
-      // Pull is tomorrow
       deadlineForComparison = deadlineTotalMinutes;
       if (deadlineTotalMinutes < nowTotalMinutes && deadlineTotalMinutes <= pullHour * 60 + pullMinute) {
         deadlineForComparison += 1440;
@@ -150,29 +147,17 @@ export function calculateAvailableEmeralds(currentEmeralds, dailyPullCost, pullT
     }
   }
 
-  // Check if we're past the deadline
-  const canSpend = nowTotalMinutes < deadlineForComparison || deadlineForComparison > nowTotalMinutes;
-
-  // Calculate emeralds that will be generated between now and pull time
   const minutesUntilPull = pullTotalMinutes - nowTotalMinutes;
   const intervalsUntilPull = Math.floor(minutesUntilPull / 5);
   const emeraldsGenerated = intervalsUntilPull * emeraldRate;
-
-  // Available to spend = current + will be generated - dailyPullCost
   const availableToSpend = Math.max(0, Math.floor(currentEmeralds + emeraldsGenerated - dailyPullCost));
-
-  // Recalculate canSpend: can spend if availableToSpend > 0 and current time is before deadline
   const actualCanSpend = nowTotalMinutes < deadlineForComparison;
 
-  return {
-    deadlineTime,
-    availableToSpend,
-    canSpend: actualCanSpend
-  };
+  return { deadlineTime, availableToSpend, canSpend: actualCanSpend };
 }
 
 /**
- * Calculates reward values (Bits, Hologram Tickets, and DigiEmeralds) based on floor number.
+ * Calculates reward values based on floor number.
  * @param {number} floor - The floor number (0+)
  * @returns {{ bits: number, hologramTickets: number, digiEmeralds: number }}
  */
@@ -183,76 +168,91 @@ export function calculateFloorRewards(floor) {
   return { bits, hologramTickets, digiEmeralds };
 }
 
+/**
+ * Calculates gacha level-up requirements.
+ * A multi-pull gives 35 pulls, costs 30 tickets, each ticket = 20 digiesmeraldas.
+ * If only one gacha has remaining pulls, focus on that one.
+ * If both have remaining pulls, calculate both to level together.
+ *
+ * @param {number} cardsRemaining - Pulls remaining for cards gacha
+ * @param {number} supportRemaining - Pulls remaining for support gacha
+ * @param {number} cardsTickets - Current tickets for cards gacha
+ * @param {number} supportTickets - Current tickets for support gacha
+ * @param {number} currentEmeralds - Current digiemerald count
+ * @param {number} emeraldRate - DigiEmeralds earned per 5-minute interval
+ * @returns {object}
+ */
+export function calculateGachaLevelUp(cardsRemaining, supportRemaining, cardsTickets, supportTickets, currentEmeralds, emeraldRate) {
+  const cardsMultis = cardsRemaining > 0 ? Math.ceil(cardsRemaining / GACHA_MULTI_PULL_SIZE) : 0;
+  const supportMultis = supportRemaining > 0 ? Math.ceil(supportRemaining / GACHA_MULTI_PULL_SIZE) : 0;
+
+  const cardsTicketsNeeded = Math.max(0, cardsMultis * GACHA_MULTI_TICKET_COST - cardsTickets);
+  const supportTicketsNeeded = Math.max(0, supportMultis * GACHA_MULTI_TICKET_COST - supportTickets);
+
+  const cardsEmeraldCost = cardsTicketsNeeded * GACHA_TICKET_EMERALD_COST;
+  const supportEmeraldCost = supportTicketsNeeded * GACHA_TICKET_EMERALD_COST;
+  const totalCost = cardsEmeraldCost + supportEmeraldCost;
+
+  const emeraldsNeeded = Math.max(0, totalCost - currentEmeralds);
+  const waitTime = calculateWaitTime(emeraldsNeeded, emeraldRate);
+
+  return {
+    cards: { multis: cardsMultis, ticketsNeeded: cardsTicketsNeeded, emeraldCost: cardsEmeraldCost },
+    support: { multis: supportMultis, ticketsNeeded: supportTicketsNeeded, emeraldCost: supportEmeraldCost },
+    totalCost,
+    emeraldsNeeded,
+    waitTime
+  };
+}
+
 // ─── localStorage Helpers ────────────────────────────────────────────────────
 
-/**
- * Safely read from localStorage.
- * @param {string} key
- * @returns {object|null}
- */
 function loadFromStorage(key) {
   try {
     const raw = localStorage.getItem(key);
     if (raw) return JSON.parse(raw);
-  } catch (e) {
-    // localStorage unavailable or invalid JSON — operate without persistence
-  }
+  } catch (e) { /* ignore */ }
   return null;
 }
 
-/**
- * Safely write to localStorage.
- * @param {string} key
- * @param {object} value
- */
 function saveToStorage(key, value) {
-  try {
-    localStorage.setItem(key, JSON.stringify(value));
-  } catch (e) {
-    // localStorage unavailable — operate without persistence
-  }
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* ignore */ }
 }
 
 // ─── Input Validation ────────────────────────────────────────────────────────
 
 /**
- * Validates a numeric input value and returns the validated integer, or null if invalid.
- * @param {string} rawValue - The raw input value
- * @param {number} min - Minimum allowed value
- * @param {number} max - Maximum allowed value
- * @returns {number|null} The valid integer or null if invalid
+ * Validates a numeric input value.
+ * @param {string} rawValue
+ * @param {number} min
+ * @param {number} max
+ * @returns {number|null}
  */
 export function validateNumericInput(rawValue, min, max) {
-  // Empty string is treated as 0
   if (rawValue === '' || rawValue === null || rawValue === undefined) return min;
-
-  // Check if it's a valid integer (allow leading zeros in input but parse normally)
   const trimmed = String(rawValue).trim();
   if (trimmed === '') return min;
-
-  // Reject non-numeric characters (allow optional leading minus, but our ranges start at 0)
   if (!/^-?\d+$/.test(trimmed)) return null;
-
   const num = parseInt(trimmed, 10);
-
   if (isNaN(num)) return null;
   if (num < min) return null;
   if (num > max) return null;
-
   return num;
+}
+
+/**
+ * Returns true if reward config has any rate > 0 (configured).
+ */
+function hasRewardConfig() {
+  return rewardConfig.bits > 0 || rewardConfig.hologramTickets > 0 || rewardConfig.digiEmeralds > 0;
 }
 
 // ─── Module Lifecycle ────────────────────────────────────────────────────────
 
-/**
- * Initialize the Passive Calc module in the given container.
- * @param {HTMLElement} container - The DOM container element
- */
 export function init(container) {
   containerEl = container;
   eventController = new AbortController();
 
-  // Load saved config from localStorage
   const savedReward = loadFromStorage(REWARD_STORAGE_KEY);
   if (savedReward) {
     rewardConfig = {
@@ -275,43 +275,47 @@ export function init(container) {
     emeraldConfig = { dailyPullCost: 5700, pullTime: '08:00' };
   }
 
-  // Set input values from loaded config
-  setInputValues();
+  const savedGacha = loadFromStorage(GACHA_STORAGE_KEY);
+  if (savedGacha) {
+    gachaConfig = {
+      cardsDone: typeof savedGacha.cardsDone === 'number' ? savedGacha.cardsDone : 0,
+      cardsTarget: typeof savedGacha.cardsTarget === 'number' ? savedGacha.cardsTarget : 0,
+      cardsTickets: typeof savedGacha.cardsTickets === 'number' ? savedGacha.cardsTickets : 0,
+      supportDone: typeof savedGacha.supportDone === 'number' ? savedGacha.supportDone : 0,
+      supportTarget: typeof savedGacha.supportTarget === 'number' ? savedGacha.supportTarget : 0,
+      supportTickets: typeof savedGacha.supportTickets === 'number' ? savedGacha.supportTickets : 0,
+      currentEmeralds: typeof savedGacha.currentEmeralds === 'number' ? savedGacha.currentEmeralds : 0
+    };
+  } else {
+    gachaConfig = { cardsDone: 0, cardsTarget: 0, cardsTickets: 0, supportDone: 0, supportTarget: 0, supportTickets: 0, currentEmeralds: 0 };
+  }
 
-  // Bind event listeners
+  const savedTab = loadFromStorage(TAB_STORAGE_KEY);
+  if (savedTab && typeof savedTab === 'string') activeTab = savedTab;
+
+  setInputValues();
+  setActiveTab(activeTab);
+  updateGachaRemaining();
+
+  bindTabNavigation();
   bindRewardInputs();
   bindEmeraldInputs();
   bindWaitTimeCalculation();
   bindEmeraldCalculation();
+  bindGachaInputs();
+  bindGachaCalculation();
 }
 
-/**
- * Cleanup when the module is unloaded.
- */
 export function destroy() {
-  if (eventController) {
-    eventController.abort();
-    eventController = null;
-  }
+  if (eventController) { eventController.abort(); eventController = null; }
   lastValidValues.clear();
   containerEl = null;
 }
 
-/**
- * Returns the current state of the module for persistence across module switches.
- * @returns {{ rewardConfig: object, emeraldConfig: object }}
- */
 export function getState() {
-  return {
-    rewardConfig: { ...rewardConfig },
-    emeraldConfig: { ...emeraldConfig }
-  };
+  return { rewardConfig: { ...rewardConfig }, emeraldConfig: { ...emeraldConfig }, gachaConfig: { ...gachaConfig }, activeTab };
 }
 
-/**
- * Restores a previously saved state.
- * @param {{ rewardConfig: object, emeraldConfig: object }} state
- */
 export function setState(state) {
   if (state && state.rewardConfig) {
     rewardConfig = {
@@ -327,133 +331,116 @@ export function setState(state) {
       pullTime: typeof state.emeraldConfig.pullTime === 'string' ? state.emeraldConfig.pullTime : '08:00'
     };
   }
+  if (state && state.gachaConfig) {
+    gachaConfig = {
+      cardsDone: typeof state.gachaConfig.cardsDone === 'number' ? state.gachaConfig.cardsDone : 0,
+      cardsTarget: typeof state.gachaConfig.cardsTarget === 'number' ? state.gachaConfig.cardsTarget : 0,
+      cardsTickets: typeof state.gachaConfig.cardsTickets === 'number' ? state.gachaConfig.cardsTickets : 0,
+      supportDone: typeof state.gachaConfig.supportDone === 'number' ? state.gachaConfig.supportDone : 0,
+      supportTarget: typeof state.gachaConfig.supportTarget === 'number' ? state.gachaConfig.supportTarget : 0,
+      supportTickets: typeof state.gachaConfig.supportTickets === 'number' ? state.gachaConfig.supportTickets : 0,
+      currentEmeralds: typeof state.gachaConfig.currentEmeralds === 'number' ? state.gachaConfig.currentEmeralds : 0
+    };
+  }
+  if (state && state.activeTab) activeTab = state.activeTab;
   setInputValues();
+  setActiveTab(activeTab);
+  updateGachaRemaining();
 }
 
 // ─── Internal Helpers ────────────────────────────────────────────────────────
 
-/**
- * Set DOM input values from the current config state.
- */
+function setActiveTab(tabId) {
+  if (!containerEl) return;
+  const tabs = containerEl.querySelectorAll('.mod-calc-tab');
+  for (const tab of tabs) tab.classList.toggle('active', tab.getAttribute('data-tab') === tabId);
+  const contents = containerEl.querySelectorAll('.mod-calc-tab-content');
+  for (const content of contents) content.classList.toggle('active', content.getAttribute('data-tab-content') === tabId);
+  activeTab = tabId;
+}
+
 function setInputValues() {
   if (!containerEl) return;
 
-  const floorInput = containerEl.querySelector('#mod-calc-floor');
-  const bitsInput = containerEl.querySelector('#mod-calc-bits');
-  const hologramInput = containerEl.querySelector('#mod-calc-hologram-tickets');
-  const emeraldsInput = containerEl.querySelector('#mod-calc-digi-emeralds');
-  const dailyPullCostInput = containerEl.querySelector('#mod-calc-daily-pull-cost');
-  const pullTimeInput = containerEl.querySelector('#mod-calc-pull-time');
+  const setVal = (id, val) => {
+    const el = containerEl.querySelector(`#${id}`);
+    if (el) { el.value = String(val); lastValidValues.set(id, String(val)); }
+  };
 
-  if (floorInput) {
-    floorInput.value = String(rewardConfig.floor);
-    lastValidValues.set('mod-calc-floor', String(rewardConfig.floor));
-  }
-  if (bitsInput) {
-    bitsInput.value = String(rewardConfig.bits);
-    lastValidValues.set('mod-calc-bits', String(rewardConfig.bits));
-  }
-  if (hologramInput) {
-    hologramInput.value = String(rewardConfig.hologramTickets);
-    lastValidValues.set('mod-calc-hologram-tickets', String(rewardConfig.hologramTickets));
-  }
-  if (emeraldsInput) {
-    emeraldsInput.value = String(rewardConfig.digiEmeralds);
-    lastValidValues.set('mod-calc-digi-emeralds', String(rewardConfig.digiEmeralds));
-  }
-  if (dailyPullCostInput) {
-    dailyPullCostInput.value = String(emeraldConfig.dailyPullCost);
-    lastValidValues.set('mod-calc-daily-pull-cost', String(emeraldConfig.dailyPullCost));
-  }
-  if (pullTimeInput) {
-    pullTimeInput.value = emeraldConfig.pullTime;
-    lastValidValues.set('mod-calc-pull-time', emeraldConfig.pullTime);
+  setVal('mod-calc-floor', rewardConfig.floor);
+  setVal('mod-calc-bits', rewardConfig.bits);
+  setVal('mod-calc-hologram-tickets', rewardConfig.hologramTickets);
+  setVal('mod-calc-digi-emeralds', rewardConfig.digiEmeralds);
+  setVal('mod-calc-daily-pull-cost', emeraldConfig.dailyPullCost);
+
+  const pullTimeInput = containerEl.querySelector('#mod-calc-pull-time');
+  if (pullTimeInput) { pullTimeInput.value = emeraldConfig.pullTime; lastValidValues.set('mod-calc-pull-time', emeraldConfig.pullTime); }
+
+  // Gacha fields — show empty string for 0
+  const setGacha = (id, val) => {
+    const el = containerEl.querySelector(`#${id}`);
+    if (el) { el.value = val ? String(val) : ''; lastValidValues.set(id, String(val)); }
+  };
+  setGacha('mod-calc-gacha-cards-done', gachaConfig.cardsDone);
+  setGacha('mod-calc-gacha-cards-target', gachaConfig.cardsTarget);
+  setGacha('mod-calc-gacha-cards-tickets', gachaConfig.cardsTickets);
+  setGacha('mod-calc-gacha-support-done', gachaConfig.supportDone);
+  setGacha('mod-calc-gacha-support-target', gachaConfig.supportTarget);
+  setGacha('mod-calc-gacha-support-tickets', gachaConfig.supportTickets);
+  setGacha('mod-calc-gacha-current-emeralds', gachaConfig.currentEmeralds);
+}
+
+function updateGachaRemaining() {
+  if (!containerEl) return;
+  const cardsEl = containerEl.querySelector('#mod-calc-gacha-cards-remaining');
+  const supportEl = containerEl.querySelector('#mod-calc-gacha-support-remaining');
+
+  const cardsRem = Math.max(0, gachaConfig.cardsTarget - gachaConfig.cardsDone);
+  const supportRem = Math.max(0, gachaConfig.supportTarget - gachaConfig.supportDone);
+
+  if (cardsEl) cardsEl.textContent = (gachaConfig.cardsTarget > 0) ? String(cardsRem) : '—';
+  if (supportEl) supportEl.textContent = (gachaConfig.supportTarget > 0) ? String(supportRem) : '—';
+}
+
+function bindTabNavigation() {
+  if (!containerEl || !eventController) return;
+  const tabs = containerEl.querySelectorAll('.mod-calc-tab');
+  for (const tab of tabs) {
+    tab.addEventListener('click', () => {
+      const tabId = tab.getAttribute('data-tab');
+      if (tabId) { setActiveTab(tabId); saveToStorage(TAB_STORAGE_KEY, tabId); }
+    }, { signal: eventController.signal });
   }
 }
 
-/**
- * Bind input event listeners for reward configuration fields.
- */
 function bindRewardInputs() {
   if (!containerEl || !eventController) return;
 
-  // Floor input — auto-calculates Bits and Hologram Tickets
   const floorInput = containerEl.querySelector('#mod-calc-floor');
   if (floorInput) {
-    floorInput.addEventListener('input', () => {
+    const handleFloor = () => {
       const validated = validateNumericInput(floorInput.value, 0, REWARD_MAX);
       if (validated !== null) {
         rewardConfig.floor = validated;
         lastValidValues.set('mod-calc-floor', String(validated));
         floorInput.value = String(validated);
-
-        // Auto-calculate Bits, Hologram Tickets, and DigiEmeralds from floor
         const { bits, hologramTickets, digiEmeralds } = calculateFloorRewards(validated);
         rewardConfig.bits = bits;
         rewardConfig.hologramTickets = hologramTickets;
         rewardConfig.digiEmeralds = digiEmeralds;
-
-        // Update DOM inputs
         const bitsInput = containerEl.querySelector('#mod-calc-bits');
         const hologramInput = containerEl.querySelector('#mod-calc-hologram-tickets');
         const emeraldsInput = containerEl.querySelector('#mod-calc-digi-emeralds');
-        if (bitsInput) {
-          bitsInput.value = String(bits);
-          lastValidValues.set('mod-calc-bits', String(bits));
-        }
-        if (hologramInput) {
-          hologramInput.value = String(hologramTickets);
-          lastValidValues.set('mod-calc-hologram-tickets', String(hologramTickets));
-        }
-        if (emeraldsInput) {
-          emeraldsInput.value = String(digiEmeralds);
-          lastValidValues.set('mod-calc-digi-emeralds', String(digiEmeralds));
-        }
-
+        if (bitsInput) { bitsInput.value = String(bits); lastValidValues.set('mod-calc-bits', String(bits)); }
+        if (hologramInput) { hologramInput.value = String(hologramTickets); lastValidValues.set('mod-calc-hologram-tickets', String(hologramTickets)); }
+        if (emeraldsInput) { emeraldsInput.value = String(digiEmeralds); lastValidValues.set('mod-calc-digi-emeralds', String(digiEmeralds)); }
         saveToStorage(REWARD_STORAGE_KEY, rewardConfig);
       } else {
-        // Revert to last valid value
-        const lastValid = lastValidValues.get('mod-calc-floor') || '0';
-        floorInput.value = lastValid;
+        floorInput.value = lastValidValues.get('mod-calc-floor') || '0';
       }
-    }, { signal: eventController.signal });
-
-    floorInput.addEventListener('paste', (e) => {
-      setTimeout(() => {
-        const validated = validateNumericInput(floorInput.value, 0, REWARD_MAX);
-        if (validated !== null) {
-          rewardConfig.floor = validated;
-          lastValidValues.set('mod-calc-floor', String(validated));
-          floorInput.value = String(validated);
-
-          const { bits, hologramTickets, digiEmeralds } = calculateFloorRewards(validated);
-          rewardConfig.bits = bits;
-          rewardConfig.hologramTickets = hologramTickets;
-          rewardConfig.digiEmeralds = digiEmeralds;
-
-          const bitsInput = containerEl.querySelector('#mod-calc-bits');
-          const hologramInput = containerEl.querySelector('#mod-calc-hologram-tickets');
-          const emeraldsInput = containerEl.querySelector('#mod-calc-digi-emeralds');
-          if (bitsInput) {
-            bitsInput.value = String(bits);
-            lastValidValues.set('mod-calc-bits', String(bits));
-          }
-          if (hologramInput) {
-            hologramInput.value = String(hologramTickets);
-            lastValidValues.set('mod-calc-hologram-tickets', String(hologramTickets));
-          }
-          if (emeraldsInput) {
-            emeraldsInput.value = String(digiEmeralds);
-            lastValidValues.set('mod-calc-digi-emeralds', String(digiEmeralds));
-          }
-
-          saveToStorage(REWARD_STORAGE_KEY, rewardConfig);
-        } else {
-          const lastValid = lastValidValues.get('mod-calc-floor') || '0';
-          floorInput.value = lastValid;
-        }
-      }, 0);
-    }, { signal: eventController.signal });
+    };
+    floorInput.addEventListener('input', handleFloor, { signal: eventController.signal });
+    floorInput.addEventListener('paste', () => setTimeout(handleFloor, 0), { signal: eventController.signal });
   }
 
   const fields = [
@@ -461,12 +448,10 @@ function bindRewardInputs() {
     { id: 'mod-calc-hologram-tickets', key: 'hologramTickets', max: REWARD_MAX },
     { id: 'mod-calc-digi-emeralds', key: 'digiEmeralds', max: REWARD_MAX }
   ];
-
   for (const { id, key, max } of fields) {
     const input = containerEl.querySelector(`#${id}`);
     if (!input) continue;
-
-    input.addEventListener('input', () => {
+    const handle = () => {
       const validated = validateNumericInput(input.value, 0, max);
       if (validated !== null) {
         rewardConfig[key] = validated;
@@ -474,40 +459,20 @@ function bindRewardInputs() {
         input.value = String(validated);
         saveToStorage(REWARD_STORAGE_KEY, rewardConfig);
       } else {
-        // Revert to last valid value
-        const lastValid = lastValidValues.get(id) || '0';
-        input.value = lastValid;
+        input.value = lastValidValues.get(id) || '0';
       }
-    }, { signal: eventController.signal });
-
-    input.addEventListener('paste', (e) => {
-      // Let the input event handle validation after paste
-      setTimeout(() => {
-        const validated = validateNumericInput(input.value, 0, max);
-        if (validated !== null) {
-          rewardConfig[key] = validated;
-          lastValidValues.set(id, String(validated));
-          input.value = String(validated);
-          saveToStorage(REWARD_STORAGE_KEY, rewardConfig);
-        } else {
-          const lastValid = lastValidValues.get(id) || '0';
-          input.value = lastValid;
-        }
-      }, 0);
-    }, { signal: eventController.signal });
+    };
+    input.addEventListener('input', handle, { signal: eventController.signal });
+    input.addEventListener('paste', () => setTimeout(handle, 0), { signal: eventController.signal });
   }
 }
 
-/**
- * Bind input event listeners for emerald configuration fields.
- */
 function bindEmeraldInputs() {
   if (!containerEl || !eventController) return;
 
-  // Daily pull cost
   const dailyCostInput = containerEl.querySelector('#mod-calc-daily-pull-cost');
   if (dailyCostInput) {
-    dailyCostInput.addEventListener('input', () => {
+    const handle = () => {
       const validated = validateNumericInput(dailyCostInput.value, 0, EMERALD_MAX);
       if (validated !== null) {
         emeraldConfig.dailyPullCost = validated;
@@ -515,33 +480,17 @@ function bindEmeraldInputs() {
         dailyCostInput.value = String(validated);
         saveToStorage(EMERALD_STORAGE_KEY, emeraldConfig);
       } else {
-        const lastValid = lastValidValues.get('mod-calc-daily-pull-cost') || '5700';
-        dailyCostInput.value = lastValid;
+        dailyCostInput.value = lastValidValues.get('mod-calc-daily-pull-cost') || '5700';
       }
-    }, { signal: eventController.signal });
-
-    dailyCostInput.addEventListener('paste', (e) => {
-      setTimeout(() => {
-        const validated = validateNumericInput(dailyCostInput.value, 0, EMERALD_MAX);
-        if (validated !== null) {
-          emeraldConfig.dailyPullCost = validated;
-          lastValidValues.set('mod-calc-daily-pull-cost', String(validated));
-          dailyCostInput.value = String(validated);
-          saveToStorage(EMERALD_STORAGE_KEY, emeraldConfig);
-        } else {
-          const lastValid = lastValidValues.get('mod-calc-daily-pull-cost') || '5700';
-          dailyCostInput.value = lastValid;
-        }
-      }, 0);
-    }, { signal: eventController.signal });
+    };
+    dailyCostInput.addEventListener('input', handle, { signal: eventController.signal });
+    dailyCostInput.addEventListener('paste', () => setTimeout(handle, 0), { signal: eventController.signal });
   }
 
-  // Pull time
   const pullTimeInput = containerEl.querySelector('#mod-calc-pull-time');
   if (pullTimeInput) {
     pullTimeInput.addEventListener('input', () => {
       const value = pullTimeInput.value;
-      // Validate HH:MM format
       if (/^\d{2}:\d{2}$/.test(value)) {
         const [h, m] = value.split(':').map(Number);
         if (h >= 0 && h <= 23 && m >= 0 && m <= 59) {
@@ -551,118 +500,18 @@ function bindEmeraldInputs() {
           return;
         }
       }
-      // Revert on invalid
-      const lastValid = lastValidValues.get('mod-calc-pull-time') || '08:00';
-      pullTimeInput.value = lastValid;
+      pullTimeInput.value = lastValidValues.get('mod-calc-pull-time') || '08:00';
     }, { signal: eventController.signal });
   }
 }
 
-/**
- * Bind input validation and click handler for the emerald availability calculator.
- */
-function bindEmeraldCalculation() {
-  if (!containerEl || !eventController) return;
-
-  // Validate current emeralds input (range [0, 99999])
-  const currentEmeraldsInput = containerEl.querySelector('#mod-calc-current-emeralds');
-  if (currentEmeraldsInput) {
-    currentEmeraldsInput.addEventListener('input', () => {
-      const validated = validateNumericInput(currentEmeraldsInput.value, 0, EMERALD_MAX);
-      if (validated !== null) {
-        lastValidValues.set('mod-calc-current-emeralds', String(validated));
-        currentEmeraldsInput.value = String(validated);
-      } else {
-        const lastValid = lastValidValues.get('mod-calc-current-emeralds') || '0';
-        currentEmeraldsInput.value = lastValid;
-      }
-    }, { signal: eventController.signal });
-
-    currentEmeraldsInput.addEventListener('paste', () => {
-      setTimeout(() => {
-        const validated = validateNumericInput(currentEmeraldsInput.value, 0, EMERALD_MAX);
-        if (validated !== null) {
-          lastValidValues.set('mod-calc-current-emeralds', String(validated));
-          currentEmeraldsInput.value = String(validated);
-        } else {
-          const lastValid = lastValidValues.get('mod-calc-current-emeralds') || '0';
-          currentEmeraldsInput.value = lastValid;
-        }
-      }, 0);
-    }, { signal: eventController.signal });
-  }
-
-  // Bind calculate button
-  const emeraldBtn = containerEl.querySelector('#mod-calc-emerald-btn');
-  if (!emeraldBtn) return;
-
-  emeraldBtn.addEventListener('click', () => {
-    const deadlineEl = containerEl.querySelector('#mod-calc-deadline-value');
-    const canSpendEl = containerEl.querySelector('#mod-calc-can-spend-value');
-    const messageEl = containerEl.querySelector('#mod-calc-emerald-message');
-    const detailsEl = containerEl.querySelector('.mod-calc-emerald-details');
-
-    if (!deadlineEl || !canSpendEl || !messageEl) return;
-
-    // Get emerald rate from reward config
-    const emeraldRate = rewardConfig.digiEmeralds;
-
-    // If rate is 0, show "configure rewards first" warning
-    if (!emeraldRate || emeraldRate <= 0) {
-      if (detailsEl) detailsEl.hidden = true;
-      messageEl.hidden = false;
-      messageEl.setAttribute('data-i18n', 'modules.passiveCalc.configRequired');
-      messageEl.textContent = messageEl.getAttribute('data-i18n-resolved') || 'Configure rewards first';
-      // Attempt to use i18n translation if available
-      if (typeof window !== 'undefined' && window.__i18n_t) {
-        messageEl.textContent = window.__i18n_t('modules.passiveCalc.configRequired');
-      }
-      return;
-    }
-
-    // Read current emeralds
-    const currentEmeraldsInput = containerEl.querySelector('#mod-calc-current-emeralds');
-    const currentEmeralds = parseInt(currentEmeraldsInput?.value, 10) || 0;
-
-    // Get config values
-    const dailyPullCost = emeraldConfig.dailyPullCost;
-    const pullTime = emeraldConfig.pullTime;
-
-    // Calculate
-    const result = calculateAvailableEmeralds(currentEmeralds, dailyPullCost, pullTime, emeraldRate);
-
-    if (result.canSpend) {
-      // Show details, hide warning
-      if (detailsEl) detailsEl.hidden = false;
-      messageEl.hidden = true;
-      deadlineEl.textContent = result.deadlineTime;
-      canSpendEl.textContent = String(result.availableToSpend);
-    } else {
-      // Show warning, hide details (or show grayed out)
-      if (detailsEl) detailsEl.hidden = true;
-      messageEl.hidden = false;
-      messageEl.setAttribute('data-i18n', 'modules.passiveCalc.cannotSpend');
-      messageEl.textContent = 'Cannot spend emeralds and reach the goal';
-      if (typeof window !== 'undefined' && window.__i18n_t) {
-        messageEl.textContent = window.__i18n_t('modules.passiveCalc.cannotSpend');
-      }
-    }
-  }, { signal: eventController.signal });
-}
-
-/**
- * Bind click handler for the wait time calculate button.
- */
 function bindWaitTimeCalculation() {
   if (!containerEl || !eventController) return;
-
   const waitBtn = containerEl.querySelector('#mod-calc-wait-btn');
   if (!waitBtn) return;
 
   waitBtn.addEventListener('click', () => {
-    const targetBitsInput = containerEl.querySelector('#mod-calc-target-bits');
-    const targetHologramInput = containerEl.querySelector('#mod-calc-target-hologram-tickets');
-    const targetEmeraldsInput = containerEl.querySelector('#mod-calc-target-digi-emeralds');
+    const resultEl = containerEl.querySelector('#mod-calc-wait-result');
     const resultValueEl = containerEl.querySelector('#mod-calc-wait-result-value');
     const messageEl = containerEl.querySelector('#mod-calc-wait-message');
     const daysEl = containerEl.querySelector('#mod-calc-days-value');
@@ -671,19 +520,28 @@ function bindWaitTimeCalculation() {
 
     if (!resultValueEl || !messageEl) return;
 
-    // Read target values (treat empty/invalid as 0)
-    const targetBits = parseInt(targetBitsInput?.value, 10) || 0;
-    const targetHologram = parseInt(targetHologramInput?.value, 10) || 0;
-    const targetEmeralds = parseInt(targetEmeraldsInput?.value, 10) || 0;
+    // Check reward config
+    if (!hasRewardConfig()) {
+      if (resultEl) resultEl.hidden = false;
+      resultValueEl.hidden = true;
+      messageEl.hidden = false;
+      messageEl.setAttribute('data-i18n', 'modules.passiveCalc.configRequired');
+      messageEl.textContent = 'Configure rewards first';
+      if (typeof window !== 'undefined' && window.__i18n_t) messageEl.textContent = window.__i18n_t('modules.passiveCalc.configRequired');
+      return;
+    }
 
-    // Build resources array with only non-zero targets
+    const targetBits = parseInt(containerEl.querySelector('#mod-calc-target-bits')?.value, 10) || 0;
+    const targetHologram = parseInt(containerEl.querySelector('#mod-calc-target-hologram-tickets')?.value, 10) || 0;
+    const targetEmeralds = parseInt(containerEl.querySelector('#mod-calc-target-digi-emeralds')?.value, 10) || 0;
+
     const resources = [];
     if (targetBits > 0) resources.push({ target: targetBits, rate: rewardConfig.bits });
     if (targetHologram > 0) resources.push({ target: targetHologram, rate: rewardConfig.hologramTickets });
     if (targetEmeralds > 0) resources.push({ target: targetEmeralds, rate: rewardConfig.digiEmeralds });
 
-    // If no targets specified, show zero result
     if (resources.length === 0) {
+      if (resultEl) resultEl.hidden = false;
       resultValueEl.hidden = false;
       messageEl.hidden = true;
       if (daysEl) daysEl.textContent = '0';
@@ -692,27 +550,201 @@ function bindWaitTimeCalculation() {
       return;
     }
 
-    // Check if any target resource has rate = 0
     const hasZeroRate = resources.some(r => !r.rate || r.rate <= 0);
     if (hasZeroRate) {
-      // Show warning message, hide result values
+      if (resultEl) resultEl.hidden = false;
       resultValueEl.hidden = true;
       messageEl.hidden = false;
       return;
     }
 
-    // Calculate and display result
     const result = calculateMaxWaitTime(resources);
     if (result) {
+      if (resultEl) resultEl.hidden = false;
       resultValueEl.hidden = false;
       messageEl.hidden = true;
       if (daysEl) daysEl.textContent = String(result.days);
       if (hoursEl) hoursEl.textContent = String(result.hours);
       if (minutesEl) minutesEl.textContent = String(result.minutes);
     } else {
-      // Shouldn't reach here since we filtered, but handle gracefully
+      if (resultEl) resultEl.hidden = false;
       resultValueEl.hidden = true;
       messageEl.hidden = false;
+    }
+  }, { signal: eventController.signal });
+}
+
+function bindEmeraldCalculation() {
+  if (!containerEl || !eventController) return;
+
+  const currentEmeraldsInput = containerEl.querySelector('#mod-calc-current-emeralds');
+  if (currentEmeraldsInput) {
+    const handle = () => {
+      const validated = validateNumericInput(currentEmeraldsInput.value, 0, EMERALD_MAX);
+      if (validated !== null) {
+        lastValidValues.set('mod-calc-current-emeralds', String(validated));
+        currentEmeraldsInput.value = String(validated);
+      } else {
+        currentEmeraldsInput.value = lastValidValues.get('mod-calc-current-emeralds') || '0';
+      }
+    };
+    currentEmeraldsInput.addEventListener('input', handle, { signal: eventController.signal });
+    currentEmeraldsInput.addEventListener('paste', () => setTimeout(handle, 0), { signal: eventController.signal });
+  }
+
+  const emeraldBtn = containerEl.querySelector('#mod-calc-emerald-btn');
+  if (!emeraldBtn) return;
+
+  emeraldBtn.addEventListener('click', () => {
+    const resultEl = containerEl.querySelector('#mod-calc-emerald-result');
+    const detailsEl = containerEl.querySelector('.mod-calc-emerald-details');
+    const messageEl = containerEl.querySelector('#mod-calc-emerald-message');
+
+    if (!messageEl) return;
+
+    // Check reward config
+    if (!hasRewardConfig()) {
+      if (resultEl) resultEl.hidden = false;
+      if (detailsEl) detailsEl.hidden = true;
+      messageEl.hidden = false;
+      messageEl.setAttribute('data-i18n', 'modules.passiveCalc.configRequired');
+      messageEl.textContent = 'Configure rewards first';
+      if (typeof window !== 'undefined' && window.__i18n_t) messageEl.textContent = window.__i18n_t('modules.passiveCalc.configRequired');
+      return;
+    }
+
+    const emeraldRate = rewardConfig.digiEmeralds;
+    const currentEmeralds = parseInt(containerEl.querySelector('#mod-calc-current-emeralds')?.value, 10) || 0;
+    const result = calculateAvailableEmeralds(currentEmeralds, emeraldConfig.dailyPullCost, emeraldConfig.pullTime, emeraldRate);
+
+    if (resultEl) resultEl.hidden = false;
+    if (result.canSpend) {
+      if (detailsEl) detailsEl.hidden = false;
+      messageEl.hidden = true;
+      const deadlineEl = containerEl.querySelector('#mod-calc-deadline-value');
+      const canSpendEl = containerEl.querySelector('#mod-calc-can-spend-value');
+      if (deadlineEl) deadlineEl.textContent = result.deadlineTime;
+      if (canSpendEl) canSpendEl.textContent = String(result.availableToSpend);
+    } else {
+      if (detailsEl) detailsEl.hidden = true;
+      messageEl.hidden = false;
+      messageEl.setAttribute('data-i18n', 'modules.passiveCalc.cannotSpend');
+      messageEl.textContent = 'Cannot spend emeralds and reach the goal';
+      if (typeof window !== 'undefined' && window.__i18n_t) messageEl.textContent = window.__i18n_t('modules.passiveCalc.cannotSpend');
+    }
+  }, { signal: eventController.signal });
+}
+
+function bindGachaInputs() {
+  if (!containerEl || !eventController) return;
+
+  const gachaFields = [
+    { id: 'mod-calc-gacha-cards-done', key: 'cardsDone', max: GACHA_PULL_MAX },
+    { id: 'mod-calc-gacha-cards-target', key: 'cardsTarget', max: GACHA_PULL_MAX },
+    { id: 'mod-calc-gacha-cards-tickets', key: 'cardsTickets', max: GACHA_TICKET_MAX },
+    { id: 'mod-calc-gacha-support-done', key: 'supportDone', max: GACHA_PULL_MAX },
+    { id: 'mod-calc-gacha-support-target', key: 'supportTarget', max: GACHA_PULL_MAX },
+    { id: 'mod-calc-gacha-support-tickets', key: 'supportTickets', max: GACHA_TICKET_MAX },
+    { id: 'mod-calc-gacha-current-emeralds', key: 'currentEmeralds', max: EMERALD_MAX }
+  ];
+
+  for (const { id, key, max } of gachaFields) {
+    const input = containerEl.querySelector(`#${id}`);
+    if (!input) continue;
+    const handle = () => {
+      const validated = validateNumericInput(input.value, 0, max);
+      if (validated !== null) {
+        gachaConfig[key] = validated;
+        lastValidValues.set(id, String(validated));
+        input.value = String(validated);
+        saveToStorage(GACHA_STORAGE_KEY, gachaConfig);
+        updateGachaRemaining();
+      } else {
+        input.value = lastValidValues.get(id) || '0';
+      }
+    };
+    input.addEventListener('input', handle, { signal: eventController.signal });
+    input.addEventListener('paste', () => setTimeout(handle, 0), { signal: eventController.signal });
+  }
+}
+
+function bindGachaCalculation() {
+  if (!containerEl || !eventController) return;
+  const gachaBtn = containerEl.querySelector('#mod-calc-gacha-btn');
+  if (!gachaBtn) return;
+
+  gachaBtn.addEventListener('click', () => {
+    const resultEl = containerEl.querySelector('#mod-calc-gacha-result');
+    const detailsEl = containerEl.querySelector('#mod-calc-gacha-details');
+    const messageEl = containerEl.querySelector('#mod-calc-gacha-message');
+    const cardsBreakdown = containerEl.querySelector('#mod-calc-gacha-cards-breakdown');
+    const supportBreakdown = containerEl.querySelector('#mod-calc-gacha-support-breakdown');
+
+    if (!resultEl || !detailsEl || !messageEl) return;
+
+    // Check reward config
+    if (!hasRewardConfig()) {
+      resultEl.hidden = false;
+      detailsEl.hidden = true;
+      messageEl.hidden = false;
+      messageEl.setAttribute('data-i18n', 'modules.passiveCalc.configRequired');
+      messageEl.textContent = 'Configure rewards first';
+      if (typeof window !== 'undefined' && window.__i18n_t) messageEl.textContent = window.__i18n_t('modules.passiveCalc.configRequired');
+      return;
+    }
+
+    const cardsRemaining = Math.max(0, gachaConfig.cardsTarget - gachaConfig.cardsDone);
+    const supportRemaining = Math.max(0, gachaConfig.supportTarget - gachaConfig.supportDone);
+
+    if (cardsRemaining <= 0 && supportRemaining <= 0) {
+      resultEl.hidden = false;
+      detailsEl.hidden = true;
+      messageEl.hidden = false;
+      messageEl.setAttribute('data-i18n', 'modules.passiveCalc.gachaEmpty');
+      messageEl.textContent = 'Enter pulls needed for at least one gacha';
+      if (typeof window !== 'undefined' && window.__i18n_t) messageEl.textContent = window.__i18n_t('modules.passiveCalc.gachaEmpty');
+      return;
+    }
+
+    const emeraldRate = rewardConfig.digiEmeralds;
+    const result = calculateGachaLevelUp(
+      cardsRemaining, supportRemaining,
+      gachaConfig.cardsTickets, gachaConfig.supportTickets,
+      gachaConfig.currentEmeralds, emeraldRate
+    );
+
+    resultEl.hidden = false;
+    detailsEl.hidden = false;
+    messageEl.hidden = true;
+
+    if (cardsBreakdown) cardsBreakdown.hidden = cardsRemaining <= 0;
+    if (supportBreakdown) supportBreakdown.hidden = supportRemaining <= 0;
+
+    const setEl = (id, val) => { const el = containerEl.querySelector(`#${id}`); if (el) el.textContent = String(val); };
+
+    setEl('mod-calc-gacha-cards-multi', result.cards.multis);
+    setEl('mod-calc-gacha-cards-ticket-cost', result.cards.ticketsNeeded);
+    setEl('mod-calc-gacha-cards-cost', result.cards.emeraldCost);
+    setEl('mod-calc-gacha-support-multi', result.support.multis);
+    setEl('mod-calc-gacha-support-ticket-cost', result.support.ticketsNeeded);
+    setEl('mod-calc-gacha-support-cost', result.support.emeraldCost);
+    setEl('mod-calc-gacha-total-cost', result.totalCost);
+    setEl('mod-calc-gacha-needed', result.emeraldsNeeded);
+
+    const timeEl = containerEl.querySelector('#mod-calc-gacha-time');
+    if (timeEl) {
+      if (result.emeraldsNeeded === 0) {
+        timeEl.textContent = '✓';
+      } else if (result.waitTime) {
+        const { days, hours, minutes } = result.waitTime;
+        const parts = [];
+        if (days > 0) parts.push(`${days}d`);
+        if (hours > 0) parts.push(`${hours}h`);
+        if (minutes > 0) parts.push(`${minutes}m`);
+        timeEl.textContent = parts.length > 0 ? parts.join(' ') : '0m';
+      } else {
+        timeEl.textContent = '∞';
+      }
     }
   }, { signal: eventController.signal });
 }
