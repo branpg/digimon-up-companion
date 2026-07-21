@@ -1,0 +1,37 @@
+# Changelog
+
+All notable changes to this project are documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/).
+
+## [1.1.0] - 2025-07-21
+
+### Improved
+
+- Memory Helper: Digimon that already have 2 copies on the board are dimmed in the selector and cannot be selected
+
+### Changed
+
+- Changelog module now loads locale-specific changelogs from `/changelogs/{locale}.md`
+- Changelogs available in all 6 supported languages (en, es, it, pt, de, ja)
+- Removed duplicated `public/CHANGELOG.md` in favor of per-language files
+
+## [1.0.0] - 2025-01-20
+
+### Added
+
+- Multi-utility architecture with App Shell and sidebar navigation
+- Static Node.js server with no external dependencies
+- Internationalization system (i18n) with support for 6 languages
+- Central module registry for extensibility
+- Memory Game Helper module (extracted from original monolith)
+- Passive Gain Calculator module (new utility)
+- Local Digimon images (12 PNG)
+- Responsive design with collapsible sidebar on mobile
+- Versioning system with changelog
+
+### Changed
+
+- Refactored monolithic application (single HTML) to modular architecture
+- Migrated external images to local files

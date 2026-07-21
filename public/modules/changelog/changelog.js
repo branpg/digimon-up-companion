@@ -7,7 +7,7 @@
  * Module interface: init(container), destroy(), getState(), setState(state)
  */
 
-import { t } from '/js/i18n.js';
+import { t, getCurrentLocale } from '/js/i18n.js';
 
 /** @type {HTMLElement|null} */
 let containerEl = null;
@@ -97,9 +97,15 @@ export async function init(container) {
   if (!contentEl) return;
 
   try {
-    const response = await fetch('/CHANGELOG.md');
+    const locale = getCurrentLocale();
+    const response = await fetch(`/changelogs/${locale}.md`);
     if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
+      // Fallback to English if locale-specific changelog not found
+      const fallback = await fetch('/changelogs/en.md');
+      if (!fallback.ok) throw new Error(`HTTP ${fallback.status}`);
+      const md = await fallback.text();
+      contentEl.innerHTML = parseMarkdown(md);
+      return;
     }
     const md = await response.text();
     contentEl.innerHTML = parseMarkdown(md);

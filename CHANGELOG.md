@@ -1,31 +1,37 @@
 # Changelog
 
-Todos los cambios notables de este proyecto se documentan en este archivo.
+All notable changes to this project are documented in this file.
 
-El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/),
-y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [1.1.0] - 2025-07-21
 
-### Mejorado
+### Improved
 
-- Memory Helper: los Digimon que ya tienen 2 copias en el tablero se oscurecen en el selector y no se pueden seleccionar
+- Memory Helper: Digimon that already have 2 copies on the board are dimmed in the selector and cannot be selected
+
+### Changed
+
+- Changelog module now loads locale-specific changelogs from `/changelogs/{locale}.md`
+- Changelogs available in all 6 supported languages (en, es, it, pt, de, ja)
+- Removed duplicated `public/CHANGELOG.md` in favor of per-language files
 
 ## [1.0.0] - 2025-01-20
 
-### Añadido
+### Added
 
-- Arquitectura multi-utilidad con App Shell y navegación lateral (sidebar)
-- Servidor estático Node.js sin dependencias externas
-- Sistema de internacionalización (i18n) con soporte para 6 idiomas
-- Registro central de módulos para extensibilidad
-- Módulo Memory Game Helper (extraído del monolito original)
-- Módulo Calculador de Ganancia Pasiva (nueva utilidad)
-- Imágenes locales de Digimon (12 PNG)
-- Diseño responsive con sidebar colapsable en móviles
-- Sistema de versionado con changelog
+- Multi-utility architecture with App Shell and sidebar navigation
+- Static Node.js server with no external dependencies
+- Internationalization system (i18n) with support for 6 languages
+- Central module registry for extensibility
+- Memory Game Helper module (extracted from original monolith)
+- Passive Gain Calculator module (new utility)
+- Local Digimon images (12 PNG)
+- Responsive design with collapsible sidebar on mobile
+- Versioning system with changelog
 
-### Cambiado
+### Changed
 
-- Refactorización de aplicación monolítica (single HTML) a arquitectura modular
-- Migración de imágenes externas a archivos locales
+- Refactored monolithic application (single HTML) to modular architecture
+- Migrated external images to local files
