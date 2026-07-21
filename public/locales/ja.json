@@ -76,7 +76,7 @@
       "lastCollected": "最終回収",
       "updateCollection": "更新",
       "gachaFinishTime": "完了時刻",
-      "collectEvery7h": "7h毎に回収して蓄積を続けましょう"
+      "collectFrom": "回収開始"
     }
   },
   "errors": {

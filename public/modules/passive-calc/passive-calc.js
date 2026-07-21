@@ -826,11 +826,13 @@ function bindGachaCalculation() {
           finishEl.textContent = `${String(finishDate.getHours()).padStart(2, '0')}:${String(finishDate.getMinutes()).padStart(2, '0')}`;
         }
 
-        // Show collection schedule if wait > 8h
+        // Show "collect from" row if wait > 8h
         if (totalMinutes > PASSIVE_MAX_MINUTES && scheduleEl) {
           scheduleEl.hidden = false;
           if (scheduleTimeEl) {
-            scheduleTimeEl.textContent = calculateNextCollection(new Date());
+            // Next collection = now + 7h
+            const collectDate = new Date(Date.now() + COLLECTION_INTERVAL_MINUTES * 60000);
+            scheduleTimeEl.textContent = `${String(collectDate.getHours()).padStart(2, '0')}:${String(collectDate.getMinutes()).padStart(2, '0')}`;
           }
         } else if (scheduleEl) {
           scheduleEl.hidden = true;

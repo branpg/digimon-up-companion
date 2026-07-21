@@ -450,8 +450,7 @@
 }
 
 /* === Collection Reminder === */
-.mod-calc-collection-reminder,
-.mod-calc-gacha-collection-schedule {
+.mod-calc-collection-reminder {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -462,8 +461,7 @@
   margin-top: 8px;
 }
 
-.mod-calc-collection-reminder[hidden],
-.mod-calc-gacha-collection-schedule[hidden] {
+.mod-calc-collection-reminder[hidden] {
   display: none;
 }
 

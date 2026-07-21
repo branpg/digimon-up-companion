@@ -76,7 +76,7 @@
       "lastCollected": "Letzte Abholung",
       "updateCollection": "Aktualisieren",
       "gachaFinishTime": "Fertig um",
-      "collectEvery7h": "Alle 7h abholen, um weiter zu sammeln"
+      "collectFrom": "Abholen ab"
     }
   },
   "errors": {

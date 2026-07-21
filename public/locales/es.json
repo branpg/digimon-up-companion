@@ -76,7 +76,7 @@
       "lastCollected": "Última recogida",
       "updateCollection": "Actualizar",
       "gachaFinishTime": "Termina a las",
-      "collectEvery7h": "Recoge cada 7h para seguir acumulando"
+      "collectFrom": "Recoger a partir de"
     }
   },
   "errors": {
