@@ -10,9 +10,9 @@ e questo progetto aderisce al [Versionamento Semantico](https://semver.org/lang/
 ### Aggiunto
 
 - Guadagno Passivo: nuovo tab "Livello Gacha" per calcolare quando il gacha sale di livello
-  - Due gacha: carte e supporto, ciascuno con tirate fatte/obiettivo/rimanenti e ticket attuali
-  - Meccanica: 30 ticket per multi (dà 35 tirate), ogni ticket costa 20 DigiSmeraldi
-  - Calcola multi-tirate necessarie, costo ticket, costo DigiSmeraldi e tempo passivo
+- Gacha carte e gacha supporto, ciascuno con tirate fatte/obiettivo/rimanenti e ticket attuali
+- Meccanica: 30 ticket per multi (dà 35 tirate), ogni ticket costa 20 DigiSmeraldi
+- Calcola multi-tirate necessarie, costo ticket, costo DigiSmeraldi e tempo passivo
 
 ### Modificato
 

@@ -10,9 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 - Passive Gain: new "Gacha Level" tab to calculate when gacha levels up
-  - Two gachas: cards and support, each with pulls done/target/remaining and current tickets
-  - Mechanics: 30 tickets per multi (gives 35 pulls), each ticket costs 20 DigiEmeralds
-  - Calculates multi-pulls needed, ticket cost, DigiEmerald cost, and passive time
+- Cards gacha and support gacha, each with pulls done/target/remaining and current tickets
+- Mechanics: 30 tickets per multi (gives 35 pulls), each ticket costs 20 DigiEmeralds
+- Calculates multi-pulls needed, ticket cost, DigiEmerald cost, and passive time
 
 ### Changed
 

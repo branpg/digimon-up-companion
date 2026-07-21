@@ -10,9 +10,9 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 ### Hinzugefügt
 
 - Passiver Gewinn: neuer Tab „Gacha-Level" zur Berechnung, wann das Gacha aufsteigt
-  - Zwei Gachas: Karten und Support, jeweils mit Ziehungen gemacht/Ziel/verbleibend und aktuellen Tickets
-  - Mechanik: 30 Tickets pro Multi (ergibt 35 Ziehungen), jedes Ticket kostet 20 DigiSmaragde
-  - Berechnet Multi-Ziehungen, Ticketkosten, DigiSmaragd-Kosten und passive Zeit
+- Karten-Gacha und Support-Gacha, jeweils mit Ziehungen gemacht/Ziel/verbleibend und aktuellen Tickets
+- Mechanik: 30 Tickets pro Multi (ergibt 35 Ziehungen), jedes Ticket kostet 20 DigiSmaragde
+- Berechnet Multi-Ziehungen, Ticketkosten, DigiSmaragd-Kosten und passive Zeit
 
 ### Geändert
 

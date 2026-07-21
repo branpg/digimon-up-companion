@@ -10,9 +10,9 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
 ### Adicionado
 
 - Ganho Passivo: nova aba "Nível Gacha" para calcular quando o gacha sobe de nível
-  - Dois gachas: cartas e suporte, cada um com puxadas feitas/objetivo/restantes e tickets atuais
-  - Mecânica: 30 tickets por multi (dá 35 puxadas), cada ticket custa 20 DigiEsmeraldas
-  - Calcula multi-puxadas necessárias, custo em tickets, custo em DigiEsmeraldas e tempo passivo
+- Gacha de cartas e gacha de suporte, cada um com puxadas feitas/objetivo/restantes e tickets atuais
+- Mecânica: 30 tickets por multi (dá 35 puxadas), cada ticket custa 20 DigiEsmeraldas
+- Calcula multi-puxadas necessárias, custo em tickets, custo em DigiEsmeraldas e tempo passivo
 
 ### Alterado
 
