@@ -267,12 +267,11 @@
 
 .mod-calc-gacha-breakdown {
   padding-bottom: 12px;
-  border-bottom: 1px solid #2a2a4e;
 }
 
-.mod-calc-gacha-breakdown:last-of-type {
-  border-bottom: none;
-  padding-bottom: 0;
+.mod-calc-gacha-breakdown + .mod-calc-gacha-breakdown {
+  border-top: 1px solid #2a2a4e;
+  padding-top: 12px;
 }
 
 .mod-calc-gacha-breakdown-title {
