@@ -5,6 +5,17 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei dokume
 Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
 und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lang/de/).
 
+## [1.3.0] - 2025-07-21
+
+### Hinzugefügt
+
+- Gacha-Level: Eingabefeld „Zeit ohne Abholung" (HH:MM:SS) mit Zeitstempel der letzten Abholung
+- Gacha-Level: „Aktualisieren"-Button setzt Abholzeitpunkt, damit verstrichene Zeit automatisch aktualisiert wird
+- Gacha-Level: zeigt „Letzte Abholung: HH:MM" als Referenz
+- Gacha-Level: Sammlungserinnerung wenn passiver Speicher voll (≥8h), zeigt nächste empfohlene Abholzeit (+7h)
+- Gacha-Level: Schnell-Buttons (+1, +10, +50, +100) für aktuelle DigiSmaragde
+- Gacha-Berechnung berücksichtigt bereits angesammelte Smaragde (max. 8h passiv)
+
 ## [1.2.0] - 2025-07-21
 
 ### Hinzugefügt

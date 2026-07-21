@@ -5,6 +5,17 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/),
 y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.3.0] - 2025-07-21
+
+### Añadido
+
+- Nivel Gacha: campo "Tiempo sin recoger" (HH:MM:SS) con seguimiento de última recogida
+- Nivel Gacha: botón "Actualizar" fija la hora de última recogida para que el tiempo transcurrido se auto-actualice al recalcular
+- Nivel Gacha: muestra "Última recogida: HH:MM" como referencia
+- Nivel Gacha: aviso de recogida cuando el almacén pasivo está lleno (≥8h), muestra próxima hora recomendada (+7h)
+- Nivel Gacha: botones rápidos (+1, +10, +50, +100) para digiesmeraldas actuales
+- El cálculo de gacha ahora tiene en cuenta las esmeraldas ya acumuladas (tope 8h de pasivo)
+
 ## [1.2.0] - 2025-07-21
 
 ### Añadido

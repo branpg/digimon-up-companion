@@ -68,7 +68,13 @@
       "gachaPullsTarget": "Puxadas objetivo",
       "gachaPullsRemaining": "Puxadas restantes",
       "gachaCurrentTickets": "Tickets atuais",
-      "currentDigiEmeralds": "DigiEsmeraldas atuais"
+      "currentDigiEmeralds": "DigiEsmeraldas atuais",
+      "gachaElapsed": "Tempo sem coletar",
+      "gachaElapsedHint": "Insira o tempo mostrado pelo jogo (HH:MM:SS)",
+      "collectionWarning": "Recompensas estão cheias! Colete-as.",
+      "nextCollection": "Próxima coleta às",
+      "lastCollected": "Última coleta",
+      "updateCollection": "Atualizar"
     }
   },
   "errors": {

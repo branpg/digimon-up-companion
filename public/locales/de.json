@@ -68,7 +68,13 @@
       "gachaPullsTarget": "Ziehungen Ziel",
       "gachaPullsRemaining": "Verbleibende Ziehungen",
       "gachaCurrentTickets": "Aktuelle Tickets",
-      "currentDigiEmeralds": "Aktuelle DigiSmaragde"
+      "currentDigiEmeralds": "Aktuelle DigiSmaragde",
+      "gachaElapsed": "Zeit ohne Abholung",
+      "gachaElapsedHint": "Gib die vom Spiel angezeigte Zeit ein (HH:MM:SS)",
+      "collectionWarning": "Belohnungen sind voll! Hole sie ab.",
+      "nextCollection": "Nächste Abholung um",
+      "lastCollected": "Letzte Abholung",
+      "updateCollection": "Aktualisieren"
     }
   },
   "errors": {

@@ -126,6 +126,41 @@
         <div class="mod-calc-field-group">
           <label class="mod-calc-label" for="mod-calc-gacha-current-emeralds" data-i18n="modules.passiveCalc.currentDigiEmeralds">Current DigiEmeralds</label>
           <input class="mod-calc-input" type="number" id="mod-calc-gacha-current-emeralds" min="0" max="99999" step="1" placeholder="0">
+          <div class="mod-calc-quick-add">
+            <button class="mod-calc-btn-quick" data-add="1">+1</button>
+            <button class="mod-calc-btn-quick" data-add="10">+10</button>
+            <button class="mod-calc-btn-quick" data-add="50">+50</button>
+            <button class="mod-calc-btn-quick" data-add="100">+100</button>
+          </div>
+        </div>
+        <div class="mod-calc-field-group">
+          <label class="mod-calc-label" data-i18n="modules.passiveCalc.gachaElapsed">Time without collecting</label>
+          <p class="mod-calc-field-hint" data-i18n="modules.passiveCalc.gachaElapsedHint">Enter the time the game shows (HH:MM:SS)</p>
+          <div class="mod-calc-elapsed-row">
+            <div class="mod-calc-elapsed-inputs">
+              <input class="mod-calc-input mod-calc-input-sm mod-calc-input-elapsed" type="number" id="mod-calc-gacha-elapsed-h" min="0" max="99" step="1" placeholder="0">
+              <span class="mod-calc-elapsed-sep">:</span>
+              <input class="mod-calc-input mod-calc-input-sm mod-calc-input-elapsed" type="number" id="mod-calc-gacha-elapsed-m" min="0" max="59" step="1" placeholder="0">
+              <span class="mod-calc-elapsed-sep">:</span>
+              <input class="mod-calc-input mod-calc-input-sm mod-calc-input-elapsed" type="number" id="mod-calc-gacha-elapsed-s" min="0" max="59" step="1" placeholder="0">
+            </div>
+            <button class="mod-calc-btn-update" id="mod-calc-gacha-elapsed-btn" data-i18n="modules.passiveCalc.updateCollection">Update</button>
+          </div>
+          <p class="mod-calc-last-collected" id="mod-calc-last-collected">
+            <span data-i18n="modules.passiveCalc.lastCollected">Last collected</span>: <strong id="mod-calc-last-collected-time">--:--</strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- Collection reminder (shown when >8h) -->
+      <div class="mod-calc-collection-reminder" id="mod-calc-collection-reminder" hidden>
+        <div class="mod-calc-reminder-icon">⏰</div>
+        <div class="mod-calc-reminder-content">
+          <p class="mod-calc-reminder-title" data-i18n="modules.passiveCalc.collectionWarning">Rewards are full! Collect them.</p>
+          <p class="mod-calc-reminder-detail">
+            <span data-i18n="modules.passiveCalc.nextCollection">Next collection at</span>:
+            <strong id="mod-calc-next-collection-time">--:--</strong>
+          </p>
         </div>
       </div>
 

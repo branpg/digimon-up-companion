@@ -5,6 +5,17 @@ Tutte le modifiche rilevanti di questo progetto sono documentate in questo file.
 Il formato si basa su [Keep a Changelog](https://keepachangelog.com/it/1.0.0/),
 e questo progetto aderisce al [Versionamento Semantico](https://semver.org/lang/it/).
 
+## [1.3.0] - 2025-07-21
+
+### Aggiunto
+
+- Livello Gacha: campo "Tempo senza raccogliere" (HH:MM:SS) con tracciamento timestamp ultima raccolta
+- Livello Gacha: pulsante "Aggiorna" fissa l'ora dell'ultima raccolta, il tempo trascorso si aggiorna automaticamente al ricalcolo
+- Livello Gacha: mostra "Ultima raccolta: HH:MM" come riferimento
+- Livello Gacha: avviso di raccolta quando lo stoccaggio passivo è pieno (≥8h), mostra prossimo orario di raccolta consigliato (+7h)
+- Livello Gacha: pulsanti rapidi (+1, +10, +50, +100) per DigiSmeraldi attuali
+- Il calcolo gacha ora tiene conto degli smeraldi già accumulati (max 8h passivo)
+
 ## [1.2.0] - 2025-07-21
 
 ### Aggiunto

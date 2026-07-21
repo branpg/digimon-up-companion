@@ -5,6 +5,17 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.3.0] - 2025-07-21
+
+### Added
+
+- Gacha Level: "Time without collecting" input (HH:MM:SS) with last collection timestamp tracking
+- Gacha Level: "Update" button sets last collected time so elapsed auto-updates on recalculate
+- Gacha Level: displays "Last collected: HH:MM" as reference
+- Gacha Level: collection reminder alert when passive storage is full (≥8h), shows next recommended collection time (+7h)
+- Gacha Level: quick-add buttons (+1, +10, +50, +100) for current DigiEmeralds
+- Gacha calculation now accounts for emeralds already accumulated (capped at 8h passive max)
+
 ## [1.2.0] - 2025-07-21
 
 ### Added

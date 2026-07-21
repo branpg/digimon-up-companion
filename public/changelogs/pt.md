@@ -5,6 +5,17 @@ Todas as mudanças notáveis deste projeto são documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
+## [1.3.0] - 2025-07-21
+
+### Adicionado
+
+- Nível Gacha: campo "Tempo sem coletar" (HH:MM:SS) com rastreamento de timestamp da última coleta
+- Nível Gacha: botão "Atualizar" define hora da última coleta para que o tempo decorrido se atualize automaticamente ao recalcular
+- Nível Gacha: exibe "Última coleta: HH:MM" como referência
+- Nível Gacha: alerta de coleta quando armazenamento passivo está cheio (≥8h), mostra próximo horário recomendado (+7h)
+- Nível Gacha: botões rápidos (+1, +10, +50, +100) para DigiEsmeraldas atuais
+- Cálculo de gacha agora considera esmeraldas já acumuladas (máximo 8h de passivo)
+
 ## [1.2.0] - 2025-07-21
 
 ### Adicionado

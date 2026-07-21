@@ -32,8 +32,13 @@ let rewardConfig = { floor: 0, bits: 0, hologramTickets: 0, digiEmeralds: 0 };
 /** @type {{ dailyPullCost: number, pullTime: string }} */
 let emeraldConfig = { dailyPullCost: 5700, pullTime: '08:00' };
 
-/** @type {{ cardsDone: number, cardsTarget: number, cardsTickets: number, supportDone: number, supportTarget: number, supportTickets: number, currentEmeralds: number }} */
-let gachaConfig = { cardsDone: 0, cardsTarget: 0, cardsTickets: 0, supportDone: 0, supportTarget: 0, supportTickets: 0, currentEmeralds: 0 };
+/** @type {{ cardsDone: number, cardsTarget: number, cardsTickets: number, supportDone: number, supportTarget: number, supportTickets: number, currentEmeralds: number, lastCollectedTs: number|null }} */
+let gachaConfig = { cardsDone: 0, cardsTarget: 0, cardsTickets: 0, supportDone: 0, supportTarget: 0, supportTickets: 0, currentEmeralds: 0, lastCollectedTs: null };
+
+/** Maximum passive accumulation time in minutes */
+const PASSIVE_MAX_MINUTES = 480; // 8 hours
+/** Collection interval in minutes (collect every 7h to have margin) */
+const COLLECTION_INTERVAL_MINUTES = 420; // 7 hours
 
 /** @type {string} */
 let activeTab = 'wait-time';
@@ -205,7 +210,62 @@ export function calculateGachaLevelUp(cardsRemaining, supportRemaining, cardsTic
   };
 }
 
-// ─── localStorage Helpers ────────────────────────────────────────────────────
+/**
+ * Calculates gacha level-up requirements accounting for elapsed passive time.
+ * The game accumulates passively up to 8h. If elapsedMinutes > 0, we account
+ * for resources already accumulated but not yet collected.
+ *
+ * @param {number} cardsRemaining
+ * @param {number} supportRemaining
+ * @param {number} cardsTickets
+ * @param {number} supportTickets
+ * @param {number} currentEmeralds
+ * @param {number} emeraldRate
+ * @param {number} elapsedMinutes - Minutes elapsed since last collection
+ * @returns {object}
+ */
+export function calculateGachaWithElapsed(cardsRemaining, supportRemaining, cardsTickets, supportTickets, currentEmeralds, emeraldRate, elapsedMinutes) {
+  const base = calculateGachaLevelUp(cardsRemaining, supportRemaining, cardsTickets, supportTickets, currentEmeralds, emeraldRate);
+
+  if (!elapsedMinutes || elapsedMinutes <= 0) return base;
+
+  // Effective elapsed is capped at 8h (passive cap).
+  const effectiveElapsed = Math.min(elapsedMinutes, PASSIVE_MAX_MINUTES);
+  const effectiveIntervals = Math.floor(effectiveElapsed / 5);
+  const emeraldsAlreadyAccumulated = effectiveIntervals * emeraldRate;
+
+  // Recalculate with the extra emeralds from elapsed time
+  const adjustedEmeralds = currentEmeralds + emeraldsAlreadyAccumulated;
+  const adjusted = calculateGachaLevelUp(cardsRemaining, supportRemaining, cardsTickets, supportTickets, adjustedEmeralds, emeraldRate);
+
+  return { ...adjusted, elapsedMinutes, emeraldsAlreadyAccumulated, overflowed: elapsedMinutes >= PASSIVE_MAX_MINUTES };
+}
+
+/**
+ * Gets the elapsed minutes from a lastCollectedTs timestamp.
+ * @param {number|null} lastCollectedTs - Epoch ms of last collection
+ * @param {Date} [now] - Current time (injectable for testing)
+ * @returns {number} Minutes elapsed since last collection (0 if no timestamp)
+ */
+export function getElapsedMinutes(lastCollectedTs, now) {
+  if (!lastCollectedTs) return 0;
+  if (!now) now = new Date();
+  return Math.max(0, Math.floor((now.getTime() - lastCollectedTs) / 60000));
+}
+
+/**
+ * Calculates the next collection time based on a 7h interval.
+ * Only returns the NEXT one.
+ *
+ * @param {Date} [now] - Current time
+ * @returns {string} Next collection time in HH:MM format
+ */
+export function calculateNextCollection(now) {
+  if (!now) now = new Date();
+  const nextMs = now.getTime() + COLLECTION_INTERVAL_MINUTES * 60 * 1000;
+  const next = new Date(nextMs);
+  return `${String(next.getHours()).padStart(2, '0')}:${String(next.getMinutes()).padStart(2, '0')}`;
+}
 
 function loadFromStorage(key) {
   try {
@@ -284,10 +344,11 @@ export function init(container) {
       supportDone: typeof savedGacha.supportDone === 'number' ? savedGacha.supportDone : 0,
       supportTarget: typeof savedGacha.supportTarget === 'number' ? savedGacha.supportTarget : 0,
       supportTickets: typeof savedGacha.supportTickets === 'number' ? savedGacha.supportTickets : 0,
-      currentEmeralds: typeof savedGacha.currentEmeralds === 'number' ? savedGacha.currentEmeralds : 0
+      currentEmeralds: typeof savedGacha.currentEmeralds === 'number' ? savedGacha.currentEmeralds : 0,
+      lastCollectedTs: typeof savedGacha.lastCollectedTs === 'number' ? savedGacha.lastCollectedTs : null
     };
   } else {
-    gachaConfig = { cardsDone: 0, cardsTarget: 0, cardsTickets: 0, supportDone: 0, supportTarget: 0, supportTickets: 0, currentEmeralds: 0 };
+    gachaConfig = { cardsDone: 0, cardsTarget: 0, cardsTickets: 0, supportDone: 0, supportTarget: 0, supportTickets: 0, currentEmeralds: 0, lastCollectedTs: null };
   }
 
   const savedTab = loadFromStorage(TAB_STORAGE_KEY);
@@ -296,6 +357,7 @@ export function init(container) {
   setInputValues();
   setActiveTab(activeTab);
   updateGachaRemaining();
+  updateCollectionReminder();
 
   bindTabNavigation();
   bindRewardInputs();
@@ -304,6 +366,8 @@ export function init(container) {
   bindEmeraldCalculation();
   bindGachaInputs();
   bindGachaCalculation();
+  bindGachaQuickAdd();
+  bindGachaElapsed();
 }
 
 export function destroy() {
@@ -339,13 +403,15 @@ export function setState(state) {
       supportDone: typeof state.gachaConfig.supportDone === 'number' ? state.gachaConfig.supportDone : 0,
       supportTarget: typeof state.gachaConfig.supportTarget === 'number' ? state.gachaConfig.supportTarget : 0,
       supportTickets: typeof state.gachaConfig.supportTickets === 'number' ? state.gachaConfig.supportTickets : 0,
-      currentEmeralds: typeof state.gachaConfig.currentEmeralds === 'number' ? state.gachaConfig.currentEmeralds : 0
+      currentEmeralds: typeof state.gachaConfig.currentEmeralds === 'number' ? state.gachaConfig.currentEmeralds : 0,
+      lastCollectedTs: typeof state.gachaConfig.lastCollectedTs === 'number' ? state.gachaConfig.lastCollectedTs : null
     };
   }
   if (state && state.activeTab) activeTab = state.activeTab;
   setInputValues();
   setActiveTab(activeTab);
   updateGachaRemaining();
+  updateCollectionReminder();
 }
 
 // ─── Internal Helpers ────────────────────────────────────────────────────────
@@ -388,6 +454,9 @@ function setInputValues() {
   setGacha('mod-calc-gacha-support-target', gachaConfig.supportTarget);
   setGacha('mod-calc-gacha-support-tickets', gachaConfig.supportTickets);
   setGacha('mod-calc-gacha-current-emeralds', gachaConfig.currentEmeralds);
+
+  // Elapsed time: compute from lastCollectedTs and display in HH:MM:SS fields
+  updateElapsedDisplay();
 }
 
 function updateGachaRemaining() {
@@ -707,10 +776,11 @@ function bindGachaCalculation() {
     }
 
     const emeraldRate = rewardConfig.digiEmeralds;
-    const result = calculateGachaLevelUp(
+    const elapsedMin = getElapsedMinutes(gachaConfig.lastCollectedTs);
+    const result = calculateGachaWithElapsed(
       cardsRemaining, supportRemaining,
       gachaConfig.cardsTickets, gachaConfig.supportTickets,
-      gachaConfig.currentEmeralds, emeraldRate
+      gachaConfig.currentEmeralds, emeraldRate, elapsedMin
     );
 
     resultEl.hidden = false;
@@ -747,4 +817,92 @@ function bindGachaCalculation() {
       }
     }
   }, { signal: eventController.signal });
+}
+
+
+function updateCollectionReminder() {
+  if (!containerEl) return;
+  const reminderEl = containerEl.querySelector('#mod-calc-collection-reminder');
+  if (!reminderEl) return;
+
+  const elapsedMin = getElapsedMinutes(gachaConfig.lastCollectedTs);
+
+  if (elapsedMin >= PASSIVE_MAX_MINUTES) {
+    reminderEl.hidden = false;
+    const nextTimeEl = containerEl.querySelector('#mod-calc-next-collection-time');
+    if (nextTimeEl) {
+      nextTimeEl.textContent = calculateNextCollection(new Date());
+    }
+  } else {
+    reminderEl.hidden = true;
+  }
+}
+
+function bindGachaQuickAdd() {
+  if (!containerEl || !eventController) return;
+  const buttons = containerEl.querySelectorAll('.mod-calc-btn-quick[data-add]');
+  for (const btn of buttons) {
+    btn.addEventListener('click', () => {
+      const amount = parseInt(btn.getAttribute('data-add'), 10) || 0;
+      const newVal = Math.min(gachaConfig.currentEmeralds + amount, EMERALD_MAX);
+      gachaConfig.currentEmeralds = newVal;
+      const input = containerEl.querySelector('#mod-calc-gacha-current-emeralds');
+      if (input) { input.value = String(newVal); lastValidValues.set('mod-calc-gacha-current-emeralds', String(newVal)); }
+      saveToStorage(GACHA_STORAGE_KEY, gachaConfig);
+    }, { signal: eventController.signal });
+  }
+}
+
+function bindGachaElapsed() {
+  if (!containerEl || !eventController) return;
+  const btn = containerEl.querySelector('#mod-calc-gacha-elapsed-btn');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    const elH = containerEl.querySelector('#mod-calc-gacha-elapsed-h');
+    const elM = containerEl.querySelector('#mod-calc-gacha-elapsed-m');
+    const elS = containerEl.querySelector('#mod-calc-gacha-elapsed-s');
+    const h = Math.max(0, Math.min(99, parseInt(elH?.value, 10) || 0));
+    const m = Math.max(0, Math.min(59, parseInt(elM?.value, 10) || 0));
+    const s = Math.max(0, Math.min(59, parseInt(elS?.value, 10) || 0));
+
+    // Calculate lastCollectedTs = now - elapsed
+    const elapsedMs = (h * 3600 + m * 60 + s) * 1000;
+    gachaConfig.lastCollectedTs = Date.now() - elapsedMs;
+    saveToStorage(GACHA_STORAGE_KEY, gachaConfig);
+    updateElapsedDisplay();
+    updateCollectionReminder();
+  }, { signal: eventController.signal });
+}
+
+function updateElapsedDisplay() {
+  if (!containerEl) return;
+
+  const elH = containerEl.querySelector('#mod-calc-gacha-elapsed-h');
+  const elM = containerEl.querySelector('#mod-calc-gacha-elapsed-m');
+  const elS = containerEl.querySelector('#mod-calc-gacha-elapsed-s');
+  const lastCollectedEl = containerEl.querySelector('#mod-calc-last-collected-time');
+
+  if (gachaConfig.lastCollectedTs) {
+    const elapsedMs = Date.now() - gachaConfig.lastCollectedTs;
+    const totalSeconds = Math.max(0, Math.floor(elapsedMs / 1000));
+    const h = Math.floor(totalSeconds / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = totalSeconds % 60;
+
+    if (elH) elH.value = String(h);
+    if (elM) elM.value = String(m);
+    if (elS) elS.value = String(s);
+
+    // Show last collected time
+    if (lastCollectedEl) {
+      const d = new Date(gachaConfig.lastCollectedTs);
+      lastCollectedEl.textContent = `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+    }
+  } else {
+    if (elH) elH.value = '0';
+    if (elM) elM.value = '0';
+    if (elS) elS.value = '0';
+    if (lastCollectedEl) lastCollectedEl.textContent = '--:--';
+  }
 }

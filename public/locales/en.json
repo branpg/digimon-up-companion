@@ -68,7 +68,13 @@
       "gachaPullsTarget": "Pulls target",
       "gachaPullsRemaining": "Pulls remaining",
       "gachaCurrentTickets": "Current tickets",
-      "currentDigiEmeralds": "Current DigiEmeralds"
+      "currentDigiEmeralds": "Current DigiEmeralds",
+      "gachaElapsed": "Time without collecting",
+      "gachaElapsedHint": "Enter the time the game shows (HH:MM:SS)",
+      "collectionWarning": "Rewards are full! Collect them.",
+      "nextCollection": "Next collection at",
+      "lastCollected": "Last collected",
+      "updateCollection": "Update"
     }
   },
   "errors": {

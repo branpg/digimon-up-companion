@@ -68,7 +68,13 @@
       "gachaPullsTarget": "目標回数",
       "gachaPullsRemaining": "残り回数",
       "gachaCurrentTickets": "現在のチケット",
-      "currentDigiEmeralds": "現在のデジエメラルド"
+      "currentDigiEmeralds": "現在のデジエメラルド",
+      "gachaElapsed": "未回収の時間",
+      "gachaElapsedHint": "ゲーム表示の時間を入力（HH:MM:SS）",
+      "collectionWarning": "報酬が満杯です！回収してください。",
+      "nextCollection": "次の回収時刻",
+      "lastCollected": "最終回収",
+      "updateCollection": "更新"
     }
   },
   "errors": {

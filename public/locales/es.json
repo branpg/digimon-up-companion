@@ -68,7 +68,13 @@
       "gachaPullsTarget": "Tiradas objetivo",
       "gachaPullsRemaining": "Tiradas restantes",
       "gachaCurrentTickets": "Tickets actuales",
-      "currentDigiEmeralds": "Digiesmeraldas actuales"
+      "currentDigiEmeralds": "Digiesmeraldas actuales",
+      "gachaElapsed": "Tiempo sin recoger",
+      "gachaElapsedHint": "Introduce el tiempo que marca el juego (HH:MM:SS)",
+      "collectionWarning": "¡Las recompensas están llenas! Recógelas.",
+      "nextCollection": "Próxima recogida a las",
+      "lastCollected": "Última recogida",
+      "updateCollection": "Actualizar"
     }
   },
   "errors": {

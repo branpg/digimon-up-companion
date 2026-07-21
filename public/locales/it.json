@@ -68,7 +68,13 @@
       "gachaPullsTarget": "Tirate obiettivo",
       "gachaPullsRemaining": "Tirate rimanenti",
       "gachaCurrentTickets": "Ticket attuali",
-      "currentDigiEmeralds": "DigiSmeraldi attuali"
+      "currentDigiEmeralds": "DigiSmeraldi attuali",
+      "gachaElapsed": "Tempo senza raccogliere",
+      "gachaElapsedHint": "Inserisci il tempo mostrato dal gioco (HH:MM:SS)",
+      "collectionWarning": "Le ricompense sono piene! Raccoglile.",
+      "nextCollection": "Prossima raccolta alle",
+      "lastCollected": "Ultima raccolta",
+      "updateCollection": "Aggiorna"
     }
   },
   "errors": {

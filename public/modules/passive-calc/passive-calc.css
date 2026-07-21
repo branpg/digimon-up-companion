@@ -344,6 +344,153 @@
   font-size: 0.9rem;
 }
 
+/* === Quick-Add Buttons === */
+.mod-calc-quick-add {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.mod-calc-btn-quick {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #2a2a4e;
+  border-radius: 6px;
+  background: #0f0f23;
+  color: #7c5cfc;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.mod-calc-btn-quick:hover {
+  background: #1a1a3e;
+  border-color: #7c5cfc;
+}
+
+.mod-calc-btn-quick:active {
+  transform: scale(0.95);
+}
+
+.mod-calc-btn-quick:focus-visible {
+  outline: 2px solid #7c5cfc;
+  outline-offset: 2px;
+}
+
+/* === Field Hint === */
+.mod-calc-field-hint {
+  font-size: 0.72rem;
+  color: #666688;
+  margin-bottom: 4px;
+}
+
+/* === Elapsed Time Inputs === */
+.mod-calc-elapsed-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mod-calc-elapsed-inputs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mod-calc-input-elapsed {
+  width: 56px;
+  text-align: center;
+  flex: none;
+}
+
+.mod-calc-elapsed-sep {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #8888aa;
+}
+
+.mod-calc-btn-update {
+  padding: 8px 14px;
+  border: 1px solid #7c5cfc;
+  border-radius: 6px;
+  background: transparent;
+  color: #7c5cfc;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.mod-calc-btn-update:hover {
+  background: #7c5cfc22;
+}
+
+.mod-calc-btn-update:active {
+  transform: scale(0.95);
+}
+
+.mod-calc-btn-update:focus-visible {
+  outline: 2px solid #7c5cfc;
+  outline-offset: 2px;
+}
+
+.mod-calc-last-collected {
+  font-size: 0.78rem;
+  color: #8888aa;
+  margin-top: 6px;
+}
+
+.mod-calc-last-collected strong {
+  color: #c8c8e0;
+}
+
+/* === Collection Reminder === */
+.mod-calc-collection-reminder {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #2a1a0a;
+  border: 1px solid #ff6b35;
+  border-radius: 10px;
+  margin-top: 8px;
+}
+
+.mod-calc-collection-reminder[hidden] {
+  display: none;
+}
+
+.mod-calc-reminder-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.mod-calc-reminder-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mod-calc-reminder-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ff6b35;
+}
+
+.mod-calc-reminder-detail {
+  font-size: 0.82rem;
+  color: #c8c8e0;
+}
+
+.mod-calc-reminder-detail strong {
+  color: #ff6b35;
+  font-size: 1rem;
+}
+
 /* === Result hidden state === */
 .mod-calc-result[hidden] {
   display: none;
