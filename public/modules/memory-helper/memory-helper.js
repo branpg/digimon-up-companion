@@ -108,6 +108,20 @@ function bindEvents() {
 }
 
 /**
+ * Counts how many times each Digimon has been placed on the grid.
+ * @returns {number[]} Array of length DIGIMON_DATA.length with usage counts.
+ */
+function getDigimonUsageCount() {
+  const counts = new Array(DIGIMON_DATA.length).fill(0);
+  for (let i = 0; i < GRID_SIZE; i++) {
+    if (gridState[i] !== null) {
+      counts[gridState[i]]++;
+    }
+  }
+  return counts;
+}
+
+/**
  * Renders the 4x6 grid based on the current gridState.
  */
 function renderGrid() {
@@ -154,12 +168,19 @@ function renderGrid() {
       const selector = document.createElement('div');
       selector.className = 'mod-memory-selector';
 
+      // Count how many times each Digimon has been used
+      const usageCount = getDigimonUsageCount();
+
       DIGIMON_DATA.forEach((d, di) => {
         const mini = document.createElement('div');
-        mini.className = 'mod-memory-mini-item';
+        const isExhausted = usageCount[di] >= 2;
+        mini.className = 'mod-memory-mini-item' + (isExhausted ? ' mod-memory-mini-exhausted' : '');
         mini.style.background = d.color;
-        mini.title = d.name;
-        mini.addEventListener('click', () => selectCell(i, di));
+        mini.title = isExhausted ? `${d.name} (×2)` : d.name;
+
+        if (!isExhausted) {
+          mini.addEventListener('click', () => selectCell(i, di));
+        }
 
         const img = document.createElement('img');
         img.src = `/assets/img/digimon/${d.id}.png`;
