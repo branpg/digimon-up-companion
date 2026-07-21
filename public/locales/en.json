@@ -74,7 +74,9 @@
       "collectionWarning": "Rewards are full! Collect them.",
       "nextCollection": "Next collection at",
       "lastCollected": "Last collected",
-      "updateCollection": "Update"
+      "updateCollection": "Update",
+      "gachaFinishTime": "Finishes at",
+      "collectEvery7h": "Collect every 7h to keep accumulating"
     }
   },
   "errors": {

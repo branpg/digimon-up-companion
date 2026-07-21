@@ -74,7 +74,9 @@
       "collectionWarning": "Belohnungen sind voll! Hole sie ab.",
       "nextCollection": "Nächste Abholung um",
       "lastCollected": "Letzte Abholung",
-      "updateCollection": "Aktualisieren"
+      "updateCollection": "Aktualisieren",
+      "gachaFinishTime": "Fertig um",
+      "collectEvery7h": "Alle 7h abholen, um weiter zu sammeln"
     }
   },
   "errors": {

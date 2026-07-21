@@ -74,7 +74,9 @@
       "collectionWarning": "Recompensas estão cheias! Colete-as.",
       "nextCollection": "Próxima coleta às",
       "lastCollected": "Última coleta",
-      "updateCollection": "Atualizar"
+      "updateCollection": "Atualizar",
+      "gachaFinishTime": "Termina às",
+      "collectEvery7h": "Colete a cada 7h para continuar acumulando"
     }
   },
   "errors": {

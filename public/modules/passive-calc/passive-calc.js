@@ -802,9 +802,15 @@ function bindGachaCalculation() {
     setEl('mod-calc-gacha-needed', result.emeraldsNeeded);
 
     const timeEl = containerEl.querySelector('#mod-calc-gacha-time');
+    const finishEl = containerEl.querySelector('#mod-calc-gacha-finish-time');
+    const scheduleEl = containerEl.querySelector('#mod-calc-gacha-schedule');
+    const scheduleTimeEl = containerEl.querySelector('#mod-calc-gacha-schedule-time');
+
     if (timeEl) {
       if (result.emeraldsNeeded === 0) {
         timeEl.textContent = '✓';
+        if (finishEl) finishEl.textContent = '✓';
+        if (scheduleEl) scheduleEl.hidden = true;
       } else if (result.waitTime) {
         const { days, hours, minutes } = result.waitTime;
         const parts = [];
@@ -812,8 +818,27 @@ function bindGachaCalculation() {
         if (hours > 0) parts.push(`${hours}h`);
         if (minutes > 0) parts.push(`${minutes}m`);
         timeEl.textContent = parts.length > 0 ? parts.join(' ') : '0m';
+
+        // Calculate finish time
+        const totalMinutes = days * 1440 + hours * 60 + minutes;
+        const finishDate = new Date(Date.now() + totalMinutes * 60000);
+        if (finishEl) {
+          finishEl.textContent = `${String(finishDate.getHours()).padStart(2, '0')}:${String(finishDate.getMinutes()).padStart(2, '0')}`;
+        }
+
+        // Show collection schedule if wait > 8h
+        if (totalMinutes > PASSIVE_MAX_MINUTES && scheduleEl) {
+          scheduleEl.hidden = false;
+          if (scheduleTimeEl) {
+            scheduleTimeEl.textContent = calculateNextCollection(new Date());
+          }
+        } else if (scheduleEl) {
+          scheduleEl.hidden = true;
+        }
       } else {
         timeEl.textContent = '∞';
+        if (finishEl) finishEl.textContent = '—';
+        if (scheduleEl) scheduleEl.hidden = true;
       }
     }
   }, { signal: eventController.signal });

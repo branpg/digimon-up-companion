@@ -272,6 +272,7 @@
 
 .mod-calc-gacha-breakdown:last-of-type {
   border-bottom: none;
+  padding-bottom: 0;
 }
 
 .mod-calc-gacha-breakdown-title {
@@ -449,7 +450,8 @@
 }
 
 /* === Collection Reminder === */
-.mod-calc-collection-reminder {
+.mod-calc-collection-reminder,
+.mod-calc-gacha-collection-schedule {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -460,7 +462,8 @@
   margin-top: 8px;
 }
 
-.mod-calc-collection-reminder[hidden] {
+.mod-calc-collection-reminder[hidden],
+.mod-calc-gacha-collection-schedule[hidden] {
   display: none;
 }
 

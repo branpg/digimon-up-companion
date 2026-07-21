@@ -74,7 +74,9 @@
       "collectionWarning": "Le ricompense sono piene! Raccoglile.",
       "nextCollection": "Prossima raccolta alle",
       "lastCollected": "Ultima raccolta",
-      "updateCollection": "Aggiorna"
+      "updateCollection": "Aggiorna",
+      "gachaFinishTime": "Finisce alle",
+      "collectEvery7h": "Raccogli ogni 7h per continuare ad accumulare"
     }
   },
   "errors": {

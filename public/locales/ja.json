@@ -74,7 +74,9 @@
       "collectionWarning": "報酬が満杯です！回収してください。",
       "nextCollection": "次の回収時刻",
       "lastCollected": "最終回収",
-      "updateCollection": "更新"
+      "updateCollection": "更新",
+      "gachaFinishTime": "完了時刻",
+      "collectEvery7h": "7h毎に回収して蓄積を続けましょう"
     }
   },
   "errors": {

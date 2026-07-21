@@ -74,7 +74,9 @@
       "collectionWarning": "¡Las recompensas están llenas! Recógelas.",
       "nextCollection": "Próxima recogida a las",
       "lastCollected": "Última recogida",
-      "updateCollection": "Actualizar"
+      "updateCollection": "Actualizar",
+      "gachaFinishTime": "Termina a las",
+      "collectEvery7h": "Recoge cada 7h para seguir acumulando"
     }
   },
   "errors": {

@@ -254,6 +254,22 @@
               <span class="mod-calc-detail-label mod-calc-detail-label-total" data-i18n="modules.passiveCalc.gachaPassiveTime">Passive time needed</span>
               <span class="mod-calc-detail-value" id="mod-calc-gacha-time">—</span>
             </div>
+            <div class="mod-calc-detail-row">
+              <span class="mod-calc-detail-label mod-calc-detail-label-total" data-i18n="modules.passiveCalc.gachaFinishTime">Finishes at</span>
+              <span class="mod-calc-detail-value" id="mod-calc-gacha-finish-time">—</span>
+            </div>
+          </div>
+
+          <!-- Collection schedule (shown when wait > 8h) -->
+          <div class="mod-calc-gacha-collection-schedule" id="mod-calc-gacha-schedule" hidden>
+            <div class="mod-calc-reminder-icon">⏰</div>
+            <div class="mod-calc-reminder-content">
+              <p class="mod-calc-reminder-title" data-i18n="modules.passiveCalc.collectEvery7h">Collect every 7h to keep accumulating</p>
+              <p class="mod-calc-reminder-detail">
+                <span data-i18n="modules.passiveCalc.nextCollection">Next collection at</span>:
+                <strong id="mod-calc-gacha-schedule-time">--:--</strong>
+              </p>
+            </div>
           </div>
 
         </div>
