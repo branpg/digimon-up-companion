@@ -4,20 +4,17 @@ set -e
 # =============================================================================
 # Deploy script for Digimon UP Companion
 # 
-# Runs tests inside Docker, builds the production image, pushes to the
-# private registry, and restarts the container on the remote server via SSH.
+# Pulls latest code, runs tests inside Docker, builds the production image,
+# pushes to the private registry, and recreates the container locally.
 #
 # Usage: ./deploy.sh [--skip-tests]
 #
 # Requirements:
 #   - Docker with buildx support
-#   - SSH access to the deployment server
 #   - Access to registry.branpg.net
 # =============================================================================
 
 IMAGE="registry.branpg.net/digimonup:current"
-REMOTE_HOST="branpg.net"
-REMOTE_USER="deploy"
 COMPOSE_DIR="/opt/stacks/digimonup"
 
 # Colors for output
@@ -42,7 +39,11 @@ done
 # --- Pre-flight checks ---
 info "Running pre-flight checks..."
 command -v docker >/dev/null 2>&1 || error "Docker is not installed"
-command -v ssh >/dev/null 2>&1 || error "SSH is not available"
+command -v git >/dev/null 2>&1 || error "Git is not available"
+
+# --- Pull latest changes ---
+info "Pulling latest changes from remote..."
+git pull || error "git pull failed. Resolve conflicts before deploying."
 
 # --- Run tests inside Docker ---
 if [ "$SKIP_TESTS" = false ]; then
@@ -62,13 +63,10 @@ docker build -t "$IMAGE" .
 info "Pushing image to registry..."
 docker push "$IMAGE"
 
-# --- Deploy on remote server ---
-info "Deploying on remote server ($REMOTE_USER@$REMOTE_HOST)..."
-ssh "$REMOTE_USER@$REMOTE_HOST" << EOF
-  cd $COMPOSE_DIR
-  docker pull $IMAGE
-  docker compose up -d --force-recreate
-EOF
+# --- Deploy container ---
+info "Deploying container..."
+cd "$COMPOSE_DIR"
+docker compose up -d --force-recreate
 
 info "Deploy complete! 🎉"
 echo "  → https://digimonup.branpg.net"
