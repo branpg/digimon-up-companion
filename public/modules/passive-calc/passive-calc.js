@@ -826,12 +826,14 @@ function bindGachaCalculation() {
           finishEl.textContent = `${String(finishDate.getHours()).padStart(2, '0')}:${String(finishDate.getMinutes()).padStart(2, '0')}`;
         }
 
-        // Show "collect from" row if wait > 8h
-        if (totalMinutes > PASSIVE_MAX_MINUTES && scheduleEl) {
+        // Show "collect from" row if total passive time (elapsed + remaining) > 8h
+        const totalPassiveMinutes = elapsedMin + totalMinutes;
+        if (totalPassiveMinutes > PASSIVE_MAX_MINUTES && scheduleEl) {
           scheduleEl.hidden = false;
           if (scheduleTimeEl) {
-            // Next collection = now + 7h
-            const collectDate = new Date(Date.now() + COLLECTION_INTERVAL_MINUTES * 60000);
+            // Next collection = lastCollectedTs + 7h (or now + 7h if no timestamp)
+            const baseTime = gachaConfig.lastCollectedTs || Date.now();
+            const collectDate = new Date(baseTime + COLLECTION_INTERVAL_MINUTES * 60000);
             scheduleTimeEl.textContent = `${String(collectDate.getHours()).padStart(2, '0')}:${String(collectDate.getMinutes()).padStart(2, '0')}`;
           }
         } else if (scheduleEl) {
