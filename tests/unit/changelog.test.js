@@ -5,7 +5,8 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
 // Mock the i18n module before importing changelog
 vi.mock('/js/i18n.js', () => ({
-  t: (key) => key
+  t: (key) => key,
+  getCurrentLocale: () => 'en'
 }));
 
 describe('Changelog Module', () => {
@@ -17,8 +18,12 @@ describe('Changelog Module', () => {
 
     // Re-mock after resetModules
     vi.mock('/js/i18n.js', () => ({
-      t: (key) => key
+      t: (key) => key,
+      getCurrentLocale: () => 'en'
     }));
+
+    // Ensure fetch exists as a stub before importing the module
+    vi.stubGlobal('fetch', vi.fn(() => Promise.resolve({ ok: true, text: () => Promise.resolve('') })));
 
     // Create container matching changelog.html structure
     container = document.createElement('div');
@@ -56,7 +61,7 @@ describe('Changelog Module', () => {
 
       await changelog.init(container);
 
-      expect(fetch).toHaveBeenCalledWith('/CHANGELOG.md');
+      expect(fetch).toHaveBeenCalledWith('/changelogs/en.md');
       const contentEl = container.querySelector('#mod-changelog-content');
       expect(contentEl.innerHTML).not.toContain('Loading...');
       expect(contentEl.innerHTML).toContain('<h1>');
