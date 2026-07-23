@@ -5,6 +5,20 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.4.0] - 2025-07-23
+
+### Added
+
+- Daily Checklist module: complete daily task list to maximize progress
+- Checklist persists checked state by stable item ID (survives text corrections and new items)
+- Automatic daily reset at 08:00 with user confirmation banner
+- Manual reset button with confirmation
+- DemiDevimon Loop toggle (in-list) with configurable ticket count that repeats mission cycles
+- Inline tag badges (Mission, Resource burn, Shop, Camp, PvP)
+- "Hide completed" toggle (default on) to keep the list clean
+- Full i18n support: all steps and tags translated in 6 languages
+- Re-renders on language change via MutationObserver on `<html lang>`
+
 ## [1.3.0] - 2025-07-21
 
 ### Added

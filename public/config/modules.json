@@ -2,11 +2,18 @@
   "version": "1.0.0",
   "modules": [
     {
+      "id": "daily-checklist",
+      "name": "modules.dailyChecklist.name",
+      "icon": "✅",
+      "path": "modules/daily-checklist",
+      "default": true
+    },
+    {
       "id": "memory-helper",
       "name": "modules.memoryHelper.name",
       "icon": "🎴",
       "path": "modules/memory-helper",
-      "default": true
+      "default": false
     },
     {
       "id": "passive-calc",

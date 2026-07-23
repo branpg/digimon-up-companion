@@ -5,6 +5,20 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei dokume
 Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
 und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lang/de/).
 
+## [1.4.0] - 2025-07-23
+
+### Hinzugefügt
+
+- Neues Modul Tägliche Checkliste: vollständige tägliche Aufgabenliste zur Maximierung des Fortschritts
+- Check-Status wird über stabile ID gespeichert (überlebt Textkorrekturen und neue Einträge)
+- Automatischer täglicher Reset um 08:00 mit Bestätigungsbanner
+- Manueller Reset-Button mit Bestätigung
+- DemiDevimon-Loop-Schalter (in der Liste) mit konfigurierbarer Ticket-Anzahl für wiederholte Missionszyklen
+- Inline-Tag-Badges (Mission, Ressourcenverbrauch, Shop, Lager, PvP)
+- „Erledigte ausblenden"-Schalter (standardmäßig ein) für eine saubere Liste
+- Vollständige i18n-Unterstützung: alle Schritte und Tags in 6 Sprachen übersetzt
+- Re-Rendering bei Sprachwechsel über MutationObserver auf `<html lang>`
+
 ## [1.3.0] - 2025-07-21
 
 ### Hinzugefügt

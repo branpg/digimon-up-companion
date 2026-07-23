@@ -1,0 +1,289 @@
+/* Daily Checklist Module - CSS Isolation via mod-checklist-* prefix */
+
+.mod-checklist-container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  gap: 12px;
+}
+
+.mod-checklist-hidden {
+  display: none !important;
+}
+
+/* Header */
+.mod-checklist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mod-checklist-status {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+.mod-checklist-progress {
+  font-weight: bold;
+  color: #00d4ff;
+}
+
+.mod-checklist-controls {
+  display: flex;
+  gap: 8px;
+}
+
+/* Buttons */
+.mod-checklist-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+.mod-checklist-btn:hover {
+  transform: scale(1.05);
+}
+
+.mod-checklist-btn:active {
+  transform: scale(0.95);
+}
+
+.mod-checklist-btn-reset {
+  background: #e74c3c;
+  color: white;
+}
+
+.mod-checklist-btn-confirm {
+  background: #27ae60;
+  color: white;
+}
+
+.mod-checklist-btn-dismiss {
+  background: #7f8c8d;
+  color: white;
+}
+
+/* Reset Banner */
+.mod-checklist-reset-banner {
+  background: #2c3e50;
+  border: 2px solid #f39c12;
+  border-radius: 8px;
+  padding: 14px;
+  text-align: center;
+  animation: mod-checklist-pulse 2s infinite;
+}
+
+@keyframes mod-checklist-pulse {
+  0%, 100% { border-color: #f39c12; }
+  50% { border-color: #e74c3c; }
+}
+
+.mod-checklist-banner-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Loop Toggle (in-list) */
+.mod-checklist-loop-toggle {
+  background: #1a1a2e;
+  border: 1px solid #f39c12;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px 0;
+}
+
+.mod-checklist-loop-label {
+  font-size: 14px;
+  color: #f39c12;
+  font-weight: bold;
+}
+
+.mod-checklist-loop-ticket-row {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mod-checklist-loop-ticket-label {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.mod-checklist-input {
+  width: 70px;
+  padding: 6px 10px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: #16213e;
+  color: #eee;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Checklist Items */
+.mod-checklist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mod-checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #16213e;
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
+  transition: background 0.2s, opacity 0.2s;
+  cursor: pointer;
+}
+
+.mod-checklist-item:hover {
+  background: #1e2a4a;
+}
+
+.mod-checklist-item.mod-checklist-item-checked {
+  opacity: 0.5;
+  background: #0d1520;
+}
+
+.mod-checklist-item.mod-checklist-item-checked .mod-checklist-item-text {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.mod-checklist-check {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin-top: 2px;
+  accent-color: #00d4ff;
+  cursor: pointer;
+}
+
+.mod-checklist-item-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.mod-checklist-item-text {
+  font-size: 14px;
+  color: #ddd;
+  line-height: 1.4;
+}
+
+/* Inline Badges (no line break, before text) */
+.mod-checklist-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.mod-checklist-badge-mision {
+  background: #8e44ad;
+  color: #fff;
+}
+
+.mod-checklist-badge-quema {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.mod-checklist-badge-tienda {
+  background: #27ae60;
+  color: #fff;
+}
+
+.mod-checklist-badge-campamento {
+  background: #2ecc71;
+  color: #000;
+}
+
+.mod-checklist-badge-pvp {
+  background: #e67e22;
+  color: #fff;
+}
+
+/* Section dividers */
+.mod-checklist-section {
+  margin-top: 12px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #f39c12;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-left: 3px solid #f39c12;
+}
+
+.mod-checklist-section-burn {
+  color: #e74c3c;
+  border-left-color: #e74c3c;
+}
+
+.mod-checklist-section-optional {
+  color: #3498db;
+  border-left-color: #3498db;
+}
+
+/* Checkbox label for loop toggle */
+.mod-checklist-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* Hide completed toggle */
+.mod-checklist-hide-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.mod-checklist-hide-toggle input {
+  accent-color: #00d4ff;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .mod-checklist-container {
+    padding: 10px;
+  }
+
+  .mod-checklist-item {
+    padding: 8px 10px;
+  }
+
+  .mod-checklist-item-text {
+    font-size: 13px;
+  }
+}

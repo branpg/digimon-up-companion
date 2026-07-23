@@ -1,0 +1,31 @@
+<div class="mod-checklist-container">
+  <div class="mod-checklist-header">
+    <div class="mod-checklist-status">
+      <span class="mod-checklist-last-access" id="mod-checklist-last-access"></span>
+      <span class="mod-checklist-progress" id="mod-checklist-progress"></span>
+    </div>
+    <div class="mod-checklist-controls">
+      <label class="mod-checklist-hide-toggle">
+        <input type="checkbox" id="mod-checklist-hide-completed" checked>
+        <span data-i18n="modules.dailyChecklist.hideCompleted">Ocultar completados</span>
+      </label>
+      <button class="mod-checklist-btn mod-checklist-btn-reset" id="mod-checklist-reset-btn">
+        <span>🔄</span> <span data-i18n="modules.dailyChecklist.reset">Resetear</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mod-checklist-reset-banner mod-checklist-hidden" id="mod-checklist-reset-banner">
+    <span data-i18n="modules.dailyChecklist.resetPrompt">Nuevo día detectado. ¿Resetear la checklist?</span>
+    <div class="mod-checklist-banner-actions">
+      <button class="mod-checklist-btn mod-checklist-btn-confirm" id="mod-checklist-confirm-reset">
+        <span data-i18n="modules.dailyChecklist.confirmReset">Sí, resetear</span>
+      </button>
+      <button class="mod-checklist-btn mod-checklist-btn-dismiss" id="mod-checklist-dismiss-reset">
+        <span data-i18n="modules.dailyChecklist.dismissReset">No, mantener</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mod-checklist-list" id="mod-checklist-list"></div>
+</div>

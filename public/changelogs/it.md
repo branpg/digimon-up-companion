@@ -5,6 +5,20 @@ Tutte le modifiche rilevanti di questo progetto sono documentate in questo file.
 Il formato si basa su [Keep a Changelog](https://keepachangelog.com/it/1.0.0/),
 e questo progetto aderisce al [Versionamento Semantico](https://semver.org/lang/it/).
 
+## [1.4.0] - 2025-07-23
+
+### Aggiunto
+
+- Nuovo modulo Checklist Giornaliera: lista completa delle attività giornaliere per massimizzare il progresso
+- Stato dei check salvato con ID stabile (sopravvive a correzioni di testo e nuovi elementi)
+- Reset giornaliero automatico alle 08:00 con banner di conferma
+- Pulsante di reset manuale con conferma
+- Toggle del DemiDevimon Loop integrato nella lista con numero di ticket configurabile che ripete cicli di missioni
+- Badge tag inline (Missione, Consumo risorse, Negozio, Campo, PvP)
+- Toggle "Nascondi completati" (attivo di default) per mantenere la lista pulita
+- Supporto i18n completo: tutti i passaggi e tag tradotti in 6 lingue
+- Re-rendering al cambio lingua tramite MutationObserver su `<html lang>`
+
 ## [1.3.0] - 2025-07-21
 
 ### Aggiunto
