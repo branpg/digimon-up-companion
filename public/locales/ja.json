@@ -85,7 +85,7 @@
         "spendBuddySouls": "バディソウルを使う",
         "spendDigichips": "デジチップを使う",
         "spendDigiplacas": "デジプレートを使う",
-        "burnHologram": "残りのホログラムチケットを消費する",
+        "burnHologram": "残りのホログラムチケットをレベル99でないデジモンで消費する",
         "burnSkillcardAds": "広告を見てスキルカードガチャの無料15連を2回使う",
         "burnSupportAds": "広告を見てサポートデジモンガチャの無料15連を2回使う",
         "burnEmeraldsGacha": "残りのデジエメラルドを全てガチャに使う（レベルが低い方を優先）",
