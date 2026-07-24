@@ -33,6 +33,9 @@ const CHECKLIST_ITEMS = [
   { id: "dimensional-house", i18nKey: "dimensionalHouse", tags: [] },
   { id: "hologram-auto", i18nKey: "hologramAuto", tags: [] },
 
+  { id: "optional-x2-speed-1", i18nKey: "optionalX2Speed1", tags: ["opcional"] },
+  { id: "optional-x2-speed-2", i18nKey: "optionalX2Speed2", tags: ["opcional"] },
+
   { id: "loop-toggle", type: "loopToggle" },
 
   { id: "loop-mission-demidev", i18nKey: "loopMissionDemidev", tags: ["mision"], loopOnly: true, loopRepeat: true },
@@ -96,8 +99,6 @@ const CHECKLIST_ITEMS = [
   { id: "rank-missions", i18nKey: "rankMissions", tags: [] },
 
   { id: "optional-memory-game", i18nKey: "optionalMemoryGame", tags: ["opcional"] },
-  { id: "optional-x2-speed-1", i18nKey: "optionalX2Speed1", tags: ["opcional"] },
-  { id: "optional-x2-speed-2", i18nKey: "optionalX2Speed2", tags: ["opcional"] },
   { id: "optional-daily-bonus", i18nKey: "optionalDailyBonus", tags: ["opcional"] },
 
   { id: "dim-box-round1", i18nKey: "dimBoxRound1", tags: ["espera"] },
