@@ -5,6 +5,25 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.4.1] - 2025-07-24
+
+### Fixed
+
+- Typo in Daily Checklist: "Dimensional House" → "Dimensional Box" in all languages
+
+### Changed
+
+- Rank missions text updated: now says to check mission status for trainer rank progression
+- "Optional" section removed and replaced with an inline "optional" tag on relevant items
+
+### Added
+
+- New "wait" tag (orange) for items that require waiting
+- 2 Dimensional Box items at the end of the list with "wait" tag (remove/replace partners by rounds and after 16h)
+- "Check the Gifts tab" item before resource burn section
+- 2 optional x2 speed items via ad (recommended for combat missions)
+- Optional "Collect daily bonus if available" item
+
 ## [1.4.0] - 2025-07-23
 
 ### Added

@@ -228,6 +228,16 @@
   color: #fff;
 }
 
+.mod-checklist-badge-opcional {
+  background: #7f8c8d;
+  color: #fff;
+}
+
+.mod-checklist-badge-espera {
+  background: #e67e22;
+  color: #fff;
+}
+
 /* Section dividers */
 .mod-checklist-section {
   margin-top: 12px;

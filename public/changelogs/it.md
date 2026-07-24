@@ -5,6 +5,25 @@ Tutte le modifiche rilevanti di questo progetto sono documentate in questo file.
 Il formato si basa su [Keep a Changelog](https://keepachangelog.com/it/1.0.0/),
 e questo progetto aderisce al [Versionamento Semantico](https://semver.org/lang/it/).
 
+## [1.4.1] - 2025-07-24
+
+### Corretto
+
+- Errore nella Checklist Giornaliera: "Casa Dimensionale" → "Cassa Dimensionale" in tutte le lingue
+
+### Modificato
+
+- Testo delle missioni di grado aggiornato: ora indica di controllare lo stato delle missioni per la progressione del grado allenatore
+- Sezione "Opzionale" rimossa e sostituita con un tag "opzionale" inline sugli elementi corrispondenti
+
+### Aggiunto
+
+- Nuovo tag "attesa" (arancione) per elementi che richiedono tempo di attesa
+- 2 elementi della Cassa Dimensionale alla fine della lista con tag "attesa" (rimuovere/riposizionare compagni per turni e dopo 16h)
+- Elemento "Controlla la scheda Regali" prima della sezione consumo risorse
+- 2 elementi opzionali velocità x2 tramite pubblicità (consigliato per missioni di combattimento)
+- Elemento opzionale "Raccogli il bonus giornaliero se disponibile"
+
 ## [1.4.0] - 2025-07-23
 
 ### Aggiunto

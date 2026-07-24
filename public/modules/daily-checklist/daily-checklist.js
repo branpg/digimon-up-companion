@@ -84,6 +84,8 @@ const CHECKLIST_ITEMS = [
   { id: "spend-digichips", i18nKey: "spendDigichips", tags: [] },
   { id: "spend-digiplacas", i18nKey: "spendDigiplacas", tags: [] },
 
+  { id: "check-gifts", i18nKey: "checkGifts", tags: [] },
+
   { id: "burn-hologram", i18nKey: "burnHologram", tags: ["quemaDeRecursos"] },
   { id: "burn-skillcard-ads", i18nKey: "burnSkillcardAds", tags: ["quemaDeRecursos"] },
   { id: "burn-support-ads", i18nKey: "burnSupportAds", tags: ["quemaDeRecursos"] },
@@ -91,9 +93,15 @@ const CHECKLIST_ITEMS = [
 
   { id: "apocalymon-ranking", i18nKey: "apocalymonRanking", tags: [] },
 
-  { id: "section-optional", type: "section", sectionType: "optional", i18nKey: "sectionOptional" },
+  { id: "rank-missions", i18nKey: "rankMissions", tags: [] },
 
-  { id: "optional-memory-game", i18nKey: "optionalMemoryGame", tags: [] }
+  { id: "optional-memory-game", i18nKey: "optionalMemoryGame", tags: ["opcional"] },
+  { id: "optional-x2-speed-1", i18nKey: "optionalX2Speed1", tags: ["opcional"] },
+  { id: "optional-x2-speed-2", i18nKey: "optionalX2Speed2", tags: ["opcional"] },
+  { id: "optional-daily-bonus", i18nKey: "optionalDailyBonus", tags: ["opcional"] },
+
+  { id: "dim-box-round1", i18nKey: "dimBoxRound1", tags: ["espera"] },
+  { id: "dim-box-16h", i18nKey: "dimBox16h", tags: ["espera"] }
 ];
 
 /** @type {Set<string>} */
@@ -532,7 +540,9 @@ function getBadgeClass(tagKey) {
     'quemaDeRecursos': 'quema',
     'tienda': 'tienda',
     'campamento': 'campamento',
-    'pvp': 'pvp'
+    'pvp': 'pvp',
+    'opcional': 'opcional',
+    'espera': 'espera'
   };
   return map[tagKey] || 'mision';
 }

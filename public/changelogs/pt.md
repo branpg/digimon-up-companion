@@ -5,6 +5,25 @@ Todas as mudanças notáveis deste projeto são documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
+## [1.4.1] - 2025-07-24
+
+### Corrigido
+
+- Erro na Checklist Diária: "Casa Dimensional" → "Caixa Dimensional" em todos os idiomas
+
+### Alterado
+
+- Texto das missões de rank atualizado: agora indica verificar o estado das missões para progressão do rank de treinador
+- Seção "Opcional" removida e substituída por uma tag "opcional" inline nos itens correspondentes
+
+### Adicionado
+
+- Nova tag "espera" (laranja) para itens que requerem tempo de espera
+- 2 itens de Caixa Dimensional no final da lista com tag "espera" (remover/recolocar companheiros por rodadas e após 16h)
+- Item "Verifique a aba de Presentes" antes da seção de queima de recursos
+- 2 itens opcionais de velocidade x2 por anúncio (recomendado para missões de combate)
+- Item opcional "Coletar bônus diário se disponível"
+
 ## [1.4.0] - 2025-07-23
 
 ### Adicionado

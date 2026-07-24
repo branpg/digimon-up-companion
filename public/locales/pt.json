@@ -38,14 +38,16 @@
         "quemaDeRecursos": "Queima de recursos",
         "tienda": "Loja",
         "campamento": "Acampamento",
-        "pvp": "PvP"
+        "pvp": "PvP",
+        "opcional": "Opcional",
+        "espera": "Espera"
       },
       "steps": {
         "collectIdle": "Colete suas recompensas de tempo inativo",
         "gachaPull": "Faça as puxadas de 10 diárias com DigiEsmeraldas em todos os banners ativos",
         "spendCombatTickets": "Gaste todos os Tickets do terminal de combate para gerar passivamente mais",
         "spendGrandprixTickets": "Gaste todos os Tickets do Grand Prix D-1 para gerar passivamente mais",
-        "dimensionalHouse": "Coloque os colegas na casa dimensional",
+        "dimensionalHouse": "Coloque os colegas na caixa dimensional",
         "hologramAuto": "Troque para um Digimon que não seja nível 99 e ative o consumo automático de Tickets de holograma (Pause para Apocalymon ou PvP)",
         "loopMissionDemidev": "Complete VS DemiDevimon! 2 vezes e complete a missão",
         "loopMissionBakemon": "Complete VS Bakemon! 2 vezes e complete a missão",
@@ -85,13 +87,19 @@
         "spendBuddySouls": "Gaste as Almas de colega",
         "spendDigichips": "Gaste os Digichips",
         "spendDigiplacas": "Gaste as DigiPlacas",
+        "checkGifts": "Verifique a aba de Presentes por possíveis recompensas de evento ou compensações",
         "burnHologram": "Consuma os Tickets de holograma restantes em um Digimon que não seja nível 99",
         "burnSkillcardAds": "Use as 2 puxadas grátis de 15 no gacha de cartas de habilidade assistindo anúncios",
         "burnSupportAds": "Use as 2 puxadas grátis de 15 no gacha de Digimon de suporte assistindo anúncios",
         "burnEmeraldsGacha": "Gaste todas as DigiEsmeraldas restantes em puxadas de gacha, priorizando o de nível mais baixo",
         "apocalymonRanking": "Complete Muro Apocalymon tentando a maior pontuação para recompensas de ranking",
-        "sectionOptional": "Opcional",
-        "optionalMemoryGame": "Se estiver entediado jogue o jogo da memória"
+        "rankMissions": "Verifique o estado das missões para subir o ranking de treinador",
+        "optionalMemoryGame": "Se estiver entediado jogue o jogo da memória",
+        "optionalX2Speed1": "Colocar velocidade de combate em x2 assistindo anúncio (1/2). Recomendado para missões de derrotar X inimigos e/ou avançar níveis. Não necessário com o passe",
+        "optionalX2Speed2": "Colocar velocidade de combate em x2 assistindo anúncio (2/2)",
+        "optionalDailyBonus": "Recolher bônus diário se disponível",
+        "dimBoxRound1": "Caixa Dimensional — Retire e recoloque os colegas (Rodada 1). Se algum colega for retirado antes do tempo, coloque-o de volta o quanto antes",
+        "dimBox16h": "Caixa Dimensional — Retire os colegas quando completarem 16h. Se algum foi retirado antes, continue colocando-o até completar as 16h"
       }
     },
     "changelog": {

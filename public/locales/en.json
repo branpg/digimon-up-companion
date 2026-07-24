@@ -38,14 +38,16 @@
         "quemaDeRecursos": "Resource burn",
         "tienda": "Shop",
         "campamento": "Camp",
-        "pvp": "PvP"
+        "pvp": "PvP",
+        "opcional": "Optional",
+        "espera": "Wait"
       },
       "steps": {
         "collectIdle": "Collect your idle time rewards",
         "gachaPull": "Do the daily 10-pulls with DigiEmeralds on all active banners",
         "spendCombatTickets": "Spend all your Combat Terminal entry tickets to generate more passively",
         "spendGrandprixTickets": "Spend all your Grand Prix D-1 entry tickets to generate more passively",
-        "dimensionalHouse": "Place buddies in the dimensional house",
+        "dimensionalHouse": "Place buddies in the dimensional box",
         "hologramAuto": "Switch to a non-level 99 Digimon and activate auto-consume Hologram Tickets until they run out (Pause temporarily for Apocalymon or PvP)",
         "loopMissionDemidev": "Complete VS DemiDevimon! 2 times and complete the mission",
         "loopMissionBakemon": "Complete VS Bakemon! 2 times and complete the mission",
@@ -85,13 +87,19 @@
         "spendBuddySouls": "Spend Buddy Souls",
         "spendDigichips": "Spend Digichips",
         "spendDigiplacas": "Spend DigiPlates",
+        "checkGifts": "Check the Gifts tab for possible event rewards or compensation",
         "burnHologram": "Use remaining Hologram Tickets on a non-level 99 Digimon",
         "burnSkillcardAds": "Use the 2 free 15-pulls on skill card gacha by watching ads",
         "burnSupportAds": "Use the 2 free 15-pulls on support Digimon gacha by watching ads",
         "burnEmeraldsGacha": "Spend all remaining DigiEmeralds on skill card and support Digimon gacha pulls, prioritizing the lowest level one",
         "apocalymonRanking": "Complete Apocalymon Wall trying to get the highest score for ranking position rewards",
-        "sectionOptional": "Optional",
-        "optionalMemoryGame": "If you're bored, play the memory game"
+        "rankMissions": "Check the status of missions to raise your trainer rank",
+        "optionalMemoryGame": "If you're bored, play the memory game",
+        "optionalX2Speed1": "Set combat speed to x2 by watching an ad (1/2). Recommended for defeat X enemies missions and/or to advance levels when powering up. Not needed if you have the pass",
+        "optionalX2Speed2": "Set combat speed to x2 by watching an ad (2/2)",
+        "optionalDailyBonus": "Collect daily bonus if available",
+        "dimBoxRound1": "Dimensional Box — Withdraw and replace buddies (Round 1). If a buddy is removed early, place it back as soon as possible",
+        "dimBox16h": "Dimensional Box — Withdraw buddies once they reach 16h. If any were removed early, keep placing them back until they complete 16h"
       }
     },
     "changelog": {

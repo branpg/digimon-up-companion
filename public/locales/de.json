@@ -38,14 +38,16 @@
         "quemaDeRecursos": "Ressourcenverbr.",
         "tienda": "Shop",
         "campamento": "Lager",
-        "pvp": "PvP"
+        "pvp": "PvP",
+        "opcional": "Optional",
+        "espera": "Warten"
       },
       "steps": {
         "collectIdle": "Sammle deine Leerlauf-Belohnungen ein",
         "gachaPull": "Mache die täglichen 10er-Ziehungen mit DigiSmaragden auf allen aktiven Bannern",
         "spendCombatTickets": "Verbrauche alle Kampfterminal-Tickets um passiv mehr zu generieren",
         "spendGrandprixTickets": "Verbrauche alle Grand Prix D-1-Tickets um passiv mehr zu generieren",
-        "dimensionalHouse": "Platziere Kumpels im Dimensionshaus",
+        "dimensionalHouse": "Platziere Kumpels in der Dimensionsbox",
         "hologramAuto": "Wechsle zu einem Nicht-Level-99-Digimon und aktiviere den automatischen Hologramm-Ticket-Verbrauch (Pausiere für Apocalymon oder PvP)",
         "loopMissionDemidev": "Besiege DemiDevimon! 2-mal und schließe die Mission ab",
         "loopMissionBakemon": "Besiege Bakemon! 2-mal und schließe die Mission ab",
@@ -85,13 +87,19 @@
         "spendBuddySouls": "Verbrauche Kumpel-Seelen",
         "spendDigichips": "Verbrauche Digichips",
         "spendDigiplacas": "Verbrauche DigiPlatten",
+        "checkGifts": "Überprüfe den Geschenke-Tab auf mögliche Event-Belohnungen oder Entschädigungen",
         "burnHologram": "Verbrauche verbleibende Hologramm-Tickets mit einem Nicht-Level-99-Digimon",
         "burnSkillcardAds": "Nutze die 2 kostenlosen 15er-Ziehungen im Fähigkeitskarten-Gacha durch Werbung",
         "burnSupportAds": "Nutze die 2 kostenlosen 15er-Ziehungen im Support-Digimon-Gacha durch Werbung",
         "burnEmeraldsGacha": "Verbrauche alle verbleibenden DigiSmaragde für Ziehungen in den Gachas, priorisiere das mit dem niedrigsten Level",
         "apocalymonRanking": "Schließe die Apocalymon-Mauer ab und versuche die höchste Punktzahl für Ranking-Belohnungen",
-        "sectionOptional": "Optional",
-        "optionalMemoryGame": "Wenn dir langweilig ist, spiel das Gedächtnisspiel"
+        "rankMissions": "Überprüfe den Status der Missionen um deinen Trainer-Rang zu erhöhen",
+        "optionalMemoryGame": "Wenn dir langweilig ist, spiel das Gedächtnisspiel",
+        "optionalX2Speed1": "Kampfgeschwindigkeit auf x2 setzen durch Werbung (1/2). Empfohlen für Missionen mit X Gegner besiegen und/oder zum Levelaufstieg. Nicht nötig mit Pass",
+        "optionalX2Speed2": "Kampfgeschwindigkeit auf x2 setzen durch Werbung (2/2)",
+        "optionalDailyBonus": "Täglichen Bonus abholen falls verfügbar",
+        "dimBoxRound1": "Dimensionsbox — Kumpels abholen und neu platzieren (Runde 1). Falls ein Kumpel vorzeitig entfernt wird, platziere ihn so schnell wie möglich erneut",
+        "dimBox16h": "Dimensionsbox — Kumpels abholen sobald sie 16h erreichen. Falls einer vorzeitig entfernt wurde, platziere ihn weiter bis er 16h erreicht"
       }
     },
     "changelog": {

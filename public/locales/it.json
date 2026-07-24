@@ -38,14 +38,16 @@
         "quemaDeRecursos": "Consumo risorse",
         "tienda": "Negozio",
         "campamento": "Campo",
-        "pvp": "PvP"
+        "pvp": "PvP",
+        "opcional": "Opzionale",
+        "espera": "Attesa"
       },
       "steps": {
         "collectIdle": "Raccogli le ricompense del tempo inattivo",
         "gachaPull": "Fai le tirate da 10 giornaliere con DigiSmeraldi su tutti i banner attivi",
         "spendCombatTickets": "Spendi tutti i Ticket del terminale di combattimento per generarne passivamente di più",
         "spendGrandprixTickets": "Spendi tutti i Ticket del Grand Prix D-1 per generarne passivamente di più",
-        "dimensionalHouse": "Piazza i compagni nella casa dimensionale",
+        "dimensionalHouse": "Piazza i compagni nella cassa dimensionale",
         "hologramAuto": "Passa a un Digimon non livello 99 e attiva il consumo automatico dei Ticket ologramma fino a esaurimento (Pausa per Apocalymon o PvP)",
         "loopMissionDemidev": "Completa VS DemiDevimon! 2 volte e completa la missione",
         "loopMissionBakemon": "Completa VS Bakemon! 2 volte e completa la missione",
@@ -85,13 +87,19 @@
         "spendBuddySouls": "Spendi le Anime compagno",
         "spendDigichips": "Spendi i Digichip",
         "spendDigiplacas": "Spendi le DigiPlacche",
+        "checkGifts": "Controlla la scheda Regali per possibili ricompense evento o compensazioni",
         "burnHologram": "Consuma i Ticket ologramma rimanenti con un Digimon che non sia livello 99",
         "burnSkillcardAds": "Usa le 2 tirate gratuite da 15 nel gacha carte abilità guardando pubblicità",
         "burnSupportAds": "Usa le 2 tirate gratuite da 15 nel gacha Digimon di supporto guardando pubblicità",
         "burnEmeraldsGacha": "Spendi tutti i DigiSmeraldi rimanenti in tirate gacha, dando priorità a quello con il livello più basso",
         "apocalymonRanking": "Completa Muro Apocalymon cercando il punteggio più alto per le ricompense di classifica",
-        "sectionOptional": "Opzionale",
-        "optionalMemoryGame": "Se ti annoi gioca al gioco della memoria"
+        "rankMissions": "Controlla lo stato delle missioni per aumentare il rango allenatore",
+        "optionalMemoryGame": "Se ti annoi gioca al gioco della memoria",
+        "optionalX2Speed1": "Imposta la velocità di combattimento a x2 guardando una pubblicità (1/2). Consigliato per missioni di sconfiggere X nemici e/o per avanzare livelli. Non necessario con il pass",
+        "optionalX2Speed2": "Imposta la velocità di combattimento a x2 guardando una pubblicità (2/2)",
+        "optionalDailyBonus": "Raccogli il bonus giornaliero se disponibile",
+        "dimBoxRound1": "Cassa Dimensionale — Ritira e riposiziona i compagni (Round 1). Se un compagno viene rimosso prima del tempo, rimettilo il prima possibile",
+        "dimBox16h": "Cassa Dimensionale — Ritira i compagni una volta raggiunte le 16h. Se qualcuno è stato rimosso prima, continua a rimetterlo fino a completare le 16h"
       }
     },
     "changelog": {

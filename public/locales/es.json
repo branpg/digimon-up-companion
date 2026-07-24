@@ -38,14 +38,16 @@
         "quemaDeRecursos": "Quema de recursos",
         "tienda": "Tienda",
         "campamento": "Campamento",
-        "pvp": "PvP"
+        "pvp": "PvP",
+        "opcional": "Opcional",
+        "espera": "Espera"
       },
       "steps": {
         "collectIdle": "Recoge tus recompensas de tiempo inactivo",
         "gachaPull": "Haz las tiradas de 10 diarias por digiesmeraldas en todos los banners activos",
         "spendCombatTickets": "Gasta todos tus Tickets de entrada de la terminal de combate para generar pasivamente más",
         "spendGrandprixTickets": "Gasta todos tus Tickets de entrada del Grand Prix D-1 para generar pasivamente más",
-        "dimensionalHouse": "Coloca a los colegas en la casa dimensional",
+        "dimensionalHouse": "Coloca a los colegas en la caja dimensional",
         "hologramAuto": "Cambia a un digimon que no sea nivel 99 y activa que se consuman automáticamente los Tickets de holograma hasta que se terminen (Páralo temporalmente para hacer Apocalymon o PvP)",
         "loopMissionDemidev": "Completar 2 veces ¡Contra DemiDevimon! y completa la misión",
         "loopMissionBakemon": "Completar 2 veces ¡Contra Bakemon! y completa la misión",
@@ -85,13 +87,19 @@
         "spendBuddySouls": "Gasta las Almas de colega",
         "spendDigichips": "Gasta los Digichips",
         "spendDigiplacas": "Gasta las DigiPlacas",
+        "checkGifts": "Revisa la pestaña de Regalos por posibles recompensas de eventos o compensaciones",
         "burnHologram": "Consume los Ticket de holograma restantes en un digimon que no sea nivel 99",
         "burnSkillcardAds": "Consume las 2 tiradas de 15 en el sorteo de cartas de habilidad viendo anuncios",
         "burnSupportAds": "Consume las 2 tiradas de 15 en el sorteo de digimon de apoyo viendo anuncios",
         "burnEmeraldsGacha": "Gasta todas tus DigiEsmeraldas restantes en tiradas de los sorteos de cartas de habilidad y digimon de apoyo priorizando el que esté más bajo de nivel",
         "apocalymonRanking": "Completa Muro Apocalymon intentando sacar la puntuación más alta para las recompensas por posición en el ranking",
-        "sectionOptional": "Opcional",
-        "optionalMemoryGame": "Si te aburres haz el juego de memoria"
+        "rankMissions": "Comprueba el estado de las misiones para subir el rango de entrenador",
+        "optionalMemoryGame": "Si te aburres haz el juego de memoria",
+        "optionalX2Speed1": "Poner la velocidad de combate a x2 viendo un anuncio (1/2). Recomendado para misiones de derrotar X enemigos y/o para avanzar niveles cuando subes poder. Si tienes el pase no es necesario",
+        "optionalX2Speed2": "Poner la velocidad de combate a x2 viendo un anuncio (2/2)",
+        "optionalDailyBonus": "Recoger bonus diario si está disponible",
+        "dimBoxRound1": "Caja Dimensional — Retira y recoloca a los colegas (Ronda 1). Si te retiran algún colega antes de tiempo, vuelve a colocarlo cuanto antes",
+        "dimBox16h": "Caja Dimensional — Retira a los colegas una vez cumplan las 16h. Si alguno fue retirado antes de tiempo, sigue metiéndolo hasta que cumpla las 16h"
       }
     },
     "changelog": {

@@ -5,6 +5,25 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei dokume
 Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
 und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lang/de/).
 
+## [1.4.1] - 2025-07-24
+
+### Behoben
+
+- Tippfehler in der Täglichen Checkliste: „Dimensionales Haus" → „Dimensionale Box" in allen Sprachen
+
+### Geändert
+
+- Text der Rang-Missionen aktualisiert: weist jetzt auf das Prüfen des Missionsstatus für den Trainer-Rangaufstieg hin
+- Abschnitt „Optional" entfernt und durch ein Inline-Tag „optional" bei den entsprechenden Einträgen ersetzt
+
+### Hinzugefügt
+
+- Neues Tag „Warten" (orange) für Einträge, die Wartezeit erfordern
+- 2 Einträge zur Dimensionalen Box am Ende der Liste mit Tag „Warten" (Partner nach Runden entfernen/ersetzen und nach 16h)
+- Eintrag „Geschenke-Tab prüfen" vor dem Ressourcenverbrauch
+- 2 optionale x2-Geschwindigkeits-Einträge per Werbung (empfohlen für Kampfmissionen)
+- Optionaler Eintrag „Täglichen Bonus abholen, falls verfügbar"
+
 ## [1.4.0] - 2025-07-23
 
 ### Hinzugefügt

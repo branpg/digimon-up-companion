@@ -38,14 +38,16 @@
         "quemaDeRecursos": "リソース消費",
         "tienda": "ショップ",
         "campamento": "キャンプ",
-        "pvp": "PvP"
+        "pvp": "PvP",
+        "opcional": "オプション",
+        "espera": "待機"
       },
       "steps": {
         "collectIdle": "放置報酬を回収する",
         "gachaPull": "全アクティブバナーでデジエメラルドを使って毎日の10連ガチャを引く",
         "spendCombatTickets": "コンバットターミナルの入場チケットを全部使ってパッシブ生成を増やす",
         "spendGrandprixTickets": "グランプリD-1の入場チケットを全部使ってパッシブ生成を増やす",
-        "dimensionalHouse": "仲間をディメンショナルハウスに配置する",
+        "dimensionalHouse": "仲間をディメンショナルボックスに配置する",
         "hologramAuto": "レベル99でないデジモンに切り替えてホログラムチケットの自動消費を有効にする（アポカリモンやPvPの時は一時停止）",
         "loopMissionDemidev": "VS DemiDevimon!を2回クリアしてミッションを完了する",
         "loopMissionBakemon": "VS Bakemon!を2回クリアしてミッションを完了する",
@@ -85,13 +87,19 @@
         "spendBuddySouls": "バディソウルを使う",
         "spendDigichips": "デジチップを使う",
         "spendDigiplacas": "デジプレートを使う",
+        "checkGifts": "ギフトタブでイベント報酬や補填がないか確認する",
         "burnHologram": "残りのホログラムチケットをレベル99でないデジモンで消費する",
         "burnSkillcardAds": "広告を見てスキルカードガチャの無料15連を2回使う",
         "burnSupportAds": "広告を見てサポートデジモンガチャの無料15連を2回使う",
         "burnEmeraldsGacha": "残りのデジエメラルドを全てガチャに使う（レベルが低い方を優先）",
         "apocalymonRanking": "アポカリモンウォールで最高スコアを目指してランキング報酬を獲得する",
-        "sectionOptional": "オプション",
-        "optionalMemoryGame": "暇ならメモリーゲームをやる"
+        "rankMissions": "トレーナーランクを上げるミッションの状態を確認する",
+        "optionalMemoryGame": "暇ならメモリーゲームをやる",
+        "optionalX2Speed1": "広告を見て戦闘速度をx2にする（1/2）。敵をX体倒すミッションやパワーアップ時のレベル上げにおすすめ。パスがあれば不要",
+        "optionalX2Speed2": "広告を見て戦闘速度をx2にする（2/2）",
+        "optionalDailyBonus": "デイリーボーナスがあれば受け取る",
+        "dimBoxRound1": "ディメンショナルボックス — 仲間を引き出して再配置する（ラウンド1）。早めに外された仲間がいたらすぐに戻す",
+        "dimBox16h": "ディメンショナルボックス — 16時間に達したら仲間を引き出す。早めに外された仲間は16時間になるまで戻し続ける"
       }
     },
     "changelog": {

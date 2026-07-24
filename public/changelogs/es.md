@@ -5,6 +5,25 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/),
 y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.4.1] - 2025-07-24
+
+### Corregido
+
+- Typo en Checklist Diaria: "Casa Dimensional" → "Caja Dimensional" en todos los idiomas
+
+### Cambiado
+
+- Texto de misiones de rango actualizado: ahora indica comprobar el estado de las misiones para subir el rango de entrenador
+- Sección "Opcional" eliminada y reemplazada por un tag "opcional" inline en los items correspondientes
+
+### Añadido
+
+- Nuevo tag "espera" (naranja) para items que requieren esperar un tiempo
+- 2 items de Caja Dimensional al final de la lista con tag "espera" (retirar/recolocar colegas por rondas y al cumplir 16h)
+- Item "Revisa la pestaña de Regalos" antes de la quema de recursos
+- 2 items opcionales de velocidad x2 por anuncio (recomendado para misiones de combate)
+- Item opcional "Recoger bonus diario si está disponible"
+
 ## [1.4.0] - 2025-07-23
 
 ### Añadido
