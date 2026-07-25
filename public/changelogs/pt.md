@@ -5,6 +5,12 @@ Todas as mudanças notáveis deste projeto são documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
+## [1.4.2] - 2025-07-25
+
+### Alterado
+
+- Nível Gacha: limite máximo de puxadas aumentado de 9.999 para 100.000
+
 ## [1.4.1] - 2025-07-24
 
 ### Corrigido

@@ -5,6 +5,12 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei dokume
 Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
 und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lang/de/).
 
+## [1.4.2] - 2025-07-25
+
+### Geändert
+
+- Gacha-Level: maximales Ziehungslimit von 9.999 auf 100.000 erhöht
+
 ## [1.4.1] - 2025-07-24
 
 ### Behoben

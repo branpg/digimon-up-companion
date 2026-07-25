@@ -14,7 +14,7 @@ const TAB_STORAGE_KEY = 'digimemory-passive-tab';
 
 const REWARD_MAX = 999999999;
 const EMERALD_MAX = 99999;
-const GACHA_PULL_MAX = 9999;
+const GACHA_PULL_MAX = 100000;
 const GACHA_TICKET_MAX = 99999;
 
 // A multi-pull costs 30 tickets and gives 35 pulls.

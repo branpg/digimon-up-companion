@@ -5,6 +5,12 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/),
 y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.4.2] - 2025-07-25
+
+### Cambiado
+
+- Nivel Gacha: el límite máximo de tiradas aumentó de 9.999 a 100.000
+
 ## [1.4.1] - 2025-07-24
 
 ### Corregido
