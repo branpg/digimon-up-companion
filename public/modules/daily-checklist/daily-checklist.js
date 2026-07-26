@@ -28,8 +28,8 @@ const RESET_HOUR = 8; // 08:00 local time
 const CHECKLIST_ITEMS = [
   { id: "collect-idle", i18nKey: "collectIdle", tags: [] },
   { id: "gacha-pull", i18nKey: "gachaPull", tags: [] },
-  { id: "spend-combat-tickets", i18nKey: "spendCombatTickets", tags: ["pvp"] },
-  { id: "spend-grandprix-tickets", i18nKey: "spendGrandprixTickets", tags: ["pvp"] },
+  { id: "spend-combat-tickets", i18nKey: "spendCombatTickets", tags: ["pvp", "opcional"] },
+  { id: "spend-grandprix-tickets", i18nKey: "spendGrandprixTickets", tags: ["pvp", "opcional"] },
   { id: "dimensional-house", i18nKey: "dimensionalHouse", tags: [] },
   { id: "hologram-auto", i18nKey: "hologramAuto", tags: [] },
 
@@ -74,6 +74,7 @@ const CHECKLIST_ITEMS = [
   { id: "equip-memories", i18nKey: "equipMemories", tags: [] },
   { id: "switch-99", i18nKey: "switch99", tags: [] },
   { id: "apocalymon", i18nKey: "apocalymon", tags: [] },
+  { id: "lost-sector-tower", i18nKey: "lostSectorTower", tags: [] },
   { id: "combat-terminal-spend", i18nKey: "combatTerminalSpend", tags: ["pvp"] },
   { id: "buy-combat-tickets", i18nKey: "buyCombatTickets", tags: ["tienda", "pvp"] },
   { id: "combat-terminal-spend2", i18nKey: "combatTerminalSpend", tags: ["pvp"] },
@@ -95,6 +96,7 @@ const CHECKLIST_ITEMS = [
   { id: "burn-emeralds-gacha", i18nKey: "burnEmeraldsGacha", tags: ["quemaDeRecursos"] },
 
   { id: "apocalymon-ranking", i18nKey: "apocalymonRanking", tags: [] },
+  { id: "lost-sector-tower", i18nKey: "lostSectorTower", tags: [] },
 
   { id: "rank-missions", i18nKey: "rankMissions", tags: [] },
 
@@ -363,6 +365,90 @@ function getTagText(tagKey) {
   return t(`modules.dailyChecklist.tags.${tagKey}`);
 }
 
+/**
+ * Renders loop/else items in a step-by-step view:
+ * Shows only the next unchecked item with a counter (e.g., "Paso 3/14").
+ * If all are completed, shows a completed message.
+ */
+function renderLoopStepByStep(items) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'mod-checklist-loop-steps';
+
+  const total = items.length;
+  const doneCount = items.filter(i => checkedItems.has(i.instanceId)).length;
+
+  // Counter header
+  const counterEl = document.createElement('div');
+  counterEl.className = 'mod-checklist-loop-counter';
+  counterEl.textContent = `${doneCount}/${total}`;
+  wrapper.appendChild(counterEl);
+
+  // Progress bar
+  const progressBar = document.createElement('div');
+  progressBar.className = 'mod-checklist-loop-progress-bar';
+  const progressFill = document.createElement('div');
+  progressFill.className = 'mod-checklist-loop-progress-fill';
+  progressFill.style.width = `${total > 0 ? (doneCount / total) * 100 : 0}%`;
+  progressBar.appendChild(progressFill);
+  wrapper.appendChild(progressBar);
+
+  // Find the next unchecked item
+  const nextItem = items.find(i => !checkedItems.has(i.instanceId));
+
+  if (!nextItem) {
+    // All done
+    const doneEl = document.createElement('div');
+    doneEl.className = 'mod-checklist-loop-done';
+    doneEl.textContent = t('modules.dailyChecklist.loopCompleted');
+    wrapper.appendChild(doneEl);
+    return wrapper;
+  }
+
+  // Render the single next item
+  const itemEl = document.createElement('div');
+  itemEl.className = 'mod-checklist-item mod-checklist-loop-next-item';
+
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  checkbox.className = 'mod-checklist-check';
+  checkbox.checked = false;
+  checkbox.addEventListener('change', () => {
+    toggleItem(nextItem.instanceId);
+  });
+
+  const content = document.createElement('div');
+  content.className = 'mod-checklist-item-content';
+
+  const textRow = document.createElement('span');
+  textRow.className = 'mod-checklist-item-text';
+
+  if (nextItem.tags && nextItem.tags.length > 0) {
+    for (const tag of nextItem.tags) {
+      const badge = document.createElement('span');
+      badge.className = `mod-checklist-badge mod-checklist-badge-${getBadgeClass(tag)}`;
+      badge.textContent = getTagText(tag);
+      textRow.appendChild(badge);
+    }
+  }
+
+  const textNode = document.createTextNode(getItemText(nextItem));
+  textRow.appendChild(textNode);
+
+  content.appendChild(textRow);
+  itemEl.appendChild(checkbox);
+  itemEl.appendChild(content);
+
+  itemEl.addEventListener('click', (e) => {
+    if (e.target !== checkbox) {
+      checkbox.checked = !checkbox.checked;
+      toggleItem(nextItem.instanceId);
+    }
+  });
+
+  wrapper.appendChild(itemEl);
+  return wrapper;
+}
+
 function render() {
   if (!containerEl) return;
 
@@ -371,6 +457,10 @@ function render() {
 
   listEl.innerHTML = '';
   const visibleItems = getVisibleItems();
+
+  // Separate loop/else items from normal items for step-by-step display
+  const loopElseGroup = visibleItems.filter(i => i.loopOnly || i.elseOnly);
+  const loopElseIds = new Set(loopElseGroup.map(i => i.instanceId));
 
   for (const item of visibleItems) {
     // Section dividers
@@ -434,9 +524,16 @@ function render() {
         toggleEl.appendChild(ticketRow);
       }
 
+      // Render the step-by-step loop/else section right after the toggle
       listEl.appendChild(toggleEl);
+      if (loopElseGroup.length > 0) {
+        listEl.appendChild(renderLoopStepByStep(loopElseGroup));
+      }
       continue;
     }
+
+    // Skip loop/else items from normal rendering (they're in the step-by-step section)
+    if (loopElseIds.has(item.instanceId)) continue;
 
     // Normal checklist item
     const itemEl = document.createElement('div');

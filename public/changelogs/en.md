@@ -5,6 +5,18 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.4.3] - 2025-07-26
+
+### Added
+
+- Checklist: new "Lost Sector Tower" step after the second Apocalymon (ranking)
+- Checklist: DemiDevimon Loop (and alternative) section now shows only the next step with a progress counter and visual bar instead of listing all steps at once
+- Checklist: "optional" tag added to initial PvP tickets (Combat Terminal and Grand Prix) since PvP may be closed at 08:00
+
+### Changed
+
+- Checklist: "Complete X 4 times" texts changed to "Use all your X tickets (including the 2 from ads)" for DemiDevimon, Bakemon, DigiFactory, Network Defense, and Metallic Sea
+
 ## [1.4.2] - 2025-07-25
 
 ### Changed

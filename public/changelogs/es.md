@@ -5,6 +5,18 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/),
 y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.4.3] - 2025-07-26
+
+### Añadido
+
+- Checklist: nuevo paso "Torre del sector perdido" después del segundo Apocalymon (ranking)
+- Checklist: sección DemiDevimon Loop (y alternativa) ahora muestra solo el siguiente paso con contador de progreso y barra visual en lugar de listar todos los pasos a la vez
+- Checklist: tag "opcional" añadido a los tickets de PvP del inicio (Combat Terminal y Grand Prix) ya que el PvP puede estar cerrado a las 08:00
+
+### Cambiado
+
+- Checklist: textos de "Completar 4 veces X" cambiados a "Consume todos tus tickets de X (Incluidos los 2 por anuncios)" para DemiDevimon, Bakemon, Digifábrica, Defensa en red y Mar metálico
+
 ## [1.4.2] - 2025-07-25
 
 ### Cambiado
