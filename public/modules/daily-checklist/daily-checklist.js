@@ -74,7 +74,6 @@ const CHECKLIST_ITEMS = [
   { id: "equip-memories", i18nKey: "equipMemories", tags: [] },
   { id: "switch-99", i18nKey: "switch99", tags: [] },
   { id: "apocalymon", i18nKey: "apocalymon", tags: [] },
-  { id: "lost-sector-tower", i18nKey: "lostSectorTower", tags: [] },
   { id: "combat-terminal-spend", i18nKey: "combatTerminalSpend", tags: ["pvp"] },
   { id: "buy-combat-tickets", i18nKey: "buyCombatTickets", tags: ["tienda", "pvp"] },
   { id: "combat-terminal-spend2", i18nKey: "combatTerminalSpend", tags: ["pvp"] },
