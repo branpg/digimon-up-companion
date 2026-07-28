@@ -1,6 +1,6 @@
 # GUIA DEL META — Digimon Up
 
-**Última revisión:** 24/07/2026
+**Última revisión:** 28/07/2026
 
 ---
 
@@ -17,10 +17,10 @@ Lo primero de todo los contenidos de esta guía están basados en mi experiencia
 **Stats objetivo:** Prob. de crítico · Daño crítico · Prob. de evasión
 
 **Cartas de habilidad:**
-[SR] ¡Sobrecarga de virus! / [SR] Espiral maligna · [SSR] Libro secreto de técnicas ninja · [R] ¡Muro de hielo! · [R] Digicódigo · [HR] Acelerador
+[SR] ¡Sobrecarga de virus! · [SSR] Libro secreto de técnicas ninja · [R] ¡Muro de hielo! · [R] Digicódigo · [HR] Acelerador
 
 **Digimon de apoyo:**
-[SSR] Youkomon · [SSR] Petermon · [SR] Mekanorimon · [HR] ZubaEagermon · [R] Hagurumon
+[SSR] Youkomon · [SSR] Petermon · [SR] Mekanorimon · [HR] ZubaEagermon · [UR] Unimon
 
 **Colegas:** Agumon (Ver. Tai Kamiya)
 
@@ -32,7 +32,7 @@ Lo primero de todo los contenidos de esta guía están basados en mi experiencia
 
 **Memoria táctica:** Set amarillo de 4 + set azul de 2. Priorizar memorias con stats de prob. de daño crítico, daño crítico y prob. de evasión
 
-**Comida:** Daño crítico · Aumento de daño crítico · Aumento de daño de ataque normal · Bonus de ataque · Reducción de daño
+**Comida:** Daño crítico (preferido) o Bonus de ataque en las 5 casillas
 
 **Emblemas:** Pendiente (Día 12 del servidor)
 
@@ -50,6 +50,7 @@ Una vez tu compañero principal llega al 99, compra todos los digimon disponible
 
 1. Subir a todos los digimon al nivel 5 y evolucionarlos a Aprendiz II para obtener el bonus de +15% de salud por digimon. Apenas cuesta recursos y es una mejora significativa.
 2. Ir subiendo de uno en uno cada digimon a su forma Novato (nivel 20) y luego Campeón (nivel 40), sin escalonar. Coger cada uno al 5 y subirlo directamente al 20, luego al 40.
+3. Una vez todos estén en Campeón, ir subiéndolos de uno en uno a Mega (nivel 90) directamente, sin parar en Ultimate.
 
 **Nota sobre Tickets de holograma:** Mientras no estés usando Tickets de holograma para levear un digimon, es mejor tener a tu nivel 99 a la cabeza del equipo, ya que tiene mejores stats de cara al PvP (tanto para atacar como para cuando otros jugadores te ataquen). Lo ideal es ahorrar los tickets y usarlos de una sola sentada, aunque no pasa nada por sacar otro digimon un rato si las misiones te piden consumir tickets.
 
@@ -77,16 +78,14 @@ Otras stats son más o menos útiles, pero la guía se centra en estas.
 ## Cartas de habilidad
 
 **Meta:**
-- [SR] ¡Sobrecarga de virus! / [SR] Espiral maligna
+- [SR] ¡Sobrecarga de virus!
 - [SSR] Libro secreto de técnicas ninja
 - [R] ¡Muro de hielo!
 - [R] Digicódigo
 - [HR] Acelerador
 
-**Nota sobre Sobrecarga de virus / Espiral maligna:** En las pruebas realizadas ambas cartas reportan resultados similares. Usa la que tengas a mayor nivel o la que consigas primero.
-
 **Alternativas:**
-- [SR] ¡Sobrecarga de virus! / [SR] Espiral maligna → [R] ¡Ataque bajo el agua!
+- [SR] ¡Sobrecarga de virus! → [R] ¡Ataque bajo el agua!
 - [SSR] Libro secreto de técnicas ninja → [N] ¡Triexplosión!
 
 ---
@@ -98,9 +97,10 @@ Otras stats son más o menos útiles, pero la guía se centra en estas.
 - [SSR] Petermon — Aumenta la evasión.
 - [SR] Mekanorimon — Probabilidad de crítico.
 - [HR] ZubaEagermon — Daño de ataque normal.
-- [R] Hagurumon — Probabilidad de crítico.
+- [UR] Unimon — Daño crítico.
 
-**Alternativas (si no tienes SSR):**
+**Alternativas (si no tienes los UR):**
+- [R] Hagurumon — Probabilidad de crítico. Sustituye a Unimon si no lo tienes.
 - [UR] Okuwamon — Si se tiene el pase no es mala opción, pero no encaja demasiado en la build. Se le lleva por el daño que hace, no por las stats.
 - [SSR] Numemon — Regalo inicial, misma situación que Okuwamon.
 - [R] Zubamon — Daño de ataque normal.
@@ -193,37 +193,28 @@ El digivice tiene slots de diferentes rarezas con varias opciones por slot. Las 
 
 ## Comida
 
-**Stats por prioridad:**
+**Meta:** Poner **Daño crítico** (preferido) o **Bonus de ataque** en las cinco casillas de comida. Ambas stats son válidas, pero se prioriza Daño crítico.
 
-S:
-- Daño crítico
-- Aumento de daño crítico
-
-A:
-- Aumento de daño de ataque normal
-
-B:
-- Bonus de ataque
-- Reducción de daño
+> **Nota:** "Daño crítico" y "Aumento de daño crítico" NO son la misma stat. La que queremos es **Daño crítico** (la stat base que multiplica el golpe crítico). "Aumento de daño crítico" es un modificador diferente y no es lo que buscamos aquí.
 
 **Cómo gestionar los beneficios de la comida:**
 
 El sistema funciona con slots que se renombran y alternan para ir mejorando las stats progresivamente:
 
-1. Elige un slot y renómbralo a **Principal**. Haz rerolls hasta conseguir una stat de tier S.
-2. Ve a un segundo slot que llamarás **Alt**. En Alt busca conseguir una stat mejor que las que ya tienes en Principal.
+1. Elige un slot y renómbralo a **Principal**. Haz rerolls hasta conseguir Daño crítico o Bonus de ataque (prioriza Daño crítico).
+2. Ve a un segundo slot que llamarás **Alt**. En Alt busca conseguir una stat mejor que la de Principal (o cambiar un Bonus de ataque por un Daño crítico).
 3. Tan pronto como Alt supere a Principal, intercambia los roles (Alt pasa a ser Principal y viceversa).
-4. Repite este proceso hasta tener una stat de tier S en la calidad más alta disponible.
+4. Repite este proceso hasta tener la stat en la calidad más alta disponible (idealmente Daño crítico).
 5. Una vez conseguida, márcala con el candado para que no se pierda al tirar (el coste sube de 100 a 300 de comida por tirada).
-6. Sigue repitiendo hasta tener 2 slots con todas las stats al máximo rango.
+6. Sigue repitiendo hasta tener las 5 casillas con Daño crítico o Bonus de ataque al máximo rango.
 
 **Optimización entre slots:**
 
-- Utiliza como Principal el slot que tenga más altos los valores de tier S. Usa el otro para intentar upgradear dichas stats.
+- Utiliza como Principal el slot con mejor stat (Daño crítico > Bonus de ataque; mayor calidad > menor). Usa el otro para intentar upgradear.
 - Para comprobar si una stat está maxeada, entra al botón de ❓ y dale a la lupa en la rareza más alta.
 - Ve cambiando entre Principal y Alt según cuál sea mejor en cada momento.
 - Si durante el proceso desbloqueas un tier nuevo, repite el proceso de upgrade buscando calidad superior.
-- Una vez maxeadas todas las stats (tanto en calidad como en rango de valores posibles), si la comida sigue sin estar maximizada abre un nuevo slot y simplemente usa comida hasta desbloquear un nuevo tier o que el sistema esté maxeado.
+- Una vez maxeadas todas las casillas (tanto en calidad como en rango de valores posibles), si la comida sigue sin estar maximizada abre un nuevo slot y simplemente usa comida hasta desbloquear un nuevo tier o que el sistema esté maxeado.
 
 ---
 
@@ -263,6 +254,9 @@ El sistema funciona con slots que se renombran y alternan para ir mejorando las 
 
 ## Changelog
 
-- **24/07/2026** — Memorias renombrado a Memoria táctica. Meta actualizado a set amarillo de 4 + azul de 2. Cartas de habilidad: Triexplosión reemplazada por [SSR] Libro secreto de técnicas ninja; añadida Espiral maligna como alternativa equivalente a Sobrecarga de virus.
+- **28/07/2026** — Revisión: guía marcada como actualizada, sin cambios de contenido.
+- **27/07/2026** — Digimon de apoyo: [R] Hagurumon reemplazado por [UR] Unimon en la build meta. Hagurumon pasa a alternativas.
+- **25/07/2026** — Comida: el meta pasa a ser Daño crítico (preferido) o Bonus de ataque en las 5 casillas. Añadida nota aclaratoria sobre la diferencia entre "Daño crítico" y "Aumento de daño crítico". Cartas: eliminada Espiral maligna.
+- **24/07/2026** — Memorias renombrado a Memoria táctica. Meta actualizado a set amarillo de 4 + azul de 2. Cartas de habilidad: Triexplosión reemplazada por [SSR] Libro secreto de técnicas ninja.
 - **24/07/2026** — Corregido punto 3 de estrategia de Digivice: aclarado que se deben guardar Digichips entre días si el coste de investigación supera la generación diaria.
 - **23/07/2026** — Creación inicial de la guía con todas las secciones: Compañeros, Stats objetivo, Cartas de habilidad, Digimon de apoyo, Colegas, Apoyo SP, Equipo, Digivice, Memorias, Comida, Emblemas y Recursos.
