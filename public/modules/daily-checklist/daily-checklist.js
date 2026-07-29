@@ -57,6 +57,8 @@ const CHECKLIST_ITEMS = [
   { id: "else-demidev4", i18nKey: "elseDemidev4", tags: [], elseOnly: true },
   { id: "else-bakemon4", i18nKey: "elseBakemon4", tags: [], elseOnly: true },
 
+  { id: "optional-daily-bonus", i18nKey: "optionalDailyBonus", tags: ["opcional"] },
+
   { id: "claim-4h-ads", i18nKey: "claim4hAds", tags: [] },
   { id: "free-emeralds-shop", i18nKey: "freeEmeraldsShop", tags: ["tienda"] },
   { id: "buy-skill-tickets", i18nKey: "buySkillTickets", tags: ["tienda"] },
@@ -102,7 +104,6 @@ const CHECKLIST_ITEMS = [
 
   { id: "optional-memory-game", i18nKey: "optionalMemoryGame", tags: ["opcional"] },
   { id: "optional-gran-tumulto", i18nKey: "optionalGranTumulto", tags: ["opcional"] },
-  { id: "optional-daily-bonus", i18nKey: "optionalDailyBonus", tags: ["opcional"] },
 
   { id: "dim-box-round1", i18nKey: "dimBoxRound1", tags: ["espera"] },
   { id: "dim-box-16h", i18nKey: "dimBox16h", tags: ["espera"] }
