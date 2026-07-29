@@ -81,8 +81,6 @@ const CHECKLIST_ITEMS = [
   { id: "buy-hologram-bt", i18nKey: "buyHologramBt", tags: ["tienda", "pvp"] },
   { id: "daily-missions-reward", i18nKey: "dailyMissionsReward", tags: [] },
   { id: "check-passes", i18nKey: "checkPasses", tags: [] },
-  { id: "camp-piximon-fight", i18nKey: "campPiximonFight", tags: ["campamento"] },
-  { id: "camp-leomon-fight", i18nKey: "campLeomonFight", tags: ["campamento"] },
   { id: "spend-buddy-souls", i18nKey: "spendBuddySouls", tags: [] },
   { id: "spend-digichips", i18nKey: "spendDigichips", tags: [] },
   { id: "spend-digiplacas", i18nKey: "spendDigiplacas", tags: [] },
@@ -93,6 +91,9 @@ const CHECKLIST_ITEMS = [
   { id: "burn-skillcard-ads", i18nKey: "burnSkillcardAds", tags: ["quemaDeRecursos"] },
   { id: "burn-support-ads", i18nKey: "burnSupportAds", tags: ["quemaDeRecursos"] },
   { id: "burn-emeralds-gacha", i18nKey: "burnEmeraldsGacha", tags: ["quemaDeRecursos"] },
+
+  { id: "camp-piximon-fight", i18nKey: "campPiximonFight", tags: ["campamento"] },
+  { id: "camp-leomon-fight", i18nKey: "campLeomonFight", tags: ["campamento"] },
 
   { id: "apocalymon-ranking", i18nKey: "apocalymonRanking", tags: [] },
   { id: "lost-sector-tower", i18nKey: "lostSectorTower", tags: [] },
