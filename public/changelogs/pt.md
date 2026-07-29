@@ -5,6 +5,17 @@ Todas as mudanças notáveis deste projeto são documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
+## [1.4.4] - 2025-07-29
+
+### Alterado
+
+- Checklist: passo de consumo de tickets de holograma agora especifica usar um Digimon que não seja nível 99
+- Checklist: primeiro passo de gastar tickets do terminal de combate indica pular se o PvP não estiver ativo e fazê-lo no próximo passo de PvP
+- Checklist: batalhas de Piximon e Leomon movidas para depois da queima de recursos
+- Checklist: bônus diário movido para logo após o bloco do DemiDevimon Loop
+- Checklist: passo opcional do jogo da memória renomeado para "Conclua as missões diárias de Combinação Digimon"
+- Checklist: adicionado novo passo opcional para as missões diárias de "¡Gran tumulto en la distribución de envíos!"
+
 ## [1.4.3] - 2025-07-26
 
 ### Adicionado

@@ -5,6 +5,17 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.4.4] - 2025-07-29
+
+### Changed
+
+- Checklist: hologram ticket burn step now specifies to use a non-level 99 Digimon
+- Checklist: first Combat Terminal spend step notes to skip if PvP is not active and do it at the next PvP step
+- Checklist: Piximon and Leomon fights moved to after resource burn section
+- Checklist: daily bonus moved to right after the DemiDevimon Loop section
+- Checklist: memory game optional step renamed to "Complete daily Digimon Combination missions"
+- Checklist: added new optional step for "¡Gran tumulto en la distribución de envíos!" daily missions
+
 ## [1.4.3] - 2025-07-26
 
 ### Added

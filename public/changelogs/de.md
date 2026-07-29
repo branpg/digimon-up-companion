@@ -5,6 +5,17 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei dokume
 Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
 und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lang/de/).
 
+## [1.4.4] - 2025-07-29
+
+### Geändert
+
+- Checkliste: Hologramm-Ticket-Verbrauchsschritt gibt jetzt an, ein Nicht-Level-99-Digimon zu verwenden
+- Checkliste: erster Kampfterminal-Ticket-Schritt weist darauf hin, ihn zu überspringen wenn PvP nicht aktiv ist und ihn beim nächsten PvP-Schritt nachzuholen
+- Checkliste: Piximon- und Leomon-Kämpfe nach dem Ressourcenverbrauch verschoben
+- Checkliste: Tagesbonus direkt nach dem DemiDevimon-Loop-Block verschoben
+- Checkliste: Gedächtnisspiel-Schritt umbenannt in "Tägliche Digimon-Kombinations-Missionen abschließen"
+- Checkliste: neuer optionaler Schritt für die täglichen "¡Gran tumulto en la distribución de envíos!"-Missionen hinzugefügt
+
 ## [1.4.3] - 2025-07-26
 
 ### Hinzugefügt
