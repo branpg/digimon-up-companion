@@ -101,6 +101,7 @@ const CHECKLIST_ITEMS = [
   { id: "rank-missions", i18nKey: "rankMissions", tags: [] },
 
   { id: "optional-memory-game", i18nKey: "optionalMemoryGame", tags: ["opcional"] },
+  { id: "optional-gran-tumulto", i18nKey: "optionalGranTumulto", tags: ["opcional"] },
   { id: "optional-daily-bonus", i18nKey: "optionalDailyBonus", tags: ["opcional"] },
 
   { id: "dim-box-round1", i18nKey: "dimBoxRound1", tags: ["espera"] },
