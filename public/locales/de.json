@@ -46,7 +46,7 @@
       "steps": {
         "collectIdle": "Sammle deine Leerlauf-Belohnungen ein",
         "gachaPull": "Mache die täglichen 10er-Ziehungen mit DigiSmaragden auf allen aktiven Bannern",
-        "spendCombatTickets": "Verbrauche alle Kampfterminal-Tickets um passiv mehr zu generieren",
+        "spendCombatTickets": "Verbrauche alle Kampfterminal-Tickets um passiv mehr zu generieren (Nur wenn PvP aktiv ist, sonst überspringen und später zurückkommen)",
         "spendGrandprixTickets": "Verbrauche alle Grand Prix D-1-Tickets um passiv mehr zu generieren",
         "dimensionalHouse": "Platziere Kumpels in der Dimensionsbox",
         "hologramAuto": "Wechsle zu einem Nicht-Level-99-Digimon und aktiviere den automatischen Hologramm-Ticket-Verbrauch (Pausiere für Apocalymon oder PvP)",
