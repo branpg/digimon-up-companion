@@ -46,7 +46,7 @@
       "steps": {
         "collectIdle": "Collect your idle time rewards",
         "gachaPull": "Do the daily 10-pulls with DigiEmeralds on all active banners",
-        "spendCombatTickets": "Spend all your Combat Terminal entry tickets to generate more passively (Only if PvP is active, otherwise skip and come back when it is)",
+        "spendCombatTickets": "Spend all your Combat Terminal entry tickets to generate more passively (Only if PvP is active, otherwise skip and do it when you reach the next PvP step)",
         "spendGrandprixTickets": "Spend all your Grand Prix D-1 entry tickets to generate more passively",
         "dimensionalHouse": "Place buddies in the dimensional box",
         "hologramAuto": "Switch to a non-level 99 Digimon and activate auto-consume Hologram Tickets until they run out (Pause temporarily for Apocalymon or PvP)",

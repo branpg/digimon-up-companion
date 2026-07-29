@@ -46,7 +46,7 @@
       "steps": {
         "collectIdle": "Recoge tus recompensas de tiempo inactivo",
         "gachaPull": "Haz las tiradas de 10 diarias por digiesmeraldas en todos los banners activos",
-        "spendCombatTickets": "Gasta todos tus Tickets de entrada de la terminal de combate para generar pasivamente más (Solo si el PvP está activo, si no saltarlo y volver cuando lo esté)",
+        "spendCombatTickets": "Gasta todos tus Tickets de entrada de la terminal de combate para generar pasivamente más (Solo si el PvP está activo, si no saltarlo y hacerlo cuando llegues al siguiente paso de PvP)",
         "spendGrandprixTickets": "Gasta todos tus Tickets de entrada del Grand Prix D-1 para generar pasivamente más",
         "dimensionalHouse": "Coloca a los colegas en la caja dimensional",
         "hologramAuto": "Cambia a un digimon que no sea nivel 99 y activa que se consuman automáticamente los Tickets de holograma hasta que se terminen (Páralo temporalmente para hacer Apocalymon o PvP)",

@@ -46,7 +46,7 @@
       "steps": {
         "collectIdle": "Raccogli le ricompense del tempo inattivo",
         "gachaPull": "Fai le tirate da 10 giornaliere con DigiSmeraldi su tutti i banner attivi",
-        "spendCombatTickets": "Spendi tutti i Ticket del terminale di combattimento per generarne passivamente di più (Solo se il PvP è attivo, altrimenti salta e torna quando lo è)",
+        "spendCombatTickets": "Spendi tutti i Ticket del terminale di combattimento per generarne passivamente di più (Solo se il PvP è attivo, altrimenti salta e fallo quando arrivi al prossimo step PvP)",
         "spendGrandprixTickets": "Spendi tutti i Ticket del Grand Prix D-1 per generarne passivamente di più",
         "dimensionalHouse": "Piazza i compagni nella cassa dimensionale",
         "hologramAuto": "Passa a un Digimon non livello 99 e attiva il consumo automatico dei Ticket ologramma fino a esaurimento (Pausa per Apocalymon o PvP)",
