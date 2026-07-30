@@ -104,6 +104,7 @@ const CHECKLIST_ITEMS = [
 
   { id: "apocalymon-ranking", i18nKey: "apocalymonRanking", tags: [] },
   { id: "lost-sector-tower", i18nKey: "lostSectorTower", tags: [] },
+  { id: "lost-sector-daily", i18nKey: "lostSectorDaily", tags: [] },
 
   { id: "rank-missions", i18nKey: "rankMissions", tags: [] },
 
