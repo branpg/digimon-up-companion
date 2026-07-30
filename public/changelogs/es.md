@@ -5,6 +5,22 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/),
 y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.4.5] - 2026-07-28
+
+### Cambiado
+
+- Checklist: precio de tickets de holograma corregido a 160 DigiEsmeraldas (antes 300)
+- Checklist: precio de tickets de terminal de combate aclarado como 100 cada uno (5 por 500)
+- Checklist: sección de campamento (registro, apoyo, Piximon, Leomon) movida antes del DemiDevimon Loop
+- Checklist: primer "Gasta todos tus tickets del terminal de combate" (no opcional) reemplazado por "Entra en Terminal de combate y Grand Prix D-1 para calcular tickets pasivos"
+
+### Añadido
+
+- Checklist: comprar todas las Puertas digitales diarias con Monedas de campamento (opcional, requiere todos los digivices)
+- Checklist: comprar 2 tickets de terminal de combate por 500 Monedas de campamento (250 c/u, opcional)
+- Checklist: comprar 2 tickets de Grand Prix D-1 por 1000 Monedas de campamento (500 c/u, opcional)
+- Checklist: gastar excedente de Monedas de campamento en Tickets de aceleración (opcional)
+
 ## [1.4.4] - 2026-07-29
 
 ### Cambiado

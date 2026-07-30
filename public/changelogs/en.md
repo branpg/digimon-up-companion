@@ -5,6 +5,22 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.4.5] - 2026-07-28
+
+### Changed
+
+- Checklist: hologram ticket price corrected to 160 DigiEmeralds (was 300)
+- Checklist: combat terminal ticket price clarified as 100 each (5 for 500)
+- Checklist: camp section (register, support, Piximon, Leomon) moved before DemiDevimon Loop
+- Checklist: first non-optional "Spend all Combat Terminal tickets" replaced with "Enter Combat Terminal and Grand Prix D-1 to calculate passively earned tickets"
+
+### Added
+
+- Checklist: buy all daily Digital Gates with Camp Coins (optional, requires all digivices)
+- Checklist: buy 2 Combat Terminal tickets for 500 Camp Coins (250 each, optional)
+- Checklist: buy 2 Grand Prix D-1 tickets for 1000 Camp Coins (500 each, optional)
+- Checklist: spend excess Camp Coins on Acceleration Tickets (optional)
+
 ## [1.4.4] - 2026-07-29
 
 ### Changed

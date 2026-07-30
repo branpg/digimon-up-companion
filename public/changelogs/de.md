@@ -5,6 +5,22 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei dokume
 Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
 und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lang/de/).
 
+## [1.4.5] - 2026-07-28
+
+### Geändert
+
+- Checkliste: Hologramm-Ticket-Preis auf 160 DigiSmaragde korrigiert (war 300)
+- Checkliste: Kampfterminal-Ticket-Preis als 100 pro Stück klargestellt (5 für 500)
+- Checkliste: Lager-Bereich (Anmeldung, Unterstützung, Piximon, Leomon) vor den DemiDevimon Loop verschoben
+- Checkliste: erstes nicht-optionales „Verbrauche alle Kampfterminal-Tickets" ersetzt durch „Betrete Kampfterminal und Grand Prix D-1 um passiv erhaltene Tickets berechnen zu lassen"
+
+### Hinzugefügt
+
+- Checkliste: alle täglichen Digitalen Tore mit Lager-Münzen kaufen (optional, nur mit allen Digivices)
+- Checkliste: 2 Kampfterminal-Tickets für 500 Lager-Münzen kaufen (250 pro Stück, optional)
+- Checkliste: 2 Grand Prix D-1-Tickets für 1000 Lager-Münzen kaufen (500 pro Stück, optional)
+- Checkliste: überschüssige Lager-Münzen für Beschleunigungs-Tickets ausgeben (optional)
+
 ## [1.4.4] - 2026-07-29
 
 ### Geändert

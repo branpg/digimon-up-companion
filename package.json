@@ -1,6 +1,6 @@
 {
   "name": "digimon-up-companion",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "Aplicación multi-utilidad con navegación lateral para herramientas de Digimon",
   "main": "server.js",
   "scripts": {

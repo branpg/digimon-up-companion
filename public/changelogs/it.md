@@ -5,6 +5,22 @@ Tutte le modifiche rilevanti di questo progetto sono documentate in questo file.
 Il formato si basa su [Keep a Changelog](https://keepachangelog.com/it/1.0.0/),
 e questo progetto aderisce al [Versionamento Semantico](https://semver.org/lang/it/).
 
+## [1.4.5] - 2026-07-28
+
+### Modificato
+
+- Checklist: prezzo dei Ticket ologramma corretto a 160 DigiSmeraldi (era 300)
+- Checklist: prezzo dei Ticket del terminale di combattimento chiarito come 100 ciascuno (5 per 500)
+- Checklist: sezione campo (registrazione, supporto, Piximon, Leomon) spostata prima del DemiDevimon Loop
+- Checklist: primo "Spendi tutti i Ticket del terminale" (non opzionale) sostituito con "Entra nel Terminale di combattimento e Grand Prix D-1 per calcolare i ticket passivi"
+
+### Aggiunto
+
+- Checklist: comprare tutte le Porte digitali giornaliere con Monete campo (opzionale, richiede tutti i digivice)
+- Checklist: comprare 2 Ticket del terminale di combattimento per 500 Monete campo (250 ciascuno, opzionale)
+- Checklist: comprare 2 Ticket del Grand Prix D-1 per 1000 Monete campo (500 ciascuno, opzionale)
+- Checklist: spendere le Monete campo in eccesso in Ticket di accelerazione (opzionale)
+
 ## [1.4.4] - 2026-07-29
 
 ### Modificato
