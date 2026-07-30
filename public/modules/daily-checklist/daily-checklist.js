@@ -28,7 +28,8 @@ const RESET_HOUR = 8; // 08:00 local time
 const CHECKLIST_ITEMS = [
   { id: "collect-idle", i18nKey: "collectIdle", tags: [] },
   { id: "gacha-pull", i18nKey: "gachaPull", tags: [] },
-  { id: "enter-pvp-passive", i18nKey: "enterPvpPassive", tags: ["pvp"] },
+  { id: "spend-combat-tickets", i18nKey: "spendCombatTickets", tags: ["pvp", "opcional"] },
+  { id: "spend-grandprix-tickets", i18nKey: "spendGrandprixTickets", tags: ["pvp", "opcional"] },
   { id: "dimensional-house", i18nKey: "dimensionalHouse", tags: [] },
   { id: "hologram-auto", i18nKey: "hologramAuto", tags: [] },
 
@@ -40,9 +41,6 @@ const CHECKLIST_ITEMS = [
   { id: "camp-piximon", i18nKey: "campPiximon", tags: ["campamento"] },
   { id: "camp-leomon", i18nKey: "campLeomon", tags: ["campamento"] },
   { id: "camp-buy-gates", i18nKey: "campBuyGates", tags: ["campamento", "opcional"] },
-  { id: "camp-buy-combat-tickets", i18nKey: "campBuyCombatTickets", tags: ["campamento", "pvp", "opcional"] },
-  { id: "camp-buy-grandprix-tickets", i18nKey: "campBuyGrandprixTickets", tags: ["campamento", "pvp", "opcional"] },
-  { id: "camp-buy-acceleration", i18nKey: "campBuyAcceleration", tags: ["campamento", "opcional"] },
 
   { id: "loop-toggle", type: "loopToggle" },
 
@@ -80,11 +78,14 @@ const CHECKLIST_ITEMS = [
   { id: "equip-memories", i18nKey: "equipMemories", tags: [] },
   { id: "switch-99", i18nKey: "switch99", tags: [] },
   { id: "apocalymon", i18nKey: "apocalymon", tags: [] },
-  { id: "combat-terminal-spend", i18nKey: "combatTerminalSpend", tags: ["pvp"] },
+  { id: "enter-pvp-passive", i18nKey: "enterPvpPassive", tags: ["pvp"] },
   { id: "buy-combat-tickets", i18nKey: "buyCombatTickets", tags: ["tienda", "pvp"] },
+  { id: "camp-buy-combat-tickets", i18nKey: "campBuyCombatTickets", tags: ["campamento", "pvp", "opcional"] },
   { id: "combat-terminal-spend2", i18nKey: "combatTerminalSpend", tags: ["pvp"] },
   { id: "grandprix-spend", i18nKey: "grandprixSpend", tags: ["pvp"] },
+  { id: "camp-buy-grandprix-tickets", i18nKey: "campBuyGrandprixTickets", tags: ["campamento", "pvp", "opcional"] },
   { id: "buy-hologram-bt", i18nKey: "buyHologramBt", tags: ["tienda", "pvp"] },
+  { id: "camp-buy-acceleration", i18nKey: "campBuyAcceleration", tags: ["campamento", "opcional"] },
   { id: "daily-missions-reward", i18nKey: "dailyMissionsReward", tags: [] },
   { id: "check-passes", i18nKey: "checkPasses", tags: [] },
   { id: "spend-buddy-souls", i18nKey: "spendBuddySouls", tags: [] },
