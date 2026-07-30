@@ -28,13 +28,21 @@ const RESET_HOUR = 8; // 08:00 local time
 const CHECKLIST_ITEMS = [
   { id: "collect-idle", i18nKey: "collectIdle", tags: [] },
   { id: "gacha-pull", i18nKey: "gachaPull", tags: [] },
-  { id: "spend-combat-tickets", i18nKey: "spendCombatTickets", tags: ["pvp", "opcional"] },
-  { id: "spend-grandprix-tickets", i18nKey: "spendGrandprixTickets", tags: ["pvp", "opcional"] },
+  { id: "enter-pvp-passive", i18nKey: "enterPvpPassive", tags: ["pvp"] },
   { id: "dimensional-house", i18nKey: "dimensionalHouse", tags: [] },
   { id: "hologram-auto", i18nKey: "hologramAuto", tags: [] },
 
   { id: "optional-x2-speed-1", i18nKey: "optionalX2Speed1", tags: ["opcional"] },
   { id: "optional-x2-speed-2", i18nKey: "optionalX2Speed2", tags: ["opcional"] },
+
+  { id: "camp-register", i18nKey: "campRegister", tags: ["campamento"] },
+  { id: "camp-support10", i18nKey: "campSupport10", tags: ["campamento"] },
+  { id: "camp-piximon", i18nKey: "campPiximon", tags: ["campamento"] },
+  { id: "camp-leomon", i18nKey: "campLeomon", tags: ["campamento"] },
+  { id: "camp-buy-gates", i18nKey: "campBuyGates", tags: ["campamento", "opcional"] },
+  { id: "camp-buy-combat-tickets", i18nKey: "campBuyCombatTickets", tags: ["campamento", "pvp", "opcional"] },
+  { id: "camp-buy-grandprix-tickets", i18nKey: "campBuyGrandprixTickets", tags: ["campamento", "pvp", "opcional"] },
+  { id: "camp-buy-acceleration", i18nKey: "campBuyAcceleration", tags: ["campamento", "opcional"] },
 
   { id: "loop-toggle", type: "loopToggle" },
 
@@ -64,10 +72,6 @@ const CHECKLIST_ITEMS = [
   { id: "buy-skill-tickets", i18nKey: "buySkillTickets", tags: ["tienda"] },
   { id: "buy-support-tickets", i18nKey: "buySupportTickets", tags: ["tienda"] },
   { id: "buy-hologram500", i18nKey: "buyHologram500", tags: ["tienda"] },
-  { id: "camp-register", i18nKey: "campRegister", tags: ["campamento"] },
-  { id: "camp-support10", i18nKey: "campSupport10", tags: ["campamento"] },
-  { id: "camp-piximon", i18nKey: "campPiximon", tags: ["campamento"] },
-  { id: "camp-leomon", i18nKey: "campLeomon", tags: ["campamento"] },
   { id: "send-gifts", i18nKey: "sendGifts", tags: [] },
   { id: "daily-mail", i18nKey: "dailyMail", tags: [] },
   { id: "digifactory4", i18nKey: "digifactory4", tags: [] },
