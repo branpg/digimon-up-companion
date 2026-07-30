@@ -5,7 +5,7 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/),
 y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
-## [1.4.4] - 2025-07-29
+## [1.4.4] - 2026-07-29
 
 ### Cambiado
 
@@ -16,7 +16,7 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 - Checklist: paso del juego de memoria renombrado a "Completa las misiones diarias de Combinación Digimon"
 - Checklist: añadido nuevo paso opcional para las misiones diarias de "¡Gran tumulto en la distribución de envíos!"
 
-## [1.4.3] - 2025-07-26
+## [1.4.3] - 2026-07-26
 
 ### Añadido
 
@@ -28,13 +28,13 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
 - Checklist: textos de "Completar 4 veces X" cambiados a "Consume todos tus tickets de X (Incluidos los 2 por anuncios)" para DemiDevimon, Bakemon, Digifábrica, Defensa en red y Mar metálico
 
-## [1.4.2] - 2025-07-25
+## [1.4.2] - 2026-07-25
 
 ### Cambiado
 
 - Nivel Gacha: el límite máximo de tiradas aumentó de 9.999 a 100.000
 
-## [1.4.1] - 2025-07-24
+## [1.4.1] - 2026-07-24
 
 ### Corregido
 
@@ -53,7 +53,7 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 - 2 items opcionales de velocidad x2 por anuncio (recomendado para misiones de combate)
 - Item opcional "Recoger bonus diario si está disponible"
 
-## [1.4.0] - 2025-07-23
+## [1.4.0] - 2026-07-23
 
 ### Añadido
 
@@ -67,7 +67,7 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 - Soporte i18n completo: todos los pasos y tags traducidos en 6 idiomas
 - Re-renderizado al cambiar de idioma mediante MutationObserver en `<html lang>`
 
-## [1.3.0] - 2025-07-21
+## [1.3.0] - 2026-07-21
 
 ### Añadido
 
@@ -78,7 +78,7 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 - Nivel Gacha: botones rápidos (+1, +10, +50, +100) para digiesmeraldas actuales
 - El cálculo de gacha ahora tiene en cuenta las esmeraldas ya acumuladas (tope 8h de pasivo)
 
-## [1.2.0] - 2025-07-21
+## [1.2.0] - 2026-07-21
 
 ### Añadido
 
@@ -95,7 +95,7 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 - Si no hay datos del piso configurados, avisa y bloquea el cálculo en todas las pestañas
 - Botón calcular a ancho completo
 
-## [1.1.0] - 2025-07-21
+## [1.1.0] - 2026-07-21
 
 ### Mejorado
 
@@ -111,7 +111,7 @@ y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 - Changelogs disponibles en los 6 idiomas soportados (en, es, it, pt, de, ja)
 - Eliminado el `public/CHANGELOG.md` duplicado en favor de archivos por idioma
 
-## [1.0.0] - 2025-01-20
+## [1.0.0] - 2026-01-20
 
 ### Añadido
 

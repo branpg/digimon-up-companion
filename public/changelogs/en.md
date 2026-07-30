@@ -5,7 +5,7 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## [1.4.4] - 2025-07-29
+## [1.4.4] - 2026-07-29
 
 ### Changed
 
@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Checklist: memory game optional step renamed to "Complete daily Digimon Combination missions"
 - Checklist: added new optional step for "¡Gran tumulto en la distribución de envíos!" daily missions
 
-## [1.4.3] - 2025-07-26
+## [1.4.3] - 2026-07-26
 
 ### Added
 
@@ -28,13 +28,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - Checklist: "Complete X 4 times" texts changed to "Use all your X tickets (including the 2 from ads)" for DemiDevimon, Bakemon, DigiFactory, Network Defense, and Metallic Sea
 
-## [1.4.2] - 2025-07-25
+## [1.4.2] - 2026-07-25
 
 ### Changed
 
 - Gacha Level: maximum pull limit increased from 9,999 to 100,000
 
-## [1.4.1] - 2025-07-24
+## [1.4.1] - 2026-07-24
 
 ### Fixed
 
@@ -53,7 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - 2 optional x2 speed items via ad (recommended for combat missions)
 - Optional "Collect daily bonus if available" item
 
-## [1.4.0] - 2025-07-23
+## [1.4.0] - 2026-07-23
 
 ### Added
 
@@ -67,7 +67,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Full i18n support: all steps and tags translated in 6 languages
 - Re-renders on language change via MutationObserver on `<html lang>`
 
-## [1.3.0] - 2025-07-21
+## [1.3.0] - 2026-07-21
 
 ### Added
 
@@ -78,7 +78,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Gacha Level: quick-add buttons (+1, +10, +50, +100) for current DigiEmeralds
 - Gacha calculation now accounts for emeralds already accumulated (capped at 8h passive max)
 
-## [1.2.0] - 2025-07-21
+## [1.2.0] - 2026-07-21
 
 ### Added
 
@@ -95,7 +95,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - If no floor data is configured, warns and blocks calculation on all tabs
 - Full-width calculate button
 
-## [1.1.0] - 2025-07-21
+## [1.1.0] - 2026-07-21
 
 ### Improved
 
@@ -111,7 +111,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Changelogs available in all 6 supported languages (en, es, it, pt, de, ja)
 - Removed duplicated `public/CHANGELOG.md` in favor of per-language files
 
-## [1.0.0] - 2025-01-20
+## [1.0.0] - 2026-01-20
 
 ### Added
 

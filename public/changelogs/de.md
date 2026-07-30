@@ -5,7 +5,7 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei dokume
 Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
 und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lang/de/).
 
-## [1.4.4] - 2025-07-29
+## [1.4.4] - 2026-07-29
 
 ### Geändert
 
@@ -16,7 +16,7 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 - Checkliste: Gedächtnisspiel-Schritt umbenannt in "Tägliche Digimon-Kombinations-Missionen abschließen"
 - Checkliste: neuer optionaler Schritt für die täglichen "¡Gran tumulto en la distribución de envíos!"-Missionen hinzugefügt
 
-## [1.4.3] - 2025-07-26
+## [1.4.3] - 2026-07-26
 
 ### Hinzugefügt
 
@@ -28,13 +28,13 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 
 - Checkliste: Texte „X 4-mal abschließen" geändert zu „Verbrauche alle deine X-Tickets (inklusive der 2 aus Werbung)" für DemiDevimon, Bakemon, Digifabrik, Netzwerkverteidigung und Metallisches Meer
 
-## [1.4.2] - 2025-07-25
+## [1.4.2] - 2026-07-25
 
 ### Geändert
 
 - Gacha-Level: maximales Ziehungslimit von 9.999 auf 100.000 erhöht
 
-## [1.4.1] - 2025-07-24
+## [1.4.1] - 2026-07-24
 
 ### Behoben
 
@@ -53,7 +53,7 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 - 2 optionale x2-Geschwindigkeits-Einträge per Werbung (empfohlen für Kampfmissionen)
 - Optionaler Eintrag „Täglichen Bonus abholen, falls verfügbar"
 
-## [1.4.0] - 2025-07-23
+## [1.4.0] - 2026-07-23
 
 ### Hinzugefügt
 
@@ -67,7 +67,7 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 - Vollständige i18n-Unterstützung: alle Schritte und Tags in 6 Sprachen übersetzt
 - Re-Rendering bei Sprachwechsel über MutationObserver auf `<html lang>`
 
-## [1.3.0] - 2025-07-21
+## [1.3.0] - 2026-07-21
 
 ### Hinzugefügt
 
@@ -78,7 +78,7 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 - Gacha-Level: Schnell-Buttons (+1, +10, +50, +100) für aktuelle DigiSmaragde
 - Gacha-Berechnung berücksichtigt bereits angesammelte Smaragde (max. 8h passiv)
 
-## [1.2.0] - 2025-07-21
+## [1.2.0] - 2026-07-21
 
 ### Hinzugefügt
 
@@ -95,7 +95,7 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 - Wenn kein Stockwerk konfiguriert ist, wird gewarnt und die Berechnung blockiert
 - Berechnen-Button in voller Breite
 
-## [1.1.0] - 2025-07-21
+## [1.1.0] - 2026-07-21
 
 ### Verbessert
 
@@ -111,7 +111,7 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 - Changelogs in allen 6 unterstützten Sprachen verfügbar (en, es, it, pt, de, ja)
 - Dupliziertes `public/CHANGELOG.md` zugunsten sprachspezifischer Dateien entfernt
 
-## [1.0.0] - 2025-01-20
+## [1.0.0] - 2026-01-20
 
 ### Hinzugefügt
 
