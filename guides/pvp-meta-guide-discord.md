@@ -9,7 +9,7 @@
 ```
 GUÍA DEL META PvP — Digimon Up
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Última revisión: 24/07/2026
+Última revisión: 28/07/2026
 
 Esta guía está enfocada al PvP. Las builds y recomendaciones aquí descritas no son necesariamente óptimas para otros modos de contenido (PvE, torre, etc.).
 
@@ -24,17 +24,17 @@ BUILD META COMPLETA (Resumen)
 **Stats objetivo:** Prob. de crítico · Daño crítico · Prob. de evasión
 
 **Cartas de habilidad:**
-[SR] ¡Sobrecarga de virus! / [SR] Espiral maligna · [SSR] Libro secreto de técnicas ninja · [R] ¡Muro de hielo! · [R] Digicódigo · [HR] Acelerador
+[SR] ¡Sobrecarga de virus! · [SSR] Libro secreto de técnicas ninja · [R] ¡Muro de hielo! · [R] Digicódigo · [HR] Acelerador
 
 **Digimon de apoyo:**
-[SSR] Youkomon · [SSR] Petermon · [SR] Mekanorimon · [HR] ZubaEagermon · [R] Hagurumon
+[SSR] Youkomon · [SSR] Petermon · [SR] Mekanorimon · [HR] ZubaEagermon · [UR] Unimon
 
 **Colegas:** Agumon (Ver. Tai Kamiya)
 **Apoyo SP:** Wargreymon (Ver. SP)
 **Equipo:** Prob. de daño crítico + Prob. de evasión en todas las piezas
 **Digivice:** Prob. daño crítico · Daño ataque normal · Resist. daño crítico · Daño crítico · Reduc. daño ataque normal · Aumento daño crítico
 **Memoria táctica:** Set amarillo de 4 + set azul de 2. Priorizar memorias con stats de prob. de daño crítico, daño crítico y prob. de evasión
-**Comida:** Daño crítico · Aumento de daño crítico · Aumento de daño de ataque normal · Bonus de ataque · Reducción de daño
+**Comida:** Daño crítico (preferido) o Bonus de ataque en las 5 casillas (⚠️ "Daño crítico" ≠ "Aumento de daño crítico")
 **Emblemas:** Pendiente (Día 12 del servidor)
 ```
 
@@ -57,6 +57,7 @@ Una vez tu compañero principal llega al 99, compra todos los digimon disponible
 
 1. Subir a todos al nivel 5 y evolucionarlos a Aprendiz II → bonus de +15% de salud por digimon. Apenas cuesta recursos.
 2. Ir subiendo de uno en uno a Novato (nivel 20) y luego Campeón (nivel 40). Sin escalonar.
+3. Una vez todos estén en Campeón, ir subiéndolos de uno en uno a Mega (nivel 90) directamente, sin parar en Ultimate.
 
 **Tickets de holograma:** Mientras no estés leveando, ten a tu nivel 99 a la cabeza (mejores stats para PvP). Ahorra los tickets y úsalos de una sentada.
 
@@ -88,30 +89,28 @@ La evasión es el mejor counter al crítico: compensa más esquivar muchos golpe
 
 ## ═══ REPLY 3: Cartas de habilidad ═══
 
-⚠️ ACTUALIZADO
-
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 CARTAS DE HABILIDAD
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 **Meta:**
-• [SR] ¡Sobrecarga de virus! / [SR] Espiral maligna
+• [SR] ¡Sobrecarga de virus!
 • [SSR] Libro secreto de técnicas ninja
 • [R] ¡Muro de hielo!
 • [R] Digicódigo
 • [HR] Acelerador
 
-**Nota:** Sobrecarga de virus y Espiral maligna reportan resultados similares en las pruebas. Usa la que tengas a mayor nivel.
-
 **Alternativas:**
-• [SR] ¡Sobrecarga de virus! / [SR] Espiral maligna → [R] ¡Ataque bajo el agua!
+• [SR] ¡Sobrecarga de virus! → [R] ¡Ataque bajo el agua!
 • [SSR] Libro secreto de técnicas ninja → [N] ¡Triexplosión!
 ```
 
 ---
 
 ## ═══ REPLY 4: Digimon de apoyo ═══
+
+⚠️ ACTUALIZADO
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -123,9 +122,10 @@ DIGIMON DE APOYO
 • [SSR] Petermon — Aumenta la evasión.
 • [SR] Mekanorimon — Probabilidad de crítico.
 • [HR] ZubaEagermon — Daño de ataque normal.
-• [R] Hagurumon — Probabilidad de crítico.
+• [UR] Unimon — Daño crítico.
 
-**Alternativas (si no tienes SSR):**
+**Alternativas (si no tienes los UR):**
+• [R] Hagurumon — Probabilidad de crítico. Sustituye a Unimon si no lo tienes.
 • [UR] Okuwamon — Con el pase no es mala opción. Se lleva por el daño, no por las stats.
 • [SSR] Numemon — Regalo inicial, misma situación que Okuwamon.
 • [R] Zubamon — Daño de ataque normal.
@@ -188,8 +188,6 @@ Reemplaza cuando la nueva cumpla:
 
 ## ═══ REPLY 7: Digivice ═══
 
-⚠️ ACTUALIZADO
-
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 DIGIVICE
@@ -213,8 +211,6 @@ Piezas recomendadas por slot:
 
 ## ═══ REPLY 8: Memoria táctica ═══
 
-⚠️ ACTUALIZADO
-
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 MEMORIA TÁCTICA
@@ -234,20 +230,18 @@ MEMORIA TÁCTICA
 COMIDA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**Stats por prioridad:**
+**Meta:** Poner **Daño crítico** (preferido) o **Bonus de ataque** en las cinco casillas de comida. Ambas son válidas, pero se prioriza Daño crítico.
 
-S: Daño crítico · Aumento de daño crítico
-A: Aumento de daño de ataque normal
-B: Bonus de ataque · Reducción de daño
+⚠️ "Daño crítico" y "Aumento de daño crítico" NO son la misma stat. La que queremos es **Daño crítico** (la stat base que multiplica el golpe crítico). "Aumento de daño crítico" es un modificador diferente y no es lo que buscamos aquí.
 
 **Cómo gestionar los beneficios:**
 
-1. Elige un slot → renómbralo a **Principal**. Haz rerolls hasta conseguir stat de tier S.
-2. Abre un segundo slot → **Alt**. Busca conseguir stat mejor que Principal.
+1. Elige un slot → renómbralo a **Principal**. Haz rerolls hasta conseguir Daño crítico o Bonus de ataque (prioriza Daño crítico).
+2. Abre un segundo slot → **Alt**. Busca una stat mejor que Principal (o cambiar Bonus de ataque por Daño crítico).
 3. Cuando Alt supere a Principal, intercambia roles.
-4. Repite hasta tener stat de tier S en la calidad más alta disponible.
+4. Repite hasta tener la stat en la calidad más alta disponible (idealmente Daño crítico).
 5. Márcala con candado (coste sube de 100 a 300 por tirada).
-6. Repite hasta tener 2 slots con todas las stats al máximo rango.
+6. Repite hasta tener las 5 casillas con Daño crítico o Bonus de ataque al máximo rango.
 ```
 
 ---
@@ -259,11 +253,11 @@ B: Bonus de ataque · Reducción de daño
 COMIDA — Optimización entre slots
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-• Usa como Principal el slot con valores más altos de tier S. El otro para intentar upgradear.
+• Usa como Principal el slot con mejor stat (Daño crítico > Bonus de ataque; mayor calidad > menor). El otro para intentar upgradear.
 • Para ver si una stat está maxeada: botón ❓ → lupa en la rareza más alta.
 • Cambia entre Principal y Alt según cuál sea mejor.
 • Si desbloqueas un tier nuevo, repite el upgrade buscando calidad superior.
-• Una vez maxeadas todas las stats, abre nuevo slot y usa comida hasta desbloquear un tier nuevo o maxear el sistema.
+• Una vez maxeadas todas las casillas, abre nuevo slot y usa comida hasta desbloquear un tier nuevo o maxear el sistema.
 ```
 
 ---
@@ -334,7 +328,10 @@ Este sistema se desbloquea en el Día 12 del servidor. Se actualizará cuando es
 CHANGELOG
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-• 24/07/2026 — Memorias renombrado a Memoria táctica. Meta: set amarillo de 4 + azul de 2. Cartas: Triexplosión → [SSR] Libro secreto de técnicas ninja; añadida Espiral maligna como alternativa a Sobrecarga de virus.
+• 28/07/2026 — Revisión: guía marcada como actualizada, sin cambios de contenido.
+• 27/07/2026 — Digimon de apoyo: [R] Hagurumon reemplazado por [UR] Unimon (Daño crítico). Hagurumon pasa a alternativas.
+• 25/07/2026 — Comida: Daño crítico (preferido) o Bonus de ataque en las 5 casillas. Nota: "Daño crítico" ≠ "Aumento de daño crítico". Cartas: eliminada Espiral maligna.
+• 24/07/2026 — Memorias renombrado a Memoria táctica. Meta: set amarillo de 4 + azul de 2. Cartas: Triexplosión → [SSR] Libro secreto de técnicas ninja.
 • 24/07/2026 — Corregido punto 3 de estrategia de Digivice: guardar Digichips si el coste de investigación supera la generación diaria.
 • 23/07/2026 — Creación inicial de la guía.
 ```
