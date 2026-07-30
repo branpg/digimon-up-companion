@@ -4,8 +4,6 @@
 
 ## ═══ POST PRINCIPAL (Intro + Resumen) ═══
 
-⚠️ ACTUALIZADO
-
 ```
 GUÍA DEL META PvP — Digimon Up
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -109,8 +107,6 @@ CARTAS DE HABILIDAD
 ---
 
 ## ═══ REPLY 4: Digimon de apoyo ═══
-
-⚠️ ACTUALIZADO
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -320,8 +316,6 @@ Este sistema se desbloquea en el Día 12 del servidor. Se actualizará cuando es
 ---
 
 ## ═══ REPLY 14: Changelog ═══
-
-⚠️ ACTUALIZADO
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

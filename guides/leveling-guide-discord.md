@@ -4,8 +4,6 @@
 
 ## ═══ POST PRINCIPAL (Intro + Rangos) ═══
 
-⚠️ ACTUALIZADO
-
 ```
 GUÍA DE LEVEO — Digimon Up
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -150,8 +148,6 @@ Todos a Mega:
 ---
 
 ## ═══ REPLY 5: Changelog ═══
-
-⚠️ ACTUALIZADO
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
