@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Checklist: buy 2 Combat Terminal tickets for 500 Camp Coins (250 each, optional)
 - Checklist: buy 2 Grand Prix D-1 tickets for 1000 Camp Coins (500 each, optional)
 - Checklist: spend excess Camp Coins on Acceleration Tickets (optional)
+- Checklist: claim daily rewards from Lost Sector Tower (after attempting to climb)
 
 ## [1.4.4] - 2026-07-29
 

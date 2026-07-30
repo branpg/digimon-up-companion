@@ -20,6 +20,7 @@ e questo progetto aderisce al [Versionamento Semantico](https://semver.org/lang/
 - Checklist: comprare 2 Ticket del terminale di combattimento per 500 Monete campo (250 ciascuno, opzionale)
 - Checklist: comprare 2 Ticket del Grand Prix D-1 per 1000 Monete campo (500 ciascuno, opzionale)
 - Checklist: spendere le Monete campo in eccesso in Ticket di accelerazione (opzionale)
+- Checklist: riscattare le ricompense giornaliere della Torre del settore perduto (dopo aver tentato di salire)
 
 ## [1.4.4] - 2026-07-29
 

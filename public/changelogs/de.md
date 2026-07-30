@@ -20,6 +20,7 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 - Checkliste: 2 Kampfterminal-Tickets für 500 Lager-Münzen kaufen (250 pro Stück, optional)
 - Checkliste: 2 Grand Prix D-1-Tickets für 1000 Lager-Münzen kaufen (500 pro Stück, optional)
 - Checkliste: überschüssige Lager-Münzen für Beschleunigungs-Tickets ausgeben (optional)
+- Checkliste: tägliche Belohnungen aus dem Turm des verlorenen Sektors abholen (nach dem Versuch aufzusteigen)
 
 ## [1.4.4] - 2026-07-29
 

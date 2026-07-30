@@ -20,6 +20,7 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
 - Checklist: comprar 2 Tickets do terminal de combate por 500 Moedas de acampamento (250 cada, opcional)
 - Checklist: comprar 2 Tickets do Grand Prix D-1 por 1000 Moedas de acampamento (500 cada, opcional)
 - Checklist: gastar excedente de Moedas de acampamento em Tickets de aceleração (opcional)
+- Checklist: resgatar recompensas diárias da Torre do setor perdido (após tentar subir)
 
 ## [1.4.4] - 2026-07-29
 
