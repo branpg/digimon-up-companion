@@ -5,6 +5,23 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.4.6] - 2026-08-05
+
+### Changed
+
+- Checklist: "Digimon Combination" event removed (no longer available)
+
+### Added
+
+- Checklist: new optional event "Digimon Summer Night Market is Overflowing!" (daily missions)
+- Checklist: optional reminder before Network Defense to swap out WarGreymon SP Support to avoid the Diaboromon bug
+- Checklist: optional reminder after Network Defense to re-equip WarGreymon SP Support
+- Checklist: new "VS DEF-type Digimon!" step before Lost Sector Tower
+
+### Fixed
+
+- Passive Gain: bits, hologram tickets, and DigiEmerald rates are now capped at floor 4000 (higher floors can still be entered)
+
 ## [1.4.5] - 2026-07-28
 
 ### Changed

@@ -5,6 +5,23 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/),
 y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.4.6] - 2026-08-05
+
+### Cambiado
+
+- Checklist: evento "Combinación Digimon" eliminado (ya no está disponible)
+
+### Añadido
+
+- Checklist: nuevo evento opcional "¡El mercado nocturno de verano de los digimon está a rebosar!" (misiones diarias)
+- Checklist: aviso opcional antes de Defensa en red para cambiar a WarGreymon de Apoyo SP y evitar el bug de Diaboromon
+- Checklist: aviso opcional después de Defensa en red para volver a equipar WarGreymon de Apoyo SP
+- Checklist: nuevo paso "¡VS Digimon tipo DEF!" antes de la Torre del sector perdido
+
+### Corregido
+
+- Ganancia Pasiva: los rates de bits, tickets de holograma y digiesmeraldas ahora se capean al piso 4000 (se pueden introducir pisos más altos)
+
 ## [1.4.5] - 2026-07-28
 
 ### Cambiado

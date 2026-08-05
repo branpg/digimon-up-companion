@@ -5,6 +5,23 @@ Alle bemerkenswerten Änderungen an diesem Projekt werden in dieser Datei dokume
 Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.0.0/),
 und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lang/de/).
 
+## [1.4.6] - 2026-08-05
+
+### Geändert
+
+- Checkliste: Event „Digimon-Kombination" entfernt (nicht mehr verfügbar)
+
+### Hinzugefügt
+
+- Checkliste: neues optionales Event „¡El mercado nocturno de verano de los digimon está a rebosar!" (tägliche Missionen)
+- Checkliste: optionaler Hinweis vor Netzwerkverteidigung, WarGreymon SP Support zu wechseln um den Diaboromon-Bug zu vermeiden
+- Checkliste: optionaler Hinweis nach Netzwerkverteidigung, WarGreymon SP Support wieder auszurüsten
+- Checkliste: neuer Schritt „VS DEF-Typ Digimon!" vor dem Turm des verlorenen Sektors
+
+### Korrigiert
+
+- Passiver Gewinn: Bits-, Hologramm-Ticket- und DigiSmaragd-Raten werden jetzt bei Stockwerk 4000 gedeckelt (höhere Stockwerke können weiterhin eingegeben werden)
+
 ## [1.4.5] - 2026-07-28
 
 ### Geändert
