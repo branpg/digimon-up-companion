@@ -73,7 +73,9 @@ const CHECKLIST_ITEMS = [
   { id: "send-gifts", i18nKey: "sendGifts", tags: [] },
   { id: "daily-mail", i18nKey: "dailyMail", tags: [] },
   { id: "digifactory4", i18nKey: "digifactory4", tags: [] },
+  { id: "optional-wargreymon-swap-before", i18nKey: "optionalWargreymonSwapBefore", tags: ["opcional"] },
   { id: "network-defense4", i18nKey: "networkDefense4", tags: [] },
+  { id: "optional-wargreymon-swap-after", i18nKey: "optionalWargreymonSwapAfter", tags: ["opcional"] },
   { id: "metallic-sea4", i18nKey: "metallicSea4", tags: [] },
   { id: "equip-memories", i18nKey: "equipMemories", tags: [] },
   { id: "switch-99", i18nKey: "switch99", tags: [] },
@@ -103,12 +105,13 @@ const CHECKLIST_ITEMS = [
   { id: "camp-leomon-fight", i18nKey: "campLeomonFight", tags: ["campamento"] },
 
   { id: "apocalymon-ranking", i18nKey: "apocalymonRanking", tags: [] },
+  { id: "vs-def-digimon", i18nKey: "vsDefDigimon", tags: [] },
   { id: "lost-sector-tower", i18nKey: "lostSectorTower", tags: [] },
   { id: "lost-sector-daily", i18nKey: "lostSectorDaily", tags: [] },
 
   { id: "rank-missions", i18nKey: "rankMissions", tags: [] },
 
-  { id: "optional-memory-game", i18nKey: "optionalMemoryGame", tags: ["opcional"] },
+  { id: "optional-night-market", i18nKey: "optionalNightMarket", tags: ["opcional"] },
   { id: "optional-gran-tumulto", i18nKey: "optionalGranTumulto", tags: ["opcional"] },
 
   { id: "dim-box-round1", i18nKey: "dimBoxRound1", tags: ["espera"] },

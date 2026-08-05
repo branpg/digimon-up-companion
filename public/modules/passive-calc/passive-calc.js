@@ -163,13 +163,15 @@ export function calculateAvailableEmeralds(currentEmeralds, dailyPullCost, pullT
 
 /**
  * Calculates reward values based on floor number.
+ * Rewards are capped at floor 4000 — higher floors yield the same rates.
  * @param {number} floor - The floor number (0+)
  * @returns {{ bits: number, hologramTickets: number, digiEmeralds: number }}
  */
 export function calculateFloorRewards(floor) {
-  const bits = (Math.floor(floor / 20) + 3) * 25;
-  const hologramTickets = 1 + Math.floor(floor / 20);
-  const digiEmeralds = 1 + Math.floor(floor / 20);
+  const effectiveFloor = Math.min(floor, 4000);
+  const bits = (Math.floor(effectiveFloor / 20) + 3) * 25;
+  const hologramTickets = 1 + Math.floor(effectiveFloor / 20);
+  const digiEmeralds = 1 + Math.floor(effectiveFloor / 20);
   return { bits, hologramTickets, digiEmeralds };
 }
 
